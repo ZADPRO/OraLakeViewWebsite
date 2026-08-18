@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -9,15 +9,7 @@
   <meta name="description"
     content="Wake up to breathtaking lake and mountain views at ORA Lakeview Hotel in Switzerland." />
 
-  <!-- Google Fonts: Plus Jakarta Sans & Marcellus matching Gramentheme Restin -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-    rel="stylesheet">
-
-
-  <!-- CINZEL & DIDACT GOTHIC FONT -->
+  <!-- Google Fonts: Cinzel for Headings & Didact Gothic for Body Text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Didact+Gothic&display=swap"
@@ -30,9 +22,10 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            marcellus: ['Marcellus', 'serif'],
-            serif: ['Marcellus', 'Playfair Display', 'serif'],
+            sans: ['"Didact Gothic"', 'sans-serif'],
+            serif: ['Cinzel', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            didact: ['"Didact Gothic"', 'sans-serif'],
           },
           colors: {
             primary: '#0f172a',
@@ -44,9 +37,9 @@
   </script>
 </head>
 
-<body class="bg-slate-950 text-white font-sans antialiased selection:bg-amber-400 selection:text-slate-950">
+<body class="bg-slate-950 text-white antialiased selection:bg-amber-400 selection:text-slate-950">
   <div id="root"></div>
-  <script type="module" src="./src/main.tsx"></script>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>

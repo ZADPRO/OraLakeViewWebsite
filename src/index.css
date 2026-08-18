@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Didact+Gothic&display=swap');
+
+body {
+  font-family: 'Didact Gothic', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif, .font-cinzel {
+  font-family: 'Cinzel', serif !important;
+}
+
+.font-sans, .font-didact {
+  font-family: 'Didact Gothic', sans-serif !important;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

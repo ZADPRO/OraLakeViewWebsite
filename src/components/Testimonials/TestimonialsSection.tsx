@@ -4,54 +4,61 @@ import { useLanguage } from '../../context/LanguageContext';
 export const TestimonialsSection: React.FC = () => {
   const { getContent } = useLanguage();
 
-  // All 7 authentic guest reviews extracted directly from oralakeview.com
+  // All 7 authentic guest reviews with randomized ratings between 4.3 and 5.0
   const reviewsList = [
     {
       id: 1,
-      tag: 'BALCONY VIEW & HOSPITALITY',
-      rating: 5,
+      tag: 'Balcony View & Hospitality',
+      ratingScore: '4.9',
+      ratingStars: 5,
       text: 'The hospitality, staff there specially Renita is so sweet and kind. The view from our balcony was amazing, waking up to that great view was so good.',
       source: 'Verified Booking Guest',
     },
     {
       id: 2,
-      tag: 'CONVENIENT TRANSIT TO INTERLAKEN',
-      rating: 5,
+      tag: 'Convenient Transit to Interlaken',
+      ratingScore: '4.8',
+      ratingStars: 5,
       text: 'Amazing view of the lake surrounded by mountains. The staff were very friendly, kind and helpful, which made our visit more enjoyable. We received a train ticket from the place (the train station is in ~1min walking distance) to Interlaken, making it easy to get there.',
       source: 'Verified Booking Guest',
     },
     {
       id: 3,
-      tag: 'EXCELLENT SERVICE & TRAIN ACCESS',
-      rating: 5,
+      tag: 'Excellent Service & Train Access',
+      ratingScore: '5.0',
+      ratingStars: 5,
       text: 'Excellent views for the lake and mountain. Accessible to train. Staff were very helpful and friendly specially Reneta. Thank you very much for your excellent service.',
       source: 'Verified Booking Guest',
     },
     {
       id: 4,
-      tag: 'PERFECT LOCATION & CLEAN ROOMS',
-      rating: 5,
+      tag: 'Perfect Location & Clean Rooms',
+      ratingScore: '4.7',
+      ratingStars: 5,
       text: 'Location is perfect with amazing view of the lake and mountain. Friendly staff (Renita) who is very helpful and welcoming. Rooms are clean with comfortable beds. Size of the room is suitable.',
       source: 'Verified Booking Guest',
     },
     {
       id: 5,
-      tag: 'LAKEVIEW RELAXATION NEAR INTERLAKEN',
-      rating: 5,
+      tag: 'Lakeview Relaxation Near Interlaken',
+      ratingScore: '4.9',
+      ratingStars: 5,
       text: "Location wise it is amazing! Nice relax and chill place and great view on the lake. Around 5 minutes of driving and you're in Interlaken city centre. Special thanks to Reneta, she was very welcoming and helpful!",
       source: 'Verified Booking Guest',
     },
     {
       id: 6,
-      tag: 'FREE PARKING & BALCONY PANORAMA',
-      rating: 5,
+      tag: 'Free Parking & Balcony Panorama',
+      ratingScore: '4.8',
+      ratingStars: 5,
       text: 'The view from the room balcony is splendid. Staff is great and attentive to your needs. Parking is conveniently great at no cost. There is a train station nearby, from where you can easily reach Interlaken, Brienz and other attractions.',
       source: 'Verified Booking Guest',
     },
     {
       id: 7,
-      tag: 'LOVELY BREAKFAST & COMFORT',
-      rating: 5,
+      tag: 'Lovely Breakfast & Comfort',
+      ratingScore: '4.6',
+      ratingStars: 5,
       text: 'Views from our room were amazing! Staff very friendly and served a lovely breakfast. Room very clean and beds comfortable. Was able to leave our luggage after checkout too. Would definitely stay again!',
       source: 'Verified Booking Guest',
     },
@@ -131,7 +138,7 @@ export const TestimonialsSection: React.FC = () => {
           <div className="flex items-center justify-center space-x-3">
             <span className="w-8 h-[2px] bg-amber-600" />
             <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
-              GUEST REVIEWS & EXPERIENCES
+              Guest Reviews & Experiences
             </span>
             <span className="w-8 h-[2px] bg-amber-600" />
           </div>
@@ -168,22 +175,22 @@ export const TestimonialsSection: React.FC = () => {
                 className="w-[84vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 bg-white p-7 sm:p-8 rounded-2xl border border-amber-200/80 shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between cursor-pointer group"
               >
                 <div className="space-y-4">
-                  {/* Rating Stars & Category Tag */}
+                  {/* Rating Stars & Sentence-Case Category Tag */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-1 text-amber-500">
-                      {[...Array(review.rating)].map((_, i) => (
+                      {[...Array(review.ratingStars)].map((_, i) => (
                         <svg key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 20 20">
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                       ))}
                     </div>
-                    <span className="text-[9px] font-sans font-extrabold tracking-wider text-amber-900 bg-amber-100/70 px-2.5 py-1 rounded-md uppercase">
+                    <span className="text-[11px] font-sans font-semibold text-amber-900 bg-amber-100/70 px-2.5 py-1 rounded-md normal-case">
                       {review.tag}
                     </span>
                   </div>
 
-                  {/* Truncated Review Text (5-Line Clamp) */}
-                  <p className="font-serif italic text-black text-sm sm:text-base leading-relaxed line-clamp-5">
+                  {/* Sentence-Case Truncated Review Text (Strict 3-Line Clamp) */}
+                  <p className="font-sans italic text-black text-sm sm:text-base leading-relaxed line-clamp-3">
                     "{review.text}"
                   </p>
 
@@ -193,14 +200,14 @@ export const TestimonialsSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Guest Verified Stamp */}
+                {/* Guest Verified Stamp & Randomized Rating Score (4.3 to 5.0) */}
                 <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between">
                   <div className="text-xs text-slate-500 font-sans font-medium">
                     {review.source}
                   </div>
 
-                  <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-amber-900 bg-amber-50 px-3 py-1 rounded-full border border-amber-200/60">
-                    5.0 RATING
+                  <span className="text-[11px] font-sans font-extrabold tracking-wider text-amber-900 bg-amber-50 px-3 py-1 rounded-full border border-amber-200/60">
+                    {review.ratingScore} Rating
                   </span>
                 </div>
               </div>
@@ -278,19 +285,19 @@ export const TestimonialsSection: React.FC = () => {
             {/* Rating Stars & Category Tag */}
             <div className="flex items-center space-x-3 pt-2">
               <div className="flex text-amber-500">
-                {[...Array(selectedReview.rating)].map((_, i) => (
+                {[...Array(selectedReview.ratingStars)].map((_, i) => (
                   <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
               </div>
-              <span className="text-xs font-bold text-amber-900 bg-amber-100/80 px-3.5 py-1 rounded-md uppercase">
+              <span className="text-xs font-semibold text-amber-900 bg-amber-100/80 px-3.5 py-1 rounded-md normal-case">
                 {selectedReview.tag}
               </span>
             </div>
 
             {/* Full Untruncated Review Text */}
-            <p className="font-serif italic text-lg sm:text-xl leading-relaxed text-black">
+            <p className="font-sans italic text-lg sm:text-xl leading-relaxed text-black">
               "{selectedReview.text}"
             </p>
 
@@ -306,7 +313,7 @@ export const TestimonialsSection: React.FC = () => {
               </div>
 
               <span className="text-xs font-bold text-white bg-black px-4 py-2 rounded-full shadow-sm">
-                5.0 VERIFIED RATING
+                {selectedReview.ratingScore} Verified Rating
               </span>
             </div>
           </div>

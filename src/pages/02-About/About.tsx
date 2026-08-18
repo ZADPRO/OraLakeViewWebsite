@@ -154,7 +154,7 @@ export const About: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION: OUR JOURNEY (STUNNING 3D FLIP TIMELINE) */}
+      {/* SECTION: OUR JOURNEY (CLEAN 3D TIMELINE WITHOUT INSTRUCTION TEXTS) */}
       <section className="py-20 lg:py-28 bg-[#FFFAF4] border-b border-amber-200/60 relative overflow-hidden">
         <div className="max-w-[1380px] mx-auto px-6 md:px-10 relative z-10 space-y-16">
           {/* Header */}
@@ -172,11 +172,11 @@ export const About: React.FC = () => {
             </h2>
 
             <p className="text-black font-sans text-sm sm:text-base font-light leading-relaxed">
-              Hover over or tap any milestone card below to flip and discover the history of ORA Lake View.
+              Explore how ORA Lake View evolved from a tranquil hidden gem into an extraordinary Swiss sanctuary.
             </p>
           </div>
 
-          {/* Luxury 3D Flip Vertical Timeline Container */}
+          {/* Luxury 3D Vertical Timeline Container */}
           <div className="relative max-w-5xl mx-auto">
             {/* Central Vertical Timeline Axis Line (Desktop Only) */}
             <div className="hidden md:block absolute left-1/2 top-6 bottom-6 -translate-x-1/2 w-1 bg-gradient-to-b from-[#C68D53] via-amber-400 to-[#C68D53] rounded-full z-0" />
@@ -234,8 +234,7 @@ export const About: React.FC = () => {
                           </div>
 
                           <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-amber-900">
-                            <span>Hover / Tap to Flip Story</span>
-                            <span className="text-amber-600 font-bold">↻ 3D FLIP</span>
+                            <span>{m.highlight}</span>
                           </div>
                         </div>
 
@@ -262,7 +261,6 @@ export const About: React.FC = () => {
 
                           <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-amber-400 font-medium">
                             <span>ORA LAKE VIEW HERITAGE</span>
-                            <span>↻ FLIP BACK</span>
                           </div>
                         </div>
                       </div>
