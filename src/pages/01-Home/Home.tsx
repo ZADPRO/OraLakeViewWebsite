@@ -2,7 +2,6 @@ import React from 'react';
 import { HeroWaterRipple } from '../../components/Hero/HeroWaterRipple';
 import { WelcomeSection } from '../../components/Welcome/WelcomeSection';
 import { TickerDivider } from '../../components/Ticker/TickerDivider';
-import { WhoWeAreSection } from '../../components/WhoWeAre/WhoWeAreSection';
 import { RoomsSection } from '../../components/Rooms/RoomsSection';
 import { AmenitiesSection } from '../../components/Amenities/AmenitiesSection';
 import { AttractionsSection } from '../../components/Attractions/AttractionsSection';
@@ -36,7 +35,6 @@ export const Home: React.FC = () => {
       <HeroWaterRipple />
       <WelcomeSection />
       <TickerDivider />
-      <WhoWeAreSection />
       <RoomsSection />
       <AmenitiesSection />
       {/* Ticker Divider Below Our Best Facilities */}
