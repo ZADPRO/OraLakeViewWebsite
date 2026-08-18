@@ -291,9 +291,9 @@ export const Rooms: React.FC = () => {
 
                     {/* Checked Amenities List (Hidden on mobile < sm, visible on desktop) */}
                     <div className="hidden sm:block pt-2">
-                      <h4 className="text-xs font-bold text-black uppercase tracking-wider mb-3">
+                      <p className="text-xs font-bold text-black uppercase tracking-wider mb-3">
                         Room Features & Amenities:
-                      </h4>
+                      </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {room.amenities.map((amenity, aIdx) => (
                           <div key={aIdx} className="flex items-center space-x-2.5 text-xs font-medium text-slate-800">
@@ -381,9 +381,9 @@ export const Rooms: React.FC = () => {
               </p>
 
               <div>
-                <h4 className="text-xs font-bold text-black uppercase tracking-wider mb-3">
+                <p className="text-xs font-bold text-black uppercase tracking-wider mb-3">
                   Included Amenities:
-                </h4>
+                </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {selectedRoomModal.amenities.map((amenity, aIdx) => (
                     <div key={aIdx} className="flex items-center space-x-2 text-xs font-medium text-slate-800">

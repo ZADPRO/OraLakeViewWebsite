@@ -5,9 +5,32 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ORA Lakeview Hotel | Scenic Swiss Alps & Lake View Stay</title>
+
+  <!-- Primary Meta Tags -->
+  <title>Luxury Lake View Hotel in Interlaken, Switzerland | ORA Lakeview</title>
+  <meta name="title" content="Luxury Lake View Hotel in Interlaken, Switzerland | ORA Lakeview" />
   <meta name="description"
-    content="Wake up to breathtaking lake and mountain views at ORA Lakeview Hotel in Switzerland." />
+    content="Stay at ORA Lakeview, a luxury lake view hotel near Interlaken, Switzerland. Enjoy elegant rooms, Alpine views, premium hospitality, and direct booking." />
+
+  <!-- Canonical Tag -->
+  <link rel="canonical" href="https://oralakeview.com/" />
+
+  <!-- Open Graph / Facebook / WhatsApp OG Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://oralakeview.com/" />
+  <meta property="og:title" content="Luxury Lake View Hotel in Interlaken, Switzerland | ORA Lakeview" />
+  <meta property="og:description"
+    content="Stay at ORA Lakeview, a luxury lake view hotel near Interlaken, Switzerland. Enjoy elegant rooms, Alpine views, premium hospitality, and direct booking." />
+  <meta property="og:image" content="https://oralakeview.com/logosm2.png" />
+  <meta property="og:site_name" content="ORA Lakeview" />
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://oralakeview.com/" />
+  <meta name="twitter:title" content="Luxury Lake View Hotel in Interlaken, Switzerland | ORA Lakeview" />
+  <meta name="twitter:description"
+    content="Stay at ORA Lakeview, a luxury lake view hotel near Interlaken, Switzerland. Enjoy elegant rooms, Alpine views, premium hospitality, and direct booking." />
+  <meta name="twitter:image" content="https://oralakeview.com/logosm2.png" />
 
   <!-- Google Fonts: Cinzel for Headings & Didact Gothic for Body Text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +57,172 @@
         }
       }
     }
+  </script>
+
+  <!-- JSON-LD Structured Data Schemas -->
+  <!-- 1. Hotel Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "@id": "https://oralakeview.com/#hotel",
+    "name": "ORA Lakeview",
+    "url": "https://oralakeview.com/",
+    "description": "Luxury lake view hotel in Switzerland offering elegant accommodation, premium hospitality, scenic mountain views, and modern amenities.",
+    "image": "https://oralakeview.com/logosm2.png",
+    "telephone": "+41 77 973 1981",
+    "currenciesAccepted": "CHF",
+    "paymentAccepted": "Cash, Credit Card",
+    "checkinTime": "15:00",
+    "checkoutTime": "11:00",
+    "petsAllowed": true,
+    "starRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Hauptstrasse 32",
+      "addressLocality": "Niederried bei Interlaken",
+      "addressRegion": "Bern",
+      "postalCode": "3853",
+      "addressCountry": "CH"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "46.6863",
+      "longitude": "7.8632"
+    },
+    "amenityFeature": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Free WiFi",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Free Parking",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Restaurant",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Lake View",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Mountain View",
+        "value": true
+      }
+    ]
+  }
+  </script>
+
+  <!-- 2. Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://oralakeview.com/#organization",
+    "name": "ORA Lakeview",
+    "url": "https://oralakeview.com/",
+    "logo": "https://oralakeview.com/logosm2.png",
+    "email": "info@oralakeview.com",
+    "telephone": "+41 77 973 1981",
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61574775855831",
+      "https://www.instagram.com/ora_lakeview"
+    ]
+  }
+  </script>
+
+  <!-- 3. Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "ORA Lakeview",
+    "url": "https://oralakeview.com/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Hauptstrasse 32",
+      "addressLocality": "Niederried bei Interlaken",
+      "postalCode": "3853",
+      "addressCountry": "CH"
+    },
+    "openingHours": "Mo-Su 00:00-23:59",
+    "telephone": "+41 77 973 1981"
+  }
+  </script>
+
+  <!-- 4. WebSite Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://oralakeview.com/",
+    "name": "ORA Lakeview",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://oralakeview.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- 5. Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://oralakeview.com/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- 6. FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where is ORA Lakeview located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ORA Lakeview is located in Niederried bei Interlaken, Switzerland with beautiful lake and mountain views."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the hotel offer free WiFi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, complimentary high-speed WiFi is available throughout the hotel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is parking available?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, free parking is available for guests."
+        }
+      }
+    ]
+  }
   </script>
 </head>
 

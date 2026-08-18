@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../../context/LanguageContext';
 
 export const Footer: React.FC = () => {
-  const { getContent } = useLanguage();
-  const footerContent = getContent('footer');
 
   return (
     <footer className="bg-[#14161B] text-white pt-20 pb-12 select-none relative overflow-hidden border-t border-slate-800">
@@ -229,9 +226,9 @@ export const Footer: React.FC = () => {
         {/* Bottom Giant Brand Logo Stamp (Exact Gramentheme Restin Replica) */}
         <div className="pt-6 border-t border-slate-900/60 text-center">
           <div className="inline-flex flex-col items-center group cursor-pointer">
-            <h2 className="font-serif text-4xl sm:text-6xl font-bold tracking-[0.25em] text-white/90 group-hover:text-[#C68D53] transition-colors duration-500 uppercase">
+            <span className="font-serif text-4xl sm:text-6xl font-bold tracking-[0.25em] text-white/90 group-hover:text-[#C68D53] transition-colors duration-500 uppercase block">
               ORA LAKEVIEW
-            </h2>
+            </span>
             <span className="text-xs sm:text-sm font-sans tracking-[0.4em] text-amber-500/80 uppercase mt-1">
               BEI INTERLAKEN • LAKE BRIENZ
             </span>

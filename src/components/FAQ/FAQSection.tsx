@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { useLanguage } from '../../context/LanguageContext';
 
 export const FAQSection: React.FC = () => {
-  const { getContent } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First FAQ open by default
 
   const faqList = [

@@ -123,9 +123,9 @@ export const About: React.FC = () => {
                   <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-black/70 px-3 py-1 rounded-md backdrop-blur-sm">
                     SWISS HERITAGE SINCE 1974
                   </span>
-                  <h3 className="font-serif text-2xl font-bold text-white mt-2">
+                  <p className="font-serif text-2xl font-bold text-white mt-2">
                     Anchored in Swiss Warmth
-                  </h3>
+                  </p>
                 </div>
               </div>
             </div>
@@ -282,9 +282,9 @@ export const About: React.FC = () => {
                           <span className="text-[10px] font-sans font-bold text-amber-400 uppercase tracking-widest bg-black/75 px-3 py-1 rounded-md backdrop-blur-sm">
                             HISTORIC ERA • {m.year}
                           </span>
-                          <h4 className="font-serif text-xl font-bold text-white pt-1">
+                          <p className="font-serif text-xl font-bold text-white pt-1">
                             {m.title}
-                          </h4>
+                          </p>
                           <p className="text-xs text-slate-300 font-light">
                             {m.highlight}
                           </p>

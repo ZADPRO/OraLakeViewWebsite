@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useLanguage } from '../../context/LanguageContext';
 
 export const TestimonialsSection: React.FC = () => {
-  const { getContent } = useLanguage();
 
   // All 7 authentic guest reviews with randomized ratings between 4.3 and 5.0
   const reviewsList = [

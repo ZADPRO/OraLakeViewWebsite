@@ -276,12 +276,13 @@ export const HeroWaterRipple: React.FC = () => {
 
       {/* Hero Content Grid Overlay (h-[80vh] on Mobile, min-h-screen on Desktop) */}
       <div className="relative z-20 max-w-[1480px] w-full mx-auto px-4 md:px-10 pt-20 md:pt-36 pb-6 md:pb-16 flex-1 flex flex-col justify-between">
-        {/* Top Section: Centered SVG Logo */}
-        <div className="w-full flex justify-center items-center animate-fade-in py-1 md:py-4">
+        {/* Top Section: Centered SVG Logo with Semantic H1 for SEO */}
+        <div className="w-full flex flex-col justify-center items-center animate-fade-in py-1 md:py-4">
+          <h1 className="sr-only">ORA Lakeview Hotel | Scenic Swiss Alps & Lake View Stay</h1>
           <div className="w-52 sm:w-80 md:w-[440px] lg:w-[520px]">
             <img
               src={lakeviewLogo}
-              alt="ORA Lake View Logo"
+              alt="ORA Lake View Hotel | Scenic Swiss Alps & Lake View Stay"
               className="w-full h-auto object-contain filter drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]"
             />
           </div>
@@ -311,9 +312,9 @@ export const HeroWaterRipple: React.FC = () => {
             <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-3.5 md:p-5 shadow-2xl space-y-3 md:space-y-4">
               {/* Header with Title & Circular Dot Indicators */}
               <div className="flex items-center justify-between border-b border-white/15 pb-2">
-                <h3 className="font-serif text-base md:text-xl font-normal text-white tracking-wide">
+                <p className="font-serif text-base md:text-xl font-normal text-white tracking-wide">
                   {heroContent?.facilitiesTitle || "Hotel's Facilities"}
-                </h3>
+                </p>
 
                 {/* Circular Pagination Dots */}
                 <div className="flex items-center space-x-2">
@@ -343,9 +344,9 @@ export const HeroWaterRipple: React.FC = () => {
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
-                    <h4 className="font-sans text-[10px] md:text-xs font-semibold text-white mt-1.5 tracking-wide truncate">
+                    <p className="font-sans text-[10px] md:text-xs font-semibold text-white mt-1.5 tracking-wide truncate">
                       {fac.title}
-                    </h4>
+                    </p>
                   </div>
                 ))}
               </div>
