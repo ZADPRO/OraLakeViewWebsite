@@ -23,6 +23,20 @@ export const en = {
       { id: 'pets', title: 'Pet Friendly', desc: 'Welcoming four-legged companions warmly', image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80' },
     ]
   },
+  welcome: {
+    subTitle: 'WELCOME TO ORA LAKEVIEW HOTEL',
+    title: 'Where Alpine Serenity Meets Waterfront Luxury',
+    text1: 'When crisp alpine air refreshes the soul and shimmering turquoise waters invite you to slow down, ORA Lake View welcomes you to a place where Swiss warmth, style, and peace converge in the heart of Brienz.',
+    text2: 'Perfectly situated on the emerald shores of Lake Brienz surrounded by the majestic Bernese Alps, our hotel is your ideal sanctuary for scenic lakefront breaks, mountain adventures, and peaceful escapes. Just 3 minutes walk from Brienz train station and boat docks, everything you need is at your doorstep.',
+    quote: '"If you are looking for an unforgettable Swiss getaway filled with breathtaking panoramas, luxury comfort, and heartfelt hospitality, you are in the right place. Let us craft a serene stay for you."',
+    badgeText: '3 MINS WALK TO BRIENZ STATION & DOCKS',
+    highlights: [
+      { title: 'Prime Lakefront Location', desc: 'Direct 180° views of turquoise Lake Brienz & Bernese Alps' },
+      { title: 'Free EV Parking & Charging', desc: 'Complimentary private parking with electric vehicle chargers' },
+      { title: 'Pet-Friendly Alpine Hospitality', desc: 'Welcoming your four-legged companions with warmth and care' },
+    ],
+    ctaBtn: 'DISCOVER OUR ROOMS',
+  },
   about: {
     badge: 'Who We Are',
     title: 'Whispers of Brienz at the Best Lakeview Hotel',
