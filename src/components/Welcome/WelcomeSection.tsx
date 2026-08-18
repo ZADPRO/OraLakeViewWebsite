@@ -9,16 +9,13 @@ export const WelcomeSection: React.FC = () => {
 
   return (
     <section className="relative py-16 lg:py-24 bg-[#FFFAF4] text-black overflow-hidden border-t border-amber-200/50">
-      {/* Soft warm ambient background glow */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
-
       <div className="max-w-[1360px] mx-auto px-6 md:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Concise Hospitality Welcome Message */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Subtitle Badge */}
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-200/60 border border-amber-400/50">
-              <span className="w-2 h-2 rounded-full bg-amber-600 animate-pulse" />
+            {/* Subtitle Line Badge (Usual Header Style) */}
+            <div className="flex items-center space-x-3">
+              <span className="w-8 h-[2px] bg-amber-600" />
               <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
                 {welcomeContent?.subTitle || 'WELCOME TO ORA LAKEVIEW HOTEL'}
               </span>
@@ -35,9 +32,9 @@ export const WelcomeSection: React.FC = () => {
                 'Situated on the turquoise shores of Lake Brienz in Niederried bei Interlaken, ORA Lake View offers a tranquil Swiss sanctuary just 2 minutes walk from Niederried train station and 300 meters from the ferry dock, only 7 km from Interlaken.'}
             </p>
 
-            {/* Light Quote Highlight Box */}
-            <div className="border-l-4 border-amber-500 bg-amber-500/10 p-5 rounded-r-2xl shadow-sm space-y-1">
-              <p className="font-serif italic text-black text-sm sm:text-base leading-relaxed">
+            {/* Clean Quote Text Without Background Box */}
+            <div className="border-l-4 border-amber-600 pl-4 py-1 space-y-1">
+              <p className="font-serif italic text-black text-base sm:text-lg leading-relaxed">
                 {welcomeContent?.quote ||
                   '"Experience an unforgettable Swiss getaway filled with breathtaking lake views, alpine air, and warm hospitality."'}
               </p>
@@ -50,9 +47,10 @@ export const WelcomeSection: React.FC = () => {
             <div className="pt-2">
               <Link
                 to="/rooms"
-                className="inline-flex items-center justify-center px-8 py-3.5 text-xs sm:text-sm font-sans font-bold tracking-widest text-white uppercase transition-all duration-300 rounded-full bg-black hover:bg-[#C68D53] hover:text-black shadow-xl hover:scale-105 active:scale-95"
+                className="relative overflow-hidden inline-flex items-center justify-center px-8 py-3.5 text-xs sm:text-sm font-sans font-bold tracking-widest text-white uppercase transition-colors duration-300 rounded-full bg-black shadow-xl group"
               >
-                {welcomeContent?.ctaBtn || 'DISCOVER OUR ROOMS'}
+                <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
+                <span className="relative z-10">{welcomeContent?.ctaBtn || 'DISCOVER OUR ROOMS'}</span>
               </Link>
             </div>
           </div>

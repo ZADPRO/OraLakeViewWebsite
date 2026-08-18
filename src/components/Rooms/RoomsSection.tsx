@@ -9,12 +9,19 @@ export const RoomsSection: React.FC = () => {
   const roomsContent = getContent('rooms');
   const items = roomsContent?.items || [];
 
-  // Duplicate items array 3 times for a 100% seamless infinite circular loop
+  // Duplicate items array 3 times for 100% infinite seamless loop
   const displayItems = [...items, ...items, ...items];
 
-  const [currentIndex, setCurrentIndex] = useState(items.length); // Start at middle duplicated set
+  const [currentIndex, setCurrentIndex] = useState(items.length);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handlePrev = () => {
     setIsTransitioning(true);
@@ -53,17 +60,30 @@ export const RoomsSection: React.FC = () => {
     return () => clearInterval(interval);
   }, [isPaused, items.length]);
 
+  // Dynamic responsive slider transform calculation
+  const getTransformStyle = () => {
+    if (windowWidth >= 1024) {
+      return `translateX(calc(-${currentIndex} * (100% / 4 + 6px)))`;
+    } else if (windowWidth >= 640) {
+      return `translateX(calc(-${currentIndex} * (100% / 2 + 12px)))`;
+    } else {
+      // Mobile (< 640px): 84vw card width + 16px gap (card 100% visible, next card peeking 16vw)
+      return `translateX(calc(-${currentIndex} * (84vw + 16px)))`;
+    }
+  };
+
   return (
     <section className="relative py-20 lg:py-28 bg-white text-black overflow-hidden select-none border-t border-slate-200">
-      <div className="max-w-[1480px] mx-auto px-6 md:px-10 relative z-10">
+      <div className="max-w-[1480px] mx-auto px-4 sm:px-6 md:px-10 relative z-10">
         {/* Centered Header Row */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-3">
           {/* Subtitle Badge Centered */}
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-100 border border-amber-300/60">
-            <span className="w-2 h-2 rounded-full bg-amber-600 animate-pulse" />
+          <div className="flex items-center justify-center space-x-3">
+            <span className="w-8 h-[2px] bg-amber-600" />
             <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
               CHOOSE YOUR PERFECT STAY
             </span>
+            <span className="w-8 h-[2px] bg-amber-600" />
           </div>
 
           {/* Main Headline Centered */}
@@ -78,25 +98,18 @@ export const RoomsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Card Track Infinite Auto-Scroll Carousel */}
+        {/* Responsive Mobile-Friendly Carousel Track */}
         <div
-          className="overflow-hidden py-4 -mx-2 px-2"
+          className="overflow-hidden py-4 px-1"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
           <div
             className={`flex ${
               isTransitioning ? 'transition-transform duration-500 ease-in-out' : ''
-            } gap-5 sm:gap-6`}
+            } gap-4 sm:gap-6`}
             style={{
-              transform: `translateX(-${
-                currentIndex *
-                (window.innerWidth >= 1024
-                  ? 25.6
-                  : window.innerWidth >= 640
-                  ? 51.2
-                  : 102.5)
-              }%)`,
+              transform: getTransformStyle(),
             }}
           >
             {displayItems.map((room: any, idx: number) => (
@@ -105,9 +118,9 @@ export const RoomsSection: React.FC = () => {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] flex-shrink-0 group cursor-pointer"
+                className="w-[84vw] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] flex-shrink-0 group cursor-pointer"
               >
-                {/* Sleek Shadowless Card Frame (No Shadows) */}
+                {/* Sleek Shadowless Card Frame */}
                 <div className="bg-white rounded-lg overflow-hidden border border-slate-200/90 flex flex-col h-full">
                   {/* Proportional Image Container (h-56 sm:h-60) */}
                   <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-black rounded-t-lg">
@@ -118,7 +131,7 @@ export const RoomsSection: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
 
-                    {/* Floating Price Badge Top-Left ($69 / NIGHT Style) */}
+                    {/* Floating Price Badge Top-Left */}
                     <div className="absolute top-3.5 left-3.5 z-10 bg-[#C68D53] text-white font-bold text-xs px-3 py-1 rounded-md shadow-sm tracking-wider uppercase">
                       {room.price || 'CHF 220 / NIGHT'}
                     </div>
@@ -173,10 +186,9 @@ export const RoomsSection: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Gramentheme Restin Sliding Gold Fill Button Hover Transition */}
-                  <div className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-3.5 px-5 flex items-center justify-between transition-colors duration-300 rounded-b-lg">
-                    {/* Gold Sliding Overlay */}
-                    <span className="absolute inset-0 bg-[#C68D53] -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out origin-left z-0" />
+                  {/* Gramentheme Restin 45-Degree Slanted Center-Reveal Gold Button Hover Transition */}
+                  <div className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-3.5 px-5 flex items-center justify-between transition-colors duration-300 rounded-b-lg group">
+                    <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
 
                     <span className="relative z-10 font-sans">BOOK NOW</span>
                     <svg

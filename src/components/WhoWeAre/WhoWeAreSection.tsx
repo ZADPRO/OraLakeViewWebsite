@@ -81,9 +81,10 @@ export const WhoWeAreSection: React.FC = () => {
             <div className="pt-4">
               <Link
                 to="/about-us"
-                className="inline-flex items-center justify-center px-8 py-3.5 text-xs sm:text-sm font-sans font-bold tracking-widest text-white uppercase transition-all duration-300 rounded-full bg-black hover:bg-[#C68D53] hover:text-black shadow-xl hover:scale-105 active:scale-95"
+                className="relative overflow-hidden inline-flex items-center justify-center px-8 py-3.5 text-xs sm:text-sm font-sans font-bold tracking-widest text-white uppercase transition-colors duration-300 rounded-full bg-black shadow-xl group"
               >
-                LEARN MORE ABOUT US
+                <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
+                <span className="relative z-10">LEARN MORE ABOUT US</span>
               </Link>
             </div>
           </div>
