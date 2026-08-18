@@ -7,7 +7,6 @@ import { RoomsSection } from '../../components/Rooms/RoomsSection';
 import { AmenitiesSection } from '../../components/Amenities/AmenitiesSection';
 import { AttractionsSection } from '../../components/Attractions/AttractionsSection';
 import { TestimonialsSection } from '../../components/Testimonials/TestimonialsSection';
-import { FAQSection } from '../../components/FAQ/FAQSection';
 import { Footer } from '../../components/Footer/Footer';
 
 const ATTRACTIONS_TICKER_ITEMS = [
@@ -47,7 +46,6 @@ export const Home: React.FC = () => {
       {/* Ticker Divider Above Guest Feedbacks */}
       <TickerDivider items={REVIEW_TICKER_ITEMS} />
       <TestimonialsSection />
-      <FAQSection />
       <Footer />
     </div>
   );
