@@ -5,9 +5,21 @@ import { TickerDivider } from '../../components/Ticker/TickerDivider';
 import { WhoWeAreSection } from '../../components/WhoWeAre/WhoWeAreSection';
 import { RoomsSection } from '../../components/Rooms/RoomsSection';
 import { AmenitiesSection } from '../../components/Amenities/AmenitiesSection';
+import { AttractionsSection } from '../../components/Attractions/AttractionsSection';
 import { TestimonialsSection } from '../../components/Testimonials/TestimonialsSection';
 import { FAQSection } from '../../components/FAQ/FAQSection';
 import { Footer } from '../../components/Footer/Footer';
+
+const REVIEW_TICKER_ITEMS = [
+  '5-STAR GUEST REVIEWS',
+  'AUTHENTIC SWISS HOSPITALITY',
+  'UNFORGETTABLE LAKE BRIENZ MEMORIES',
+  'RATED EXCELLENT BY GUESTS',
+  'SPECTACULAR ALPINE BALCONY VIEWS',
+  'WARM & FRIENDLY SERVICE',
+  'PET-FRIENDLY SWISS ESCAPE',
+  '2 MINS TO TRAIN & FERRY DOCK',
+];
 
 export const Home: React.FC = () => {
   return (
@@ -18,6 +30,8 @@ export const Home: React.FC = () => {
       <WhoWeAreSection />
       <RoomsSection />
       <AmenitiesSection />
+      <AttractionsSection />
+      <TickerDivider items={REVIEW_TICKER_ITEMS} />
       <TestimonialsSection />
       <FAQSection />
       <Footer />

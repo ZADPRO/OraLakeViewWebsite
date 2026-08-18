@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TICKER_ITEMS = [
+const DEFAULT_TICKER_ITEMS = [
   'ORA LAKE VIEW HOTEL',
   'SCENIC SWISS ALPS STAY',
   'LAKE BRIENZ PANORAMAS',
@@ -11,9 +11,15 @@ const TICKER_ITEMS = [
   'PET-FRIENDLY ALPINE HOSPITALITY',
 ];
 
-export const TickerDivider: React.FC = () => {
+interface TickerDividerProps {
+  items?: string[];
+}
+
+export const TickerDivider: React.FC<TickerDividerProps> = ({ items }) => {
+  const activeItems = items || DEFAULT_TICKER_ITEMS;
+
   // Duplicate array 3 times for seamless infinite loop
-  const repeatedItems = [...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS];
+  const repeatedItems = [...activeItems, ...activeItems, ...activeItems];
 
   return (
     <div className="relative w-full bg-slate-950 text-white border-y border-amber-400/25 py-4 overflow-hidden select-none z-20 shadow-2xl">
