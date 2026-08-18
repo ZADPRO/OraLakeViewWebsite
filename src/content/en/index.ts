@@ -33,14 +33,14 @@ export const en = {
   },
   about: {
     badge: 'Who We Are',
-    title: 'Whispers of Lake Brienz at ORA Lake View',
-    description: 'Situated on the emerald shores of Lake Brienz in Niederried surrounded by the majestic Bernese Alps, ORA Lake View Hotel offers an unforgettable Swiss retreat. Wake up to serene water reflections, breathe in crisp alpine air, and enjoy seamless access to Interlaken, Grindelwald, and Lauterbrunnen.',
-    storyTitle: 'Our Alpine Heritage',
-    storyText: 'Crafted with Swiss elegance and contemporary luxury, our hotel combines authentic mountain charm with modern sophistication. Whether you are seeking a peaceful escape or outdoor adventures, ORA Lake View is your home in the heart of Switzerland.',
+    title: 'Wake up to the soft shimmer of Lake Brienz, where every glance out your window reveals nature at its finest.',
+    description: 'At ORA Lakeview Hotel, the breathtaking views of the Swiss Alps and pristine lake set the stage for unforgettable memories.',
+    storyText: 'Perfectly located just 2 minutes from the train station, 1 minute from the bus stop, and 5 minutes from the ferry, we offer unmatched convenience to explore the wonders of the region. And with free parking and no extra fees, we’ve made sure your stay is as effortless as it is beautiful.',
+    quote: 'And yes, we’re a pet-friendly hotel! Bring your four-legged friends along - they’ll love the view just as much as you do. Here, your story becomes our story.',
     features: [
-      { title: 'Prime Lakefront Location', desc: 'Direct views of turquoise Lake Brienz and Bernese Alps' },
-      { title: 'Minutes to Transit', desc: '170m to Niederried train station and 300m to ferry terminal' },
-      { title: 'Free Private Parking', desc: 'Hassle-free parking with EV charging stations' },
+      { title: 'Prime Lakefront Location', desc: 'Direct views of turquoise Lake Brienz & Bernese Alps' },
+      { title: 'Minutes to Transit', desc: '2 mins to train station, 1 min to bus & 5 mins to ferry' },
+      { title: 'Free Parking & No Extra Fees', desc: 'Hassle-free private parking with EV charging' },
       { title: 'Pet-Friendly Stay', desc: 'Welcoming your four-legged companions with warmth' },
     ]
   },
