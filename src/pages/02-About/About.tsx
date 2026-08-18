@@ -79,21 +79,24 @@ export const About: React.FC = () => {
         }
       `}</style>
 
-      {/* HERO BANNER HEADER */}
+      {/* HERO BANNER HEADER (Unified Global Typography Standard) */}
       <section className="relative pt-36 pb-16 sm:pt-44 sm:pb-24 bg-[#14161B] text-white overflow-hidden border-b border-amber-400/20">
         <div className="max-w-[1380px] mx-auto px-6 md:px-10 relative z-10 text-center">
+          {/* Top Subtitle Badge: Increased font size slightly */}
           <div className="flex items-center justify-center space-x-3 mb-4">
             <span className="w-8 h-[2px] bg-[#C68D53]" />
-            <span className="text-amber-400 font-sans text-xs font-bold tracking-widest uppercase">
+            <span className="text-amber-400 font-sans text-xs sm:text-sm font-bold tracking-widest uppercase">
               ABOUT ORA LAKEVIEW HOTEL
             </span>
             <span className="w-8 h-[2px] bg-[#C68D53]" />
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+          {/* Main Hero Headline: Balanced font size */}
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-6">
             Timeless Swiss Charm, Lakeside Dreams
           </h1>
 
+          {/* Sub-Hero Paragraph: Standardized max-w-2xl description */}
           <p className="max-w-2xl mx-auto font-sans text-sm sm:text-base text-slate-300 font-light leading-relaxed">
             Experience Swiss charm, lake views, and modern elegance with every dawn and dusk.
           </p>

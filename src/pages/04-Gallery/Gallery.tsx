@@ -33,7 +33,7 @@ export const Gallery: React.FC = () => {
       category: 'facade',
       categoryLabel: 'Facade',
       image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for Hotel Lakeview traditional Swiss chalethotel facade.',
+      caption: 'Hotel Lakeview traditional Swiss chalethotel facade.',
     },
     {
       id: 'facade-2',
@@ -41,7 +41,7 @@ export const Gallery: React.FC = () => {
       category: 'facade',
       categoryLabel: 'Facade',
       image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for lakefront hotel exterior surrounded by Swiss mountains.',
+      caption: 'Lakefront hotel exterior surrounded by Swiss mountains.',
     },
     {
       id: 'facade-3',
@@ -49,7 +49,7 @@ export const Gallery: React.FC = () => {
       category: 'facade',
       categoryLabel: 'Facade',
       image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for evening illuminated facade against Lake Brienz skyline.',
+      caption: 'Evening illuminated facade against Lake Brienz skyline.',
     },
 
     // 3 ROOMS IMAGES
@@ -59,7 +59,7 @@ export const Gallery: React.FC = () => {
       category: 'rooms',
       categoryLabel: 'Rooms',
       image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for spacious bedroom with king bed and private lake balcony.',
+      caption: 'Spacious bedroom with king bed and private lake balcony.',
     },
     {
       id: 'rooms-2',
@@ -67,7 +67,7 @@ export const Gallery: React.FC = () => {
       category: 'rooms',
       categoryLabel: 'Rooms',
       image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for suite balcony view overlooking turquoise waters of Lake Brienz.',
+      caption: 'Suite balcony view overlooking turquoise waters of Lake Brienz.',
     },
     {
       id: 'rooms-3',
@@ -75,59 +75,59 @@ export const Gallery: React.FC = () => {
       category: 'rooms',
       categoryLabel: 'Rooms',
       image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for marble luxury bathroom with rain shower and premium amenities.',
+      caption: 'Marble luxury bathroom with rain shower and premium amenities.',
     },
 
     // 3 BAR & RESTAURANT IMAGES
     {
-      id: 'dining-1',
-      title: 'Lakeside Dining Terrace',
+      id: 'bar-1',
+      title: 'Lakeside Dining Terrace & Panorama',
       category: 'bar-restaurant',
       categoryLabel: 'Bar & Restaurant',
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for outdoor dining terrace with panoramic mountain views.',
+      caption: 'Outdoor terrace restaurant with lake and mountain views.',
     },
     {
-      id: 'dining-2',
-      title: 'Hotel Lounge Bar & Cocktails',
+      id: 'bar-2',
+      title: 'Cosy Alpine Lounge & Bar Area',
       category: 'bar-restaurant',
       categoryLabel: 'Bar & Restaurant',
       image: 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for cozy lounge bar offering fine wines, spirits, and warm beverages.',
+      caption: 'Rustic wooden bar lounge serving Swiss wines and cocktails.',
     },
     {
-      id: 'dining-3',
-      title: 'Artisan Breakfast & Coffee Spread',
+      id: 'bar-3',
+      title: 'Gourmet Swiss Culinary Specialties',
       category: 'bar-restaurant',
       categoryLabel: 'Bar & Restaurant',
-      image: 'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for morning breakfast buffet with fresh bakery items and Swiss cheese.',
+      image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
+      caption: 'Authentic fondue and alpine cuisine served at ORA Lake View.',
     },
 
     // 3 RECEPTION IMAGES
     {
       id: 'reception-1',
-      title: 'Welcome Concierge Desk & Lobby',
+      title: 'Warm Lobby & Guest Reception Desk',
       category: 'reception',
       categoryLabel: 'Reception',
-      image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for warm reception desk and personalized guest check-in area.',
+      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
+      caption: 'Welcoming timber reception area with 24/7 concierge service.',
     },
     {
       id: 'reception-2',
-      title: 'Luxury Hotel Lobby Seating',
+      title: 'Fireplace Lounge & Welcome Seating',
       category: 'reception',
       categoryLabel: 'Reception',
-      image: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for comfortable lobby lounge with fireplace and visitor seating.',
+      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80',
+      caption: 'Cozy lobby fireplace lounge for arriving guests.',
     },
     {
       id: 'reception-3',
-      title: 'Information & Excursions Desk',
+      title: 'Concierge Desk & Alpine Tour Info',
       category: 'reception',
       categoryLabel: 'Reception',
-      image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Placeholder for guest services desk offering alpine excursion assistance.',
+      image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80',
+      caption: 'Guest services desk offering alpine excursion assistance.',
     },
   ];
 
@@ -171,21 +171,24 @@ export const Gallery: React.FC = () => {
 
   return (
     <div className="bg-[#FFFAF4] text-black min-h-screen select-none">
-      {/* HERO BANNER HEADER (Extends behind fixed header for 100% clear navigation) */}
+      {/* HERO BANNER HEADER (Unified Global Typography Standard) */}
       <section className="relative pt-36 pb-16 sm:pt-44 sm:pb-24 bg-[#14161B] text-white overflow-hidden border-b border-amber-400/20">
         <div className="max-w-[1380px] mx-auto px-6 md:px-10 relative z-10 text-center">
+          {/* Top Subtitle Badge: Increased font size slightly */}
           <div className="flex items-center justify-center space-x-3 mb-4">
             <span className="w-8 h-[2px] bg-[#C68D53]" />
-            <span className="text-amber-400 font-sans text-xs font-bold tracking-widest uppercase">
+            <span className="text-amber-400 font-sans text-xs sm:text-sm font-bold tracking-widest uppercase">
               PHOTO GALLERY & EXPERIENCES
             </span>
             <span className="w-8 h-[2px] bg-[#C68D53]" />
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+          {/* Main Hero Headline: Balanced font size */}
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-6">
             ORA Lake View Gallery
           </h1>
 
+          {/* Sub-Hero Paragraph: Standardized max-w-2xl description */}
           <p className="max-w-2xl mx-auto font-sans text-sm sm:text-base text-slate-300 font-light leading-relaxed">
             Discover the beauty of ORA Lake View Hotel through our curated collections: Facade, Rooms, Bar & Restaurant, and Reception.
           </p>
@@ -216,88 +219,77 @@ export const Gallery: React.FC = () => {
               })}
             </div>
 
-            {/* Next / Prev Section Navigation Buttons */}
-            <div className="flex items-center space-x-2 shrink-0">
+            {/* Prev / Next Category Slider Arrows */}
+            <div className="flex items-center space-x-2 text-xs font-bold text-slate-700">
+              <span className="hidden md:inline uppercase tracking-widest text-[10px] text-amber-900 mr-2">
+                SWITCH COLLECTION:
+              </span>
               <button
                 onClick={handlePrevCategory}
-                className="px-4 py-2 rounded-xl bg-white border border-amber-200/80 hover:bg-[#C68D53] hover:text-white text-black font-bold text-xs transition-colors flex items-center space-x-1.5 shadow-sm active:scale-95"
+                className="w-9 h-9 rounded-xl bg-[#FFFAF4] border border-amber-200/80 text-black flex items-center justify-center shadow-xs hover:bg-[#C68D53] hover:text-white transition-all active:scale-95"
+                aria-label="Previous Category"
               >
-                <span>‹</span>
-                <span>PREV SECTION</span>
+                ‹
               </button>
-
               <button
                 onClick={handleNextCategory}
-                className="px-4 py-2 rounded-xl bg-[#C68D53] hover:bg-black text-white font-bold text-xs transition-colors flex items-center space-x-1.5 shadow-sm active:scale-95"
+                className="w-9 h-9 rounded-xl bg-[#C68D53] text-white flex items-center justify-center shadow-xs hover:bg-black transition-all active:scale-95"
+                aria-label="Next Category"
               >
-                <span>NEXT SECTION</span>
-                <span>›</span>
+                ›
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* GALLERY PHOTO GRID (12 IMAGES TOTAL - 3 PER CATEGORY) */}
-      <section className="py-16 sm:py-24 bg-[#FFFAF4]">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-10 space-y-8">
+      {/* GALLERY GRID SECTION */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-[#FFFAF4]">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10 space-y-10">
+          {/* Active Category Counter Headline */}
           <div className="flex items-center justify-between border-b border-amber-200/60 pb-4">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-black capitalize">
+            <h2 className="font-serif text-2xl font-bold text-black tracking-tight capitalize">
               {activeCategory === 'all'
-                ? 'All Gallery Photos (12)'
-                : `${categories.find((c) => c.id === activeCategory)?.label} Collection (${filteredItems.length})`}
+                ? 'All Photo Collections'
+                : categories.find((c) => c.id === activeCategory)?.label}
             </h2>
-            <span className="text-xs font-bold text-amber-900 uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-md">
-              PLACEHOLDER MODE (READY FOR REPLACEMENT)
+            <span className="text-xs font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-md">
+              {filteredItems.length} Photos Displayed
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredItems.map((item, index) => (
+          {/* Grid Layout (Pure Photo Frame Containers without Titles/Descriptions/Click Footers) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {filteredItems.map((item, idx) => (
               <div
                 key={item.id}
-                onClick={() => setActiveLightboxIndex(index)}
-                className="bg-white rounded-3xl overflow-hidden border border-amber-200/80 shadow-md hover:shadow-2xl transition-all duration-500 group cursor-pointer flex flex-col justify-between"
+                onClick={() => setActiveLightboxIndex(idx)}
+                className="bg-black rounded-3xl overflow-hidden border border-amber-200/80 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer group relative h-72 sm:h-80 w-full"
               >
-                {/* Photo Frame */}
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-black">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
-                  {/* Category Tag */}
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-amber-400 bg-black/80 px-3 py-1 rounded-md backdrop-blur-sm border border-white/10">
-                      {item.categoryLabel}
-                    </span>
-                  </div>
-
-                  {/* Hover Lightbox Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                    <div className="w-14 h-14 rounded-full bg-[#C68D53] text-white flex items-center justify-center shadow-xl scale-90 group-hover:scale-100 transition-transform">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+                {/* Category Tag Top-Left */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-amber-400 bg-black/80 px-3 py-1 rounded-md backdrop-blur-sm border border-white/10">
+                    {item.categoryLabel}
+                  </span>
                 </div>
 
-                {/* Content Details */}
-                <div className="p-6 space-y-2">
-                  <h3 className="font-serif text-xl font-bold text-black tracking-tight group-hover:text-amber-800 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-black font-sans text-xs sm:text-sm font-light leading-relaxed line-clamp-2">
-                    {item.caption}
-                  </p>
+                {/* Subtle Vector Zoom Icon Hint Bottom-Right */}
+                <div className="absolute bottom-4 right-4 z-10 w-9 h-9 rounded-full bg-black/85 text-white flex items-center justify-center group-hover:bg-[#C68D53] transition-colors border border-white/20 shadow-md">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
                 </div>
               </div>
             ))}
@@ -305,69 +297,69 @@ export const Gallery: React.FC = () => {
         </div>
       </section>
 
-      {/* FULLSCREEN LIGHTBOX MODAL VIEWER */}
-      {activeLightboxIndex !== null && filteredItems[activeLightboxIndex] && (
+      {/* LIGHTBOX MODAL OVERLAY */}
+      {activeLightboxIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fade-in"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fade-in"
           onClick={() => setActiveLightboxIndex(null)}
         >
           <div
             className="bg-white rounded-3xl overflow-hidden max-w-4xl w-full border border-amber-200 shadow-2xl relative text-black"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setActiveLightboxIndex(null)}
-              className="absolute top-4 right-4 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-[#C68D53] text-white flex items-center justify-center transition-colors font-bold border border-white/20 shadow-lg"
-              aria-label="Close photo"
-            >
-              ✕
-            </button>
-
-            {/* Prev Arrow */}
-            <button
-              onClick={handlePrevLightbox}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/70 hover:bg-[#C68D53] text-white flex items-center justify-center transition-colors shadow-lg active:scale-95 border border-white/20 font-bold"
-              aria-label="Previous photo"
-            >
-              ‹
-            </button>
-
-            {/* Next Arrow */}
-            <button
-              onClick={handleNextLightbox}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/70 hover:bg-[#C68D53] text-white flex items-center justify-center transition-colors shadow-lg active:scale-95 border border-white/20 font-bold"
-              aria-label="Next photo"
-            >
-              ›
-            </button>
-
-            {/* Photo Container */}
-            <div className="relative h-[380px] sm:h-[500px] w-full bg-black">
+            {/* Modal Photo Frame */}
+            <div className="relative h-[400px] sm:h-[500px] w-full overflow-hidden bg-black">
               <img
                 src={filteredItems[activeLightboxIndex].image}
                 alt={filteredItems[activeLightboxIndex].title}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
               />
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
-            {/* Lightbox Footer */}
-            <div className="p-6 bg-white border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div>
-                <span className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-amber-900 bg-amber-100 px-3 py-1 rounded-md">
-                  {filteredItems[activeLightboxIndex].categoryLabel}
+              {/* Close Button */}
+              <button
+                onClick={() => setActiveLightboxIndex(null)}
+                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-[#C68D53] text-white flex items-center justify-center transition-colors font-bold border border-white/20"
+                aria-label="Close Lightbox"
+              >
+                ✕
+              </button>
+
+              {/* Left / Right Arrow Controls */}
+              <button
+                onClick={handlePrevLightbox}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/70 hover:bg-[#C68D53] text-white flex items-center justify-center transition-colors font-bold text-lg border border-white/20"
+                aria-label="Previous Photo"
+              >
+                ‹
+              </button>
+              <button
+                onClick={handleNextLightbox}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/70 hover:bg-[#C68D53] text-white flex items-center justify-center transition-colors font-bold text-lg border border-white/20"
+                aria-label="Next Photo"
+              >
+                ›
+              </button>
+
+              {/* Caption Overlay Bottom */}
+              <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-black/60 px-3 py-1 rounded-md backdrop-blur-sm">
+                  {filteredItems[activeLightboxIndex].categoryLabel} ({activeLightboxIndex + 1} of {filteredItems.length})
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-black tracking-tight mt-2">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight pt-1">
                   {filteredItems[activeLightboxIndex].title}
                 </h3>
-                <p className="text-black font-sans text-sm font-light mt-1">
-                  {filteredItems[activeLightboxIndex].caption}
-                </p>
               </div>
+            </div>
 
-              <div className="text-xs font-bold text-amber-900 tracking-widest uppercase shrink-0">
-                {activeLightboxIndex + 1} / {filteredItems.length}
-              </div>
+            {/* Modal Details Footer */}
+            <div className="p-6 bg-white flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-black font-sans text-xs sm:text-sm font-light">
+                {filteredItems[activeLightboxIndex].caption}
+              </p>
+              <span className="text-xs font-bold text-amber-900 uppercase tracking-wider shrink-0">
+                ORA LAKE VIEW GALLERY
+              </span>
             </div>
           </div>
         </div>

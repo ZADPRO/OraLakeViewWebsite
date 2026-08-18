@@ -55,18 +55,18 @@ export const WelcomeSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Hotel Facade Image Composition with Gold Logo Transit Badge */}
+          {/* Right Column: Hotel Facade Image Composition with Gold Transit Badge & White Text */}
           <div className="lg:col-span-5 relative mt-6 lg:mt-0">
-            {/* Floating Transit Badge (Gold Logo Background with High-Contrast Dark Text) */}
-            <div className="absolute -top-4 right-4 sm:right-6 z-30 bg-[#C68D53] text-black font-bold px-4 py-2.5 rounded-2xl shadow-2xl border border-white/40 flex items-center space-x-3 backdrop-blur-md">
+            {/* Floating Transit Badge (Gold Background with White Text) */}
+            <div className="absolute -top-4 right-4 sm:right-6 z-30 bg-[#C68D53] text-white font-bold px-4 py-2.5 rounded-2xl shadow-2xl border border-white/40 flex items-center space-x-3 backdrop-blur-md">
               <div className="w-8 h-8 rounded-xl bg-black text-[#C68D53] flex items-center justify-center font-extrabold text-xs shadow-inner shrink-0">
                 2m
               </div>
               <div>
-                <div className="text-[9px] uppercase font-extrabold tracking-widest text-black/80">
+                <div className="text-[9px] uppercase font-extrabold tracking-widest text-white/90">
                   LOCATION HIGHLIGHT
                 </div>
-                <div className="text-xs font-extrabold tracking-wide text-black">
+                <div className="text-xs font-extrabold tracking-wide text-white">
                   170M WALK TO NIEDERRIED STATION
                 </div>
               </div>

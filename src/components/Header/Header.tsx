@@ -201,9 +201,9 @@ export const Header: React.FC = () => {
         </div>
       </header>
 
-      {/* Full-Screen Mobile Overlay Navigation */}
+      {/* Full-Screen Mobile Overlay Navigation (100% Opaque Solid Dark Background for Perfect Readability) */}
       <div
-        className={`fixed inset-0 w-full h-full bg-slate-950/98 backdrop-blur-2xl z-50 lg:hidden flex flex-col justify-between p-8 md:p-12 transition-all duration-500 ${
+        className={`fixed inset-0 w-full h-full bg-[#0E1015] z-50 lg:hidden flex flex-col justify-between p-8 md:p-12 transition-all duration-500 ${
           mobileMenuOpen
             ? 'opacity-100 pointer-events-auto scale-100'
             : 'opacity-0 pointer-events-none scale-95'

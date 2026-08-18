@@ -30,21 +30,24 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="bg-[#FFFAF4] text-black min-h-screen select-none">
-      {/* HERO BANNER HEADER */}
+      {/* HERO BANNER HEADER (Unified Global Typography Standard) */}
       <section className="relative pt-36 pb-16 sm:pt-44 sm:pb-24 bg-[#14161B] text-white overflow-hidden border-b border-amber-400/20">
         <div className="max-w-[1380px] mx-auto px-6 md:px-10 relative z-10 text-center">
+          {/* Top Subtitle Badge: Increased font size slightly */}
           <div className="flex items-center justify-center space-x-3 mb-4">
             <span className="w-8 h-[2px] bg-[#C68D53]" />
-            <span className="text-amber-400 font-sans text-xs font-bold tracking-widest uppercase">
+            <span className="text-amber-400 font-sans text-xs sm:text-sm font-bold tracking-widest uppercase">
               GET IN TOUCH WITH US
             </span>
             <span className="w-8 h-[2px] bg-[#C68D53]" />
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+          {/* Main Hero Headline: Balanced font size */}
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-6">
             Contact ORA Lake View
           </h1>
 
+          {/* Sub-Hero Paragraph: Standardized max-w-2xl description */}
           <p className="max-w-2xl mx-auto font-sans text-sm sm:text-base text-slate-300 font-light leading-relaxed">
             We are here to make your Swiss getaway effortless and unforgettable. Reach out to our team for room reservations, transit guidance, or special getaway arrangements.
           </p>
@@ -58,270 +61,203 @@ export const Contact: React.FC = () => {
             {/* LEFT COLUMN: 3 CONTACT INFO ITEMS STACKED ONE-BY-ONE */}
             <div className="lg:col-span-6 flex flex-col justify-center space-y-8 h-full">
               <div className="space-y-2">
-                <span className="text-xs font-bold text-amber-900 tracking-widest uppercase">
-                  DIRECT CONTACT DETAILS
-                </span>
+                <div className="flex items-center space-x-3">
+                  <span className="w-6 h-[2px] bg-amber-600" />
+                  <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
+                    REACH OUT TODAY
+                  </span>
+                </div>
                 <h2 className="font-serif text-3xl sm:text-4xl font-bold text-black tracking-tight">
-                  Reach Out to Our Hotel Team
+                  We’re Always Here for You
                 </h2>
+                <p className="text-black font-sans text-sm font-light leading-relaxed">
+                  Have questions about your stay, travel routes, or amenities? Our team is available 24/7.
+                </p>
               </div>
 
-              <div className="space-y-7">
-                {/* Item 1: Location */}
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#FFFAF4] border border-amber-200/80 shadow-sm flex items-center justify-center text-[#C68D53] shrink-0 mt-0.5">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
+              {/* 3 STACKED CARDS */}
+              <div className="space-y-5">
+                {/* Item 1: Address */}
+                <div className="bg-[#FFFAF4] p-6 rounded-2xl border border-amber-200/80 shadow-sm flex items-start space-x-4">
+                  <div className="w-12 h-12 rounded-xl bg-white border border-amber-300/60 flex items-center justify-center text-[#C68D53] shrink-0 font-bold">
+                    📍
                   </div>
-                  <div>
-                    <span className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-amber-900">
-                      OUR LOCATION
-                    </span>
-                    <h3 className="font-serif text-xl font-bold text-black leading-snug">
-                      Niederried bei Interlaken
-                    </h3>
-                    <p className="text-black font-sans text-sm font-light leading-relaxed mt-1">
+                  <div className="space-y-1">
+                    <h3 className="font-serif text-lg font-bold text-black">Hotel Address</h3>
+                    <p className="text-black font-sans text-sm font-light leading-relaxed">
                       Hauptstrasse 32, 3853 Niederried bei Interlaken, Switzerland
                     </p>
-                    <div className="text-xs font-medium text-amber-900 mt-1">
-                      170m to Station • 20m to Dorf Bus Stop
-                    </div>
-                  </div>
-                </div>
-
-                {/* Item 2: Phone Support */}
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#FFFAF4] border border-amber-200/80 shadow-sm flex items-center justify-center text-[#C68D53] shrink-0 mt-0.5">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-amber-900">
-                      PHONE SUPPORT
-                    </span>
-                    <h3 className="font-serif text-xl font-bold text-black leading-snug">
-                      +41 78 693 88 47
-                    </h3>
-                    <p className="text-black font-sans text-sm font-light leading-relaxed mt-1">
-                      Call us anytime for instant booking help and local recommendations.
+                    <p className="text-xs font-bold text-amber-900 pt-1">
+                      2 mins walk from Niederried Train Station & Ferry Dock
                     </p>
-                    <div className="text-xs font-medium text-amber-900 mt-1">
-                      Daily 08:00 - 22:00 Swiss Time
-                    </div>
                   </div>
                 </div>
 
-                {/* Item 3: Email Inquiries */}
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#FFFAF4] border border-amber-200/80 shadow-sm flex items-center justify-center text-[#C68D53] shrink-0 mt-0.5">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
+                {/* Item 2: Phone */}
+                <div className="bg-[#FFFAF4] p-6 rounded-2xl border border-amber-200/80 shadow-sm flex items-start space-x-4">
+                  <div className="w-12 h-12 rounded-xl bg-white border border-amber-300/60 flex items-center justify-center text-[#C68D53] shrink-0 font-bold">
+                    📞
                   </div>
-                  <div>
-                    <span className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-amber-900">
-                      EMAIL INQUIRIES
-                    </span>
-                    <h3 className="font-serif text-xl font-bold text-black leading-snug">
+                  <div className="space-y-1">
+                    <h3 className="font-serif text-lg font-bold text-black">Direct Phone & WhatsApp</h3>
+                    <a
+                      href="tel:+41779731981"
+                      className="text-black hover:text-[#C68D53] font-sans text-base font-bold transition-colors block"
+                    >
+                      +41 77 973 19 81
+                    </a>
+                    <p className="text-xs text-black font-light">Available 24/7 for booking inquiries</p>
+                  </div>
+                </div>
+
+                {/* Item 3: Email */}
+                <div className="bg-[#FFFAF4] p-6 rounded-2xl border border-amber-200/80 shadow-sm flex items-start space-x-4">
+                  <div className="w-12 h-12 rounded-xl bg-white border border-amber-300/60 flex items-center justify-center text-[#C68D53] shrink-0 font-bold">
+                    ✉️
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-serif text-lg font-bold text-black">Email Support</h3>
+                    <a
+                      href="mailto:info@oralakeview.com"
+                      className="text-black hover:text-[#C68D53] font-sans text-base font-bold transition-colors block"
+                    >
                       info@oralakeview.com
-                    </h3>
-                    <p className="text-black font-sans text-sm font-light leading-relaxed mt-1">
-                      Send us your itinerary details or questions for prompt service.
-                    </p>
-                    <div className="text-xs font-medium text-amber-900 mt-1">
-                      Response within 2-4 hours
-                    </div>
+                    </a>
+                    <p className="text-xs text-black font-light">Fast responses within 24 hours guaranteed</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT COLUMN: TRANSIT MAP IMAGE ONLY (NO CARD BACKGROUND / NO BOX BORDERS) */}
+            {/* RIGHT COLUMN: TRANSIT MAP IMAGE ONLY (BACKGROUND/BORDER REMOVED AS REQUESTED) */}
             <div className="lg:col-span-6 flex items-center justify-center">
-              <img
-                src={mapImg}
-                alt="ORA Lake View Hotel Local Transit Map"
-                className="w-full h-auto max-h-[460px] object-contain rounded-2xl hover:scale-102 transition-transform duration-500 drop-shadow-sm"
-              />
+              <div className="w-full h-[400px] sm:h-[480px] overflow-hidden rounded-3xl">
+                <img
+                  src={mapImg}
+                  alt="Niederried Transit & Location Map"
+                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: SIMPLE & CLEAN CONTACT MESSAGE FORM */}
-      <section className="py-20 sm:py-28 bg-[#FFFAF4] border-b border-amber-200/60">
-        <div className="max-w-[1000px] mx-auto px-6 md:px-10">
-          <div className="space-y-10">
-            {/* Header Text */}
+      {/* SECTION 2: ONLINE CONTACT & RESERVATION INQUIRY FORM */}
+      <section className="py-20 lg:py-28 bg-[#FFFAF4]">
+        <div className="max-w-4xl mx-auto px-6 md:px-10">
+          <div className="bg-white p-8 sm:p-12 rounded-3xl border border-amber-200/80 shadow-xl space-y-8">
             <div className="text-center space-y-3">
-              <span className="text-xs font-bold text-amber-900 tracking-widest uppercase">
-                SEND US A MESSAGE
-              </span>
-              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-black tracking-tight">
-                How Can We Help You?
+              <div className="flex items-center justify-center space-x-3">
+                <span className="w-8 h-[2px] bg-[#C68D53]" />
+                <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
+                  SEND US A MESSAGE
+                </span>
+                <span className="w-8 h-[2px] bg-[#C68D53]" />
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-black tracking-tight">
+                Online Inquiry & Message
               </h2>
-              <p className="text-black font-sans text-sm sm:text-base font-light leading-relaxed max-w-xl mx-auto">
-                Fill out the simple form below and our guest experience team will get back to you shortly.
+
+              <p className="text-black font-sans text-sm font-light max-w-xl mx-auto">
+                Fill out the form below and our guest experience team will get back to you promptly.
               </p>
             </div>
 
             {submitted && (
-              <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-sm font-medium flex items-center space-x-3 max-w-2xl mx-auto">
-                <svg className="w-5 h-5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Thank you! Your message has been sent successfully. We will reply shortly.</span>
+              <div className="bg-emerald-50 border border-emerald-300 text-emerald-900 p-4 rounded-xl text-center text-xs font-bold tracking-wide animate-fade-in">
+                ✓ Thank you! Your message has been sent successfully. We will reply to your email shortly.
               </div>
             )}
 
-            {/* Simple Minimalist Form */}
-            <form onSubmit={handleSubmit} className="space-y-8 max-w-3xl mx-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-black uppercase tracking-wider">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs font-bold text-black uppercase tracking-wider mb-2">
                     Your Full Name *
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Sarah Jenkins"
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:border-[#C68D53] focus:ring-2 focus:ring-[#C68D53]/20 text-sm text-black outline-none transition-all bg-white"
+                    placeholder="e.g. John Doe"
+                    className="w-full bg-[#FFFAF4] border border-amber-200 rounded-xl px-4 py-3.5 text-xs text-black focus:outline-none focus:border-[#C68D53]"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-black uppercase tracking-wider">
-                    Email Address *
+                <div>
+                  <label className="block text-xs font-bold text-black uppercase tracking-wider mb-2">
+                    Your Email Address *
                   </label>
                   <input
                     type="email"
                     required
-                    placeholder="sarah@example.com"
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:border-[#C68D53] focus:ring-2 focus:ring-[#C68D53]/20 text-sm text-black outline-none transition-all bg-white"
+                    placeholder="e.g. john@example.com"
+                    className="w-full bg-[#FFFAF4] border border-amber-200 rounded-xl px-4 py-3.5 text-xs text-black focus:outline-none focus:border-[#C68D53]"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-black uppercase tracking-wider">
-                    Phone Number
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs font-bold text-black uppercase tracking-wider mb-2">
+                    Phone Number (Optional)
                   </label>
                   <input
                     type="tel"
-                    placeholder="+41 79 000 00 00"
                     value={formState.phone}
                     onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:border-[#C68D53] focus:ring-2 focus:ring-[#C68D53]/20 text-sm text-black outline-none transition-all bg-white"
+                    placeholder="+41 77 000 00 00"
+                    className="w-full bg-[#FFFAF4] border border-amber-200 rounded-xl px-4 py-3.5 text-xs text-black focus:outline-none focus:border-[#C68D53]"
                   />
                 </div>
 
-                {/* Inquiry Subject with Custom Arrow Padding */}
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-black uppercase tracking-wider">
+                <div>
+                  <label className="block text-xs font-bold text-black uppercase tracking-wider mb-2">
                     Inquiry Subject
                   </label>
-                  <div className="relative">
-                    <select
-                      value={formState.subject}
-                      onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
-                      className="w-full px-4 pr-10 py-3.5 rounded-xl border border-slate-300 focus:border-[#C68D53] focus:ring-2 focus:ring-[#C68D53]/20 text-sm text-black outline-none transition-all bg-white appearance-none cursor-pointer"
-                    >
-                      <option value="Room Booking Inquiry">Room Booking Inquiry</option>
-                      <option value="Transportation & Arrival">Transportation & Arrival</option>
-                      <option value="Special Package / Romantic Stay">Special Package / Romantic Stay</option>
-                      <option value="Pet-Friendly Stay Request">Pet-Friendly Stay Request</option>
-                      <option value="General Question">General Question</option>
-                    </select>
-
-                    {/* Custom SVG Chevron Arrow with Generous Padding */}
-                    <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-700">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                  </div>
+                  <select
+                    value={formState.subject}
+                    onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
+                    className="w-full bg-[#FFFAF4] border border-amber-200 rounded-xl px-4 py-3.5 text-xs text-black focus:outline-none focus:border-[#C68D53]"
+                  >
+                    <option value="Room Booking Inquiry">Room Booking Inquiry</option>
+                    <option value="Special Arrangements / Celebration">Special Arrangements / Celebration</option>
+                    <option value="Transportation & Transit Guidance">Transportation & Transit Guidance</option>
+                    <option value="General Question">General Question</option>
+                  </select>
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-black uppercase tracking-wider">
+              <div>
+                <label className="block text-xs font-bold text-black uppercase tracking-wider mb-2">
                   Your Message *
                 </label>
                 <textarea
-                  rows={5}
                   required
-                  placeholder="Tell us about your stay dates, preferred rooms, or special requests..."
+                  rows={5}
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  className="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:border-[#C68D53] focus:ring-2 focus:ring-[#C68D53]/20 text-sm text-black outline-none transition-all bg-white resize-none"
+                  placeholder="How can we assist you with your upcoming Swiss getaway?"
+                  className="w-full bg-[#FFFAF4] border border-amber-200 rounded-xl p-4 text-xs text-black focus:outline-none focus:border-[#C68D53]"
                 />
               </div>
 
-              {/* Slanted Gold Submit Button */}
-              <div className="text-center pt-4">
+              <div className="text-center pt-2">
                 <button
                   type="submit"
-                  className="relative overflow-hidden px-10 py-4 rounded-xl bg-black text-white text-xs font-bold uppercase tracking-widest transition-colors duration-300 shadow-xl group"
+                  className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-4 px-10 rounded-xl inline-flex items-center space-x-2 group/send shadow-lg"
                 >
-                  <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
-                  <span className="relative z-10 flex items-center justify-center space-x-2">
-                    <span>SEND MESSAGE</span>
-                    <span>→</span>
-                  </span>
+                  <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover/send:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
+                  <span className="relative z-10 font-sans">SEND MESSAGE NOW</span>
+                  <span className="relative z-10 group-hover/send:translate-x-1 transition-transform">→</span>
                 </button>
               </div>
             </form>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3: FULL-WIDTH GOOGLE LOCATION MAP AT THE LAST (BEFORE FOOTER) */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-10 space-y-6">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-bold text-amber-900 tracking-widest uppercase">
-              INTERACTIVE LOCATION MAP
-            </span>
-            <h2 className="font-serif text-3xl font-bold text-black">
-              Find Us on Google Maps
-            </h2>
-          </div>
-
-          <div className="w-full h-[400px] sm:h-[480px] rounded-3xl overflow-hidden shadow-lg border border-slate-200/80 relative">
-            <iframe
-              title="ORA Lake View Hotel Google Map Location"
-              src="https://maps.google.com/maps?q=Hauptstrasse%2032,%203853%20Niederried%20bei%20Interlaken,%20Switzerland&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              className="w-full h-full border-0"
-              loading="lazy"
-            />
           </div>
         </div>
       </section>
