@@ -32,9 +32,9 @@ export const WelcomeSection: React.FC = () => {
                 'Situated on the turquoise shores of Lake Brienz in Niederried bei Interlaken, ORA Lake View offers a tranquil Swiss sanctuary just 2 minutes walk from Niederried train station and 300 meters from the ferry dock, only 7 km from Interlaken.'}
             </p>
 
-            {/* Clean Quote Text Without Background Box */}
+            {/* Clean Quote Text Matching Signature Color (text-amber-900) */}
             <div className="border-l-4 border-amber-600 pl-4 py-1 space-y-1">
-              <p className="font-serif italic text-black text-base sm:text-lg leading-relaxed">
+              <p className="font-serif italic text-amber-900 text-base sm:text-lg leading-relaxed">
                 {welcomeContent?.quote ||
                   '"Experience an unforgettable Swiss getaway filled with breathtaking lake views, alpine air, and warm hospitality."'}
               </p>
@@ -55,46 +55,45 @@ export const WelcomeSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Hotel Facade Image Composition with Verified Transit Badge */}
+          {/* Right Column: Hotel Facade Image Composition with Gold Logo Transit Badge */}
           <div className="lg:col-span-5 relative mt-6 lg:mt-0">
-            {/* Verified Floating Transit Badge */}
-            <div className="absolute -top-4 right-4 sm:right-6 z-30 bg-black text-white font-bold px-4 py-2.5 rounded-2xl shadow-xl border border-white/20 flex items-center space-x-3 backdrop-blur-md">
-              <div className="w-8 h-8 rounded-xl bg-amber-400 text-black flex items-center justify-center font-bold text-xs">
+            {/* Floating Transit Badge (Gold Logo Background with High-Contrast Dark Text) */}
+            <div className="absolute -top-4 right-4 sm:right-6 z-30 bg-[#C68D53] text-black font-bold px-4 py-2.5 rounded-2xl shadow-2xl border border-white/40 flex items-center space-x-3 backdrop-blur-md">
+              <div className="w-8 h-8 rounded-xl bg-black text-[#C68D53] flex items-center justify-center font-extrabold text-xs shadow-inner shrink-0">
                 2m
               </div>
               <div>
-                <div className="text-[9px] uppercase font-extrabold tracking-widest text-amber-400">
+                <div className="text-[9px] uppercase font-extrabold tracking-widest text-black/80">
                   LOCATION HIGHLIGHT
                 </div>
-                <div className="text-xs font-bold tracking-wide text-white">
+                <div className="text-xs font-extrabold tracking-wide text-black">
                   170M WALK TO NIEDERRIED STATION
                 </div>
               </div>
             </div>
 
-            {/* Main Hotel Photo Frame */}
-            <div className="relative rounded-3xl overflow-hidden border border-amber-200/80 shadow-2xl group bg-white">
+            {/* Primary Hotel Facade Frame */}
+            <div className="rounded-3xl overflow-hidden shadow-2xl border-2 border-white bg-black">
               <img
                 src={hotelMainImage}
-                alt="ORA Lake View Hotel & Restaurant"
-                className="w-full h-[400px] sm:h-[460px] object-cover group-hover:scale-105 transition-transform duration-700"
+                alt="ORA Lake View Hotel Facade & Panoramic Views"
+                className="w-full h-[400px] sm:h-[480px] object-cover hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+            </div>
 
-              {/* Verified Bottom Image Overlay Label */}
-              <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 flex items-center justify-between shadow-lg">
-                <div>
-                  <div className="font-serif text-base font-semibold text-black">
-                    Hauptstrasse 32, Niederried
-                  </div>
-                  <div className="text-xs text-amber-900 font-sans font-medium">
-                    Bei Interlaken • Lake Brienz
-                  </div>
+            {/* Bottom Caption Bar */}
+            <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl border border-amber-200/80 shadow-lg flex items-center justify-between">
+              <div>
+                <div className="font-serif font-bold text-sm text-black">
+                  Hauptstrasse 32, Niederried
                 </div>
-                <span className="px-3 py-1 rounded-full bg-black text-white text-[10px] font-bold uppercase tracking-wider">
-                  Hotel Facade
-                </span>
+                <div className="text-xs text-amber-900 font-sans">
+                  Bei Interlaken • Lake Brienz
+                </div>
               </div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-black px-2.5 py-1 rounded-md">
+                HOTEL FACADE
+              </span>
             </div>
           </div>
         </div>

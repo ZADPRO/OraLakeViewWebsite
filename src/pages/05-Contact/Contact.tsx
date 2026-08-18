@@ -51,11 +51,11 @@ export const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 1: CONTACT INFO (LEFT - ONE BY ONE CENTER ALIGNED) & TRANSIT MAP (RIGHT) */}
+      {/* SECTION 1: CONTACT INFO (LEFT - STACKED) & TRANSIT MAP IMAGE ONLY (RIGHT) */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-[1440px] mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* LEFT COLUMN: 3 CONTACT INFO ITEMS STACKED ONE-BY-ONE (VERTICALLY CENTER ALIGNED) */}
+            {/* LEFT COLUMN: 3 CONTACT INFO ITEMS STACKED ONE-BY-ONE */}
             <div className="lg:col-span-6 flex flex-col justify-center space-y-8 h-full">
               <div className="space-y-2">
                 <span className="text-xs font-bold text-amber-900 tracking-widest uppercase">
@@ -159,23 +159,13 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* RIGHT COLUMN: NIEDERRIED TRANSIT MAP (CENTER ALIGNED) */}
-            <div className="lg:col-span-6 flex flex-col justify-center h-full">
-              <div className="bg-[#FFFAF4] p-5 sm:p-6 rounded-3xl border border-amber-200/80 shadow-md space-y-4">
-                <div className="flex items-center justify-between px-2">
-                  <h3 className="font-serif text-xl font-bold text-black">Niederried Transit Map</h3>
-                  <span className="text-xs font-sans font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-md">
-                    2 MINS TO TRAIN STATION
-                  </span>
-                </div>
-                <div className="h-[420px] w-full rounded-2xl overflow-hidden bg-white p-3 border border-slate-100 flex items-center justify-center">
-                  <img
-                    src={mapImg}
-                    alt="ORA Lake View Hotel Local Transit Map"
-                    className="w-full h-full object-contain hover:scale-102 transition-transform duration-500"
-                  />
-                </div>
-              </div>
+            {/* RIGHT COLUMN: TRANSIT MAP IMAGE ONLY (NO CARD BACKGROUND / NO BOX BORDERS) */}
+            <div className="lg:col-span-6 flex items-center justify-center">
+              <img
+                src={mapImg}
+                alt="ORA Lake View Hotel Local Transit Map"
+                className="w-full h-auto max-h-[460px] object-contain rounded-2xl hover:scale-102 transition-transform duration-500 drop-shadow-sm"
+              />
             </div>
           </div>
         </div>
