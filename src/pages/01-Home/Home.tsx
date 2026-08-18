@@ -10,6 +10,16 @@ import { TestimonialsSection } from '../../components/Testimonials/TestimonialsS
 import { FAQSection } from '../../components/FAQ/FAQSection';
 import { Footer } from '../../components/Footer/Footer';
 
+const ATTRACTIONS_TICKER_ITEMS = [
+  'AT THE HEART OF CONNECTIVITY',
+  '1 MIN WALK TO BUS & TRAIN STATIONS',
+  'EXPLORE NEARBY NATURAL WONDERS',
+  'JUNGFRAUJOCH TOP OF EUROPE',
+  'HARDER KULM PANORAMA',
+  'GIESSBACH WATERFALLS & LAKE CRUISES',
+  'DISCOVER ACTIVITIES AT HOTEL LAKEVIEW',
+];
+
 const REVIEW_TICKER_ITEMS = [
   '5-STAR GUEST REVIEWS',
   'AUTHENTIC SWISS HOSPITALITY',
@@ -30,7 +40,11 @@ export const Home: React.FC = () => {
       <WhoWeAreSection />
       <RoomsSection />
       <AmenitiesSection />
+      {/* Ticker Divider Below Our Best Facilities */}
+      <TickerDivider items={ATTRACTIONS_TICKER_ITEMS} />
+      {/* Connectivity + 7 Nearby Attractions + 4 Hotel Activities */}
       <AttractionsSection />
+      {/* Ticker Divider Above Guest Feedbacks */}
       <TickerDivider items={REVIEW_TICKER_ITEMS} />
       <TestimonialsSection />
       <FAQSection />
