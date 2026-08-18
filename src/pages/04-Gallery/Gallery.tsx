@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Footer } from '../../components/Footer/Footer';
 import { FAQSection } from '../../components/FAQ/FAQSection';
 
@@ -9,11 +9,24 @@ interface GalleryItem {
   categoryLabel: string;
   image: string;
   caption: string;
+  heightClass?: string;
 }
 
 export const Gallery: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [activeLightboxIndex, setActiveLightboxIndex] = useState<number | null>(null);
+
+  const galleryGridRef = useRef<HTMLDivElement>(null);
+
+  // Smooth scroll helper to focus on top of gallery grid on any filter or slider action
+  const scrollToGridTop = () => {
+    if (galleryGridRef.current) {
+      const yOffset = -100;
+      const element = galleryGridRef.current;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
 
   // Categories list matching exact user directive
   const categories = [
@@ -24,7 +37,7 @@ export const Gallery: React.FC = () => {
     { id: 'reception', label: 'Reception' },
   ];
 
-  // 12 Gallery Items (3 Facade, 3 Rooms, 3 Bar & Restaurant, 3 Reception)
+  // 12 Gallery Items with varied Collage Height Classes for dynamic Masonry layout
   const galleryItems: GalleryItem[] = [
     // 3 FACADE IMAGES
     {
@@ -34,6 +47,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Facade',
       image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
       caption: 'Hotel Lakeview traditional Swiss chalethotel facade.',
+      heightClass: 'h-80 sm:h-[440px]',
     },
     {
       id: 'facade-2',
@@ -42,6 +56,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Facade',
       image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
       caption: 'Lakefront hotel exterior surrounded by Swiss mountains.',
+      heightClass: 'h-64 sm:h-[300px]',
     },
     {
       id: 'facade-3',
@@ -50,6 +65,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Facade',
       image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80',
       caption: 'Evening illuminated facade against Lake Brienz skyline.',
+      heightClass: 'h-72 sm:h-[360px]',
     },
 
     // 3 ROOMS IMAGES
@@ -60,6 +76,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Rooms',
       image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80',
       caption: 'Spacious bedroom with king bed and private lake balcony.',
+      heightClass: 'h-64 sm:h-[320px]',
     },
     {
       id: 'rooms-2',
@@ -68,6 +85,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Rooms',
       image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
       caption: 'Suite balcony view overlooking turquoise waters of Lake Brienz.',
+      heightClass: 'h-96 sm:h-[480px]',
     },
     {
       id: 'rooms-3',
@@ -76,6 +94,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Rooms',
       image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
       caption: 'Marble luxury bathroom with rain shower and premium amenities.',
+      heightClass: 'h-72 sm:h-[350px]',
     },
 
     // 3 BAR & RESTAURANT IMAGES
@@ -86,6 +105,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Bar & Restaurant',
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
       caption: 'Outdoor terrace restaurant with lake and mountain views.',
+      heightClass: 'h-80 sm:h-[420px]',
     },
     {
       id: 'bar-2',
@@ -94,6 +114,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Bar & Restaurant',
       image: 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1200&q=80',
       caption: 'Rustic wooden bar lounge serving Swiss wines and cocktails.',
+      heightClass: 'h-64 sm:h-[290px]',
     },
     {
       id: 'bar-3',
@@ -102,6 +123,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Bar & Restaurant',
       image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
       caption: 'Authentic fondue and alpine cuisine served at ORA Lake View.',
+      heightClass: 'h-96 sm:h-[450px]',
     },
 
     // 3 RECEPTION IMAGES
@@ -112,6 +134,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Reception',
       image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
       caption: 'Welcoming timber reception area with 24/7 concierge service.',
+      heightClass: 'h-72 sm:h-[360px]',
     },
     {
       id: 'reception-2',
@@ -120,6 +143,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Reception',
       image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80',
       caption: 'Cozy lobby fireplace lounge for arriving guests.',
+      heightClass: 'h-80 sm:h-[410px]',
     },
     {
       id: 'reception-3',
@@ -128,6 +152,7 @@ export const Gallery: React.FC = () => {
       categoryLabel: 'Reception',
       image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80',
       caption: 'Guest services desk offering alpine excursion assistance.',
+      heightClass: 'h-64 sm:h-[310px]',
     },
   ];
 
@@ -137,19 +162,25 @@ export const Gallery: React.FC = () => {
       ? galleryItems
       : galleryItems.filter((item) => item.category === activeCategory);
 
-  // Category Next / Prev navigation helper
   const categoryIds = ['all', 'facade', 'rooms', 'bar-restaurant', 'reception'];
-  
+
+  const handleSelectCategory = (catId: string) => {
+    setActiveCategory(catId);
+    scrollToGridTop();
+  };
+
   const handleNextCategory = () => {
     const currentIndex = categoryIds.indexOf(activeCategory);
     const nextIndex = (currentIndex + 1) % categoryIds.length;
     setActiveCategory(categoryIds[nextIndex]);
+    scrollToGridTop();
   };
 
   const handlePrevCategory = () => {
     const currentIndex = categoryIds.indexOf(activeCategory);
     const prevIndex = (currentIndex - 1 + categoryIds.length) % categoryIds.length;
     setActiveCategory(categoryIds[prevIndex]);
+    scrollToGridTop();
   };
 
   // Lightbox Handlers
@@ -171,10 +202,33 @@ export const Gallery: React.FC = () => {
 
   return (
     <div className="bg-[#FFFAF4] text-black min-h-screen select-none">
+      {/* Dynamic Keyframes & Visual Effects CSS */}
+      <style>{`
+        @keyframes fadeInUpCollage {
+          from {
+            opacity: 0;
+            transform: translateY(35px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        .animate-collage-card {
+          animation: fadeInUpCollage 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .collage-tilt-left {
+          transform: rotate(-1.5deg);
+        }
+        .collage-tilt-right {
+          transform: rotate(1.5deg);
+        }
+      `}</style>
+
       {/* HERO BANNER HEADER (Unified Global Typography Standard) */}
       <section className="relative pt-36 pb-16 sm:pt-44 sm:pb-24 bg-[#14161B] text-white overflow-hidden border-b border-amber-400/20">
         <div className="max-w-[1380px] mx-auto px-6 md:px-10 relative z-10 text-center">
-          {/* Top Subtitle Badge: Increased font size slightly */}
+          {/* Top Subtitle Badge */}
           <div className="flex items-center justify-center space-x-3 mb-4">
             <span className="w-8 h-[2px] bg-[#C68D53]" />
             <span className="text-amber-400 font-sans text-xs sm:text-sm font-bold tracking-widest uppercase">
@@ -183,33 +237,33 @@ export const Gallery: React.FC = () => {
             <span className="w-8 h-[2px] bg-[#C68D53]" />
           </div>
 
-          {/* Main Hero Headline: Balanced font size */}
+          {/* Main Hero Headline */}
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-6">
             ORA Lake View Gallery
           </h1>
 
-          {/* Sub-Hero Paragraph: Standardized max-w-2xl description */}
+          {/* Sub-Hero Paragraph */}
           <p className="max-w-2xl mx-auto font-sans text-sm sm:text-base text-slate-300 font-light leading-relaxed">
             Discover the beauty of ORA Lake View Hotel through our curated collections: Facade, Rooms, Bar & Restaurant, and Reception.
           </p>
         </div>
       </section>
 
-      {/* CATEGORY FILTER TABS WITH PREV / NEXT NAVIGATION CONTROLS */}
-      <section className="py-8 bg-white border-b border-slate-200/80 sticky top-20 z-30 shadow-xs">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-10">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Category Filter Buttons */}
-            <div className="flex items-center justify-center flex-wrap gap-2.5 sm:gap-3">
+      {/* COMPACT CATEGORY FILTER TABS & SWITCH COLLECTIONS BAR */}
+      <section className="py-2.5 sm:py-3 bg-white border-b border-slate-200/80 sticky top-20 z-30 shadow-xs">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-4">
+            {/* Reduced Height Category Filter Buttons */}
+            <div className="flex items-center justify-center flex-wrap gap-1.5 sm:gap-2">
               {categories.map((tab) => {
                 const isActive = activeCategory === tab.id;
                 return (
                   <button
                     key={tab.id}
-                    onClick={() => setActiveCategory(tab.id)}
-                    className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                    onClick={() => handleSelectCategory(tab.id)}
+                    className={`px-3.5 py-1.5 rounded-lg text-[11px] font-bold uppercase tracking-wider transition-all duration-300 ${
                       isActive
-                        ? 'bg-[#C68D53] text-white shadow-md scale-105'
+                        ? 'bg-[#C68D53] text-white shadow-xs scale-105'
                         : 'bg-[#FFFAF4] text-slate-700 hover:bg-amber-100/70 border border-amber-200/60'
                     }`}
                   >
@@ -219,21 +273,21 @@ export const Gallery: React.FC = () => {
               })}
             </div>
 
-            {/* Prev / Next Category Slider Arrows */}
+            {/* Compact Switch Collections Arrows */}
             <div className="flex items-center space-x-2 text-xs font-bold text-slate-700">
-              <span className="hidden md:inline uppercase tracking-widest text-[10px] text-amber-900 mr-2">
+              <span className="hidden md:inline uppercase tracking-widest text-[10px] text-amber-900 mr-1">
                 SWITCH COLLECTION:
               </span>
               <button
                 onClick={handlePrevCategory}
-                className="w-9 h-9 rounded-xl bg-[#FFFAF4] border border-amber-200/80 text-black flex items-center justify-center shadow-xs hover:bg-[#C68D53] hover:text-white transition-all active:scale-95"
+                className="w-7 h-7 rounded-md bg-[#FFFAF4] border border-amber-200/80 text-black flex items-center justify-center shadow-xs hover:bg-[#C68D53] hover:text-white transition-all active:scale-95 text-sm"
                 aria-label="Previous Category"
               >
                 ‹
               </button>
               <button
                 onClick={handleNextCategory}
-                className="w-9 h-9 rounded-xl bg-[#C68D53] text-white flex items-center justify-center shadow-xs hover:bg-black transition-all active:scale-95"
+                className="w-7 h-7 rounded-md bg-[#C68D53] text-white flex items-center justify-center shadow-xs hover:bg-black transition-all active:scale-95 text-sm"
                 aria-label="Next Category"
               >
                 ›
@@ -243,12 +297,12 @@ export const Gallery: React.FC = () => {
         </div>
       </section>
 
-      {/* GALLERY GRID SECTION */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-[#FFFAF4]">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-10 space-y-10">
+      {/* DYNAMIC MASONRY COLLAGE GALLERY GRID WITH LUXURY ROTATION & SHEEN EFFECTS */}
+      <section ref={galleryGridRef} className="py-12 sm:py-16 lg:py-20 bg-[#FFFAF4] scroll-mt-24">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 space-y-8">
           {/* Active Category Counter Headline */}
-          <div className="flex items-center justify-between border-b border-amber-200/60 pb-4">
-            <h2 className="font-serif text-2xl font-bold text-black tracking-tight capitalize">
+          <div className="flex items-center justify-between border-b border-amber-200/60 pb-3">
+            <h2 className="font-serif text-xl sm:text-2xl font-bold text-black tracking-tight capitalize">
               {activeCategory === 'all'
                 ? 'All Photo Collections'
                 : categories.find((c) => c.id === activeCategory)?.label}
@@ -258,41 +312,53 @@ export const Gallery: React.FC = () => {
             </span>
           </div>
 
-          {/* Grid Layout (Pure Photo Frame Containers without Titles/Descriptions/Click Footers) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {filteredItems.map((item, idx) => (
-              <div
-                key={item.id}
-                onClick={() => setActiveLightboxIndex(idx)}
-                className="bg-black rounded-3xl overflow-hidden border border-amber-200/80 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer group relative h-72 sm:h-80 w-full"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+          {/* Collage Masonry Columns Layout with Artistic Tilt, Sheen & Glow Effects */}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+            {filteredItems.map((item, idx) => {
+              const isEven = idx % 2 === 0;
+              return (
+                <div
+                  key={item.id}
+                  onClick={() => setActiveLightboxIndex(idx)}
+                  style={{ animationDelay: `${idx * 70}ms` }}
+                  className={`break-inside-avoid bg-black rounded-3xl overflow-hidden border-2 border-amber-200/70 shadow-lg hover:shadow-[0_25px_60px_rgba(198,141,83,0.35)] hover:border-amber-400 transition-all duration-500 cursor-pointer group relative w-full transform hover:rotate-0 hover:scale-[1.03] hover:z-20 ${
+                    isEven ? 'collage-tilt-left' : 'collage-tilt-right'
+                  } ${item.heightClass || 'h-72 sm:h-80'} animate-collage-card`}
+                >
+                  {/* Photo Asset with High-Res Hover Zoom */}
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700 ease-out"
+                  />
 
-                {/* Category Tag Top-Left */}
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-amber-400 bg-black/80 px-3 py-1 rounded-md backdrop-blur-sm border border-white/10">
-                    {item.categoryLabel}
-                  </span>
-                </div>
+                  {/* Ambient Dark Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" />
 
-                {/* Subtle Vector Zoom Icon Hint Bottom-Right */}
-                <div className="absolute bottom-4 right-4 z-10 w-9 h-9 rounded-full bg-black/85 text-white flex items-center justify-center group-hover:bg-[#C68D53] transition-colors border border-white/20 shadow-md">
-                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2.2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
+                  {/* 45-Degree Shimmer Light Sheen Sweep Effect on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+
+                  {/* Floating Category Badge Top-Left */}
+                  <div className="absolute top-4 left-4 z-10 transform group-hover:translate-y-0.5 transition-transform duration-300">
+                    <span className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-amber-400 bg-black/85 px-3.5 py-1.5 rounded-lg backdrop-blur-md border border-amber-400/30 shadow-md">
+                      {item.categoryLabel}
+                    </span>
+                  </div>
+
+                  {/* Floating Vector Zoom Icon Hint Bottom-Right */}
+                  <div className="absolute bottom-4 right-4 z-10 w-10 h-10 rounded-full bg-black/85 text-white flex items-center justify-center group-hover:bg-[#C68D53] group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 border border-white/30 shadow-xl">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -365,7 +431,7 @@ export const Gallery: React.FC = () => {
         </div>
       )}
 
-      {/* FAQ SECTION (MOVED TO GALLERY & ABOUT PAGE AS REQUESTED) */}
+      {/* FAQ SECTION */}
       <FAQSection />
 
       {/* FOOTER COMPONENT */}
