@@ -263,7 +263,7 @@ export const HeroWaterRipple: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-screen flex flex-col justify-between overflow-hidden bg-slate-950 text-white select-none"
+      className="relative w-full h-[80vh] md:min-h-screen flex flex-col justify-between overflow-hidden bg-slate-950 text-white select-none"
     >
       {/* GPU Hardware-Accelerated WebGL Water Ripple Canvas */}
       <canvas
@@ -274,11 +274,11 @@ export const HeroWaterRipple: React.FC = () => {
       {/* Subtle luxury gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-black/40 pointer-events-none z-10" />
 
-      {/* Hero Content Grid Overlay */}
-      <div className="relative z-20 max-w-[1480px] w-full mx-auto pl-5 pr-3 md:pl-10 md:pr-4 pt-28 md:pt-36 pb-12 md:pb-16 flex-1 flex flex-col justify-between">
+      {/* Hero Content Grid Overlay (h-[80vh] on Mobile, min-h-screen on Desktop) */}
+      <div className="relative z-20 max-w-[1480px] w-full mx-auto px-4 md:px-10 pt-20 md:pt-36 pb-6 md:pb-16 flex-1 flex flex-col justify-between">
         {/* Top Section: Centered SVG Logo */}
-        <div className="w-full flex justify-center items-center animate-fade-in py-2 md:py-4">
-          <div className="w-64 sm:w-80 md:w-[440px] lg:w-[520px]">
+        <div className="w-full flex justify-center items-center animate-fade-in py-1 md:py-4">
+          <div className="w-52 sm:w-80 md:w-[440px] lg:w-[520px]">
             <img
               src={lakeviewLogo}
               alt="ORA Lake View Logo"
@@ -288,10 +288,10 @@ export const HeroWaterRipple: React.FC = () => {
         </div>
 
         {/* Bottom Section: Left Description + Gold CTA, Right Ultra-Transparent Glassmorphism Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mt-8 md:mt-12 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-end mt-4 md:mt-12 w-full">
           {/* Bottom Left: Description & VIEW OUR ROOMS Button */}
-          <div className="lg:col-span-5 space-y-6 text-center sm:text-left">
-            <p className="text-white text-lg sm:text-xl lg:text-2xl font-sans font-light leading-relaxed tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-xl mx-auto sm:mx-0">
+          <div className="lg:col-span-5 space-y-4 md:space-y-6 text-center sm:text-left">
+            <p className="text-white text-sm sm:text-xl lg:text-2xl font-sans font-light leading-relaxed tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-xl mx-auto sm:mx-0">
               {heroContent?.subtitle ||
                 'A slice of Swiss heaven crafted for dreamers, romantics, and adventure seekers alike.'}
             </p>
@@ -299,7 +299,7 @@ export const HeroWaterRipple: React.FC = () => {
             <div>
               <Link
                 to="/rooms"
-                className="inline-flex items-center justify-center px-8 py-4 text-xs sm:text-sm font-sans font-bold tracking-widest text-slate-950 uppercase transition-all duration-300 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 hover:from-amber-300 hover:to-amber-100 shadow-2xl hover:shadow-amber-400/40 hover:scale-105 active:scale-95 border border-amber-300/50"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-sans font-bold tracking-widest text-slate-950 uppercase transition-all duration-300 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 hover:from-amber-300 hover:to-amber-100 shadow-2xl hover:shadow-amber-400/40 hover:scale-105 active:scale-95 border border-amber-300/50"
               >
                 {heroContent?.viewRooms || 'VIEW OUR ROOMS'}
               </Link>
@@ -308,10 +308,10 @@ export const HeroWaterRipple: React.FC = () => {
 
           {/* Bottom Right: Ultra-Transparent Glassmorphic Card Container Pushed Flush Right */}
           <div className="lg:col-span-7 w-full max-w-[620px] ml-auto mr-0">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 md:p-5 shadow-2xl space-y-4">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-3.5 md:p-5 shadow-2xl space-y-3 md:space-y-4">
               {/* Header with Title & Circular Dot Indicators */}
-              <div className="flex items-center justify-between border-b border-white/15 pb-2.5">
-                <h3 className="font-serif text-lg md:text-xl font-normal text-white tracking-wide">
+              <div className="flex items-center justify-between border-b border-white/15 pb-2">
+                <h3 className="font-serif text-base md:text-xl font-normal text-white tracking-wide">
                   {heroContent?.facilitiesTitle || "Hotel's Facilities"}
                 </h3>
 
@@ -333,7 +333,7 @@ export const HeroWaterRipple: React.FC = () => {
               </div>
 
               {/* 3-Column Facilities Grid with clean rounded images & title labels below */}
-              <div className="grid grid-cols-3 gap-3 transition-all duration-500">
+              <div className="grid grid-cols-3 gap-2.5 md:gap-3 transition-all duration-500">
                 {visibleFacilities.map((fac: any, idx: number) => (
                   <div key={fac.id || idx} className="group cursor-pointer">
                     <div className="relative aspect-[16/10] rounded-lg overflow-hidden shadow-lg border border-white/15 group-hover:border-amber-400/80 transition-colors">
@@ -343,7 +343,7 @@ export const HeroWaterRipple: React.FC = () => {
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
-                    <h4 className="font-sans text-xs font-semibold text-white mt-2 tracking-wide truncate">
+                    <h4 className="font-sans text-[10px] md:text-xs font-semibold text-white mt-1.5 tracking-wide truncate">
                       {fac.title}
                     </h4>
                   </div>
