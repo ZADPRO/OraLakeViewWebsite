@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
+import heroBgImage from '../../assets/images/Landing Page/4E1A7684_1.jpg';
+import lakeviewLogo from '../../assets/logo/Lakeview.svg';
 
-const HERO_BG_IMAGE = 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=80';
+const MAX_RIPPLES = 20;
 
 export const HeroWaterRipple: React.FC = () => {
   const { getContent } = useLanguage();
@@ -11,178 +13,220 @@ export const HeroWaterRipple: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const [activeFacilityIndex, setActiveFacilityIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+  // WebGL Water Ripple Engine
   useEffect(() => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const gl = canvas.getContext('webgl', { alpha: false, antialias: true });
+    if (!gl) return;
 
     let animationFrameId: number;
-    let width = (canvas.width = container.clientWidth);
-    let height = (canvas.height = container.clientHeight);
-
-    // Water ripple physics setup (Double heightmap buffer)
-    let buffer1 = new Float32Array(width * height);
-    let buffer2 = new Float32Array(width * height);
-    let damping = 0.96;
-
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.src = HERO_BG_IMAGE;
-
-    let imgLoaded = false;
-    img.onload = () => {
-      imgLoaded = true;
-    };
 
     const handleResize = () => {
       if (!container || !canvas) return;
-      width = canvas.width = container.clientWidth;
-      height = canvas.height = container.clientHeight;
-      buffer1 = new Float32Array(width * height);
-      buffer2 = new Float32Array(width * height);
+      canvas.width = container.clientWidth;
+      canvas.height = container.clientHeight;
+      gl.viewport(0, 0, canvas.width, canvas.height);
     };
 
+    handleResize();
     window.addEventListener('resize', handleResize);
 
-    // Add ripple disturbance at (x, y)
-    const disturb = (x: number, y: number, radius = 6, strength = 255) => {
-      const rx = Math.floor(x);
-      const ry = Math.floor(y);
-      for (let j = ry - radius; j < ry + radius; j++) {
-        for (let i = rx - radius; i < rx + radius; i++) {
-          if (i >= 0 && i < width && j >= 0 && j < height) {
-            const dist = Math.sqrt((i - rx) ** 2 + (j - ry) ** 2);
-            if (dist < radius) {
-              buffer1[j * width + i] += strength * (1 - dist / radius);
+    const vsSource = `
+      attribute vec2 a_position;
+      varying vec2 v_uv;
+      void main() {
+        v_uv = (a_position + 1.0) / 2.0;
+        v_uv.y = 1.0 - v_uv.y;
+        gl_Position = vec4(a_position, 0.0, 1.0);
+      }
+    `;
+
+    const fsSource = `
+      precision highp float;
+      uniform sampler2D u_image;
+      uniform vec2 u_resolution;
+      uniform float u_time;
+      uniform vec4 u_ripples[${MAX_RIPPLES}];
+      uniform int u_rippleCount;
+      varying vec2 v_uv;
+
+      void main() {
+        vec2 uv = v_uv;
+        vec2 totalDisplacement = vec2(0.0);
+        float aspect = u_resolution.x / u_resolution.y;
+
+        for (int i = 0; i < ${MAX_RIPPLES}; i++) {
+          if (i >= u_rippleCount) break;
+          vec4 r = u_ripples[i];
+          vec2 ripplePos = r.xy;
+          float age = u_time - r.z;
+          float strength = r.w;
+
+          if (age > 0.0 && age < 2.5) {
+            vec2 diff = (uv - ripplePos);
+            diff.x *= aspect;
+            float dist = length(diff);
+
+            float waveRadius = age * 0.42;
+            float waveWidth = 0.14;
+            float delta = abs(dist - waveRadius);
+
+            if (delta < waveWidth) {
+              float waveFactor = (1.0 - delta / waveWidth);
+              float wave = sin((dist - waveRadius) * 40.0) * waveFactor;
+              float decay = exp(-age * 2.2);
+              vec2 dir = normalize(diff + vec2(0.0001));
+              totalDisplacement += dir * wave * decay * strength * 0.04;
             }
           }
         }
+
+        vec2 displacedUv = clamp(uv - totalDisplacement, 0.0, 1.0);
+        gl_FragColor = texture2D(u_image, displacedUv);
+      }
+    `;
+
+    const createShader = (gl: WebGLRenderingContext, type: number, source: string) => {
+      const shader = gl.createShader(type);
+      if (!shader) return null;
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.error(gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    };
+
+    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vsSource);
+    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
+    if (!vertexShader || !fragmentShader) return;
+
+    const program = gl.createProgram();
+    if (!program) return;
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragmentShader);
+    gl.linkProgram(program);
+    gl.useProgram(program);
+
+    const positionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
+      gl.STATIC_DRAW
+    );
+
+    const positionLocation = gl.getAttribLocation(program, 'a_position');
+    gl.enableVertexAttribArray(positionLocation);
+    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+    const uResolutionLoc = gl.getUniformLocation(program, 'u_resolution');
+    const uTimeLoc = gl.getUniformLocation(program, 'u_time');
+    const uRipplesLoc = gl.getUniformLocation(program, 'u_ripples');
+    const uRippleCountLoc = gl.getUniformLocation(program, 'u_rippleCount');
+
+    const texture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+
+    gl.texImage2D(
+      gl.TEXTURE_2D,
+      0,
+      gl.RGBA,
+      1,
+      1,
+      0,
+      gl.RGBA,
+      gl.UNSIGNED_BYTE,
+      new Uint8Array([15, 23, 42, 255])
+    );
+
+    const img = new Image();
+    img.src = heroBgImage;
+    img.onload = () => {
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    };
+
+    const ripples: Array<{ x: number; y: number; startTime: number; strength: number }> = [];
+    const startTime = performance.now();
+
+    const addRipple = (clientX: number, clientY: number, strength = 1.0) => {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      const x = (clientX - rect.left) / canvas.width;
+      const y = (clientY - rect.top) / canvas.height;
+      const currentTime = (performance.now() - startTime) / 1000;
+
+      ripples.push({ x, y, startTime: currentTime, strength });
+      if (ripples.length > MAX_RIPPLES) {
+        ripples.shift();
       }
     };
 
-    // Auto gentle water drop ripples
-    const autoRippleInterval = setInterval(() => {
-      const randomX = Math.random() * width;
-      const randomY = Math.random() * height;
-      disturb(randomX, randomY, 5, 120);
-    }, 1800);
+    const autoRaindropInterval = setInterval(() => {
+      const randomX = Math.random() * (canvas?.width || 800);
+      const randomY = Math.random() * (canvas?.height || 600);
+      addRipple(randomX, randomY, 0.6);
+    }, 1200);
 
+    let lastMoveTime = 0;
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      disturb(x, y, 7, 180);
+      const now = performance.now();
+      if (now - lastMoveTime > 60) {
+        addRipple(e.clientX, e.clientY, 0.8);
+        lastMoveTime = now;
+      }
     };
 
     const handleClick = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      disturb(x, y, 14, 400);
+      addRipple(e.clientX, e.clientY, 1.8);
     };
 
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('click', handleClick);
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const now = performance.now();
+        if (now - lastMoveTime > 60) {
+          addRipple(e.touches[0].clientX, e.touches[0].clientY, 1.2);
+          lastMoveTime = now;
+        }
+      }
+    };
 
-    const imgCanvas = document.createElement('canvas');
-    const imgCtx = imgCanvas.getContext('2d');
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('click', handleClick);
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
     const render = () => {
-      // Step physics
-      for (let y = 1; y < height - 1; y++) {
-        for (let x = 1; x < width - 1; x++) {
-          const index = y * width + x;
-          buffer2[index] =
-            (buffer1[index - 1] +
-              buffer1[index + 1] +
-              buffer1[index - width] +
-              buffer1[index + width]) /
-              2 -
-            buffer2[index];
-          buffer2[index] *= damping;
-        }
-      }
+      const currentTime = (performance.now() - startTime) / 1000;
 
-      // Swap buffers
-      const temp = buffer1;
-      buffer1 = buffer2;
-      buffer2 = temp;
+      gl.useProgram(program);
+      gl.uniform2f(uResolutionLoc, canvas.width, canvas.height);
+      gl.uniform1f(uTimeLoc, currentTime);
 
-      // Draw background & displacement distortion
-      if (imgLoaded && imgCtx) {
-        if (imgCanvas.width !== width || imgCanvas.height !== height) {
-          imgCanvas.width = width;
-          imgCanvas.height = height;
-        }
+      const activeRipples = ripples.filter((r) => currentTime - r.startTime < 2.5);
+      gl.uniform1i(uRippleCountLoc, activeRipples.length);
 
-        // Draw image cover scaled
-        const imgRatio = img.width / img.height;
-        const canvasRatio = width / height;
-        let renderW = width;
-        let renderH = height;
-        let offsetX = 0;
-        let offsetY = 0;
+      const rippleData = new Float32Array(MAX_RIPPLES * 4);
+      activeRipples.forEach((r, idx) => {
+        rippleData[idx * 4] = r.x;
+        rippleData[idx * 4 + 1] = r.y;
+        rippleData[idx * 4 + 2] = r.startTime;
+        rippleData[idx * 4 + 3] = r.strength;
+      });
+      gl.uniform4fv(uRipplesLoc, rippleData);
 
-        if (canvasRatio > imgRatio) {
-          renderH = width / imgRatio;
-          offsetY = (height - renderH) / 2;
-        } else {
-          renderW = height * imgRatio;
-          offsetX = (width - renderW) / 2;
-        }
-
-        imgCtx.drawImage(img, offsetX, offsetY, renderW, renderH);
-
-        const imgData = imgCtx.getImageData(0, 0, width, height);
-        const outData = ctx.createImageData(width, height);
-
-        const srcData = imgData.data;
-        const dstData = outData.data;
-
-        for (let y = 0; y < height; y++) {
-          for (let x = 0; x < width; x++) {
-            const i = y * width + x;
-            let xOffset = 0;
-            let yOffset = 0;
-
-            if (x > 0 && x < width - 1 && y > 0 && y < height - 1) {
-              xOffset = Math.floor(buffer1[i - 1] - buffer1[i + 1]);
-              yOffset = Math.floor(buffer1[i - width] - buffer1[i + width]);
-            }
-
-            let mapX = x + xOffset;
-            let mapY = y + yOffset;
-
-            if (mapX < 0) mapX = 0;
-            if (mapX >= width) mapX = width - 1;
-            if (mapY < 0) mapY = 0;
-            if (mapY >= height) mapY = height - 1;
-
-            const srcIdx = (mapY * width + mapX) * 4;
-            const dstIdx = i * 4;
-
-            dstData[dstIdx] = srcData[srcIdx];
-            dstData[dstIdx + 1] = srcData[srcIdx + 1];
-            dstData[dstIdx + 2] = srcData[srcIdx + 2];
-            dstData[dstIdx + 3] = 255;
-          }
-        }
-
-        ctx.putImageData(outData, 0, 0);
-      } else {
-        // Dark gradient placeholder if loading
-        const grad = ctx.createLinearGradient(0, 0, 0, height);
-        grad.addColorStop(0, '#111827');
-        grad.addColorStop(1, '#1e293b');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, width, height);
-      }
-
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
       animationFrameId = requestAnimationFrame(render);
     };
 
@@ -190,111 +234,118 @@ export const HeroWaterRipple: React.FC = () => {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      clearInterval(autoRippleInterval);
+      clearInterval(autoRaindropInterval);
       window.removeEventListener('resize', handleResize);
-      if (canvas) {
-        canvas.removeEventListener('mousemove', handleMouseMove);
-        canvas.removeEventListener('click', handleClick);
-      }
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('click', handleClick);
+      window.removeEventListener('touchmove', handleTouchMove);
     };
   }, []);
 
   const facilities = heroContent?.facilities || [];
+  const cardsPerPage = 3;
+  const totalSlides = Math.ceil(facilities.length / cardsPerPage);
+
+  // Auto-scroll Carousel every 3.5 seconds
+  useEffect(() => {
+    if (totalSlides <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [totalSlides]);
+
+  const visibleFacilities = facilities.slice(
+    currentSlide * cardsPerPage,
+    currentSlide * cardsPerPage + cardsPerPage
+  );
 
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-[92vh] flex flex-col justify-between overflow-hidden bg-slate-950 text-white select-none"
+      className="relative w-full min-h-screen flex flex-col justify-between overflow-hidden bg-slate-950 text-white select-none"
     >
-      {/* Water Ripple Interactive Canvas */}
+      {/* GPU Hardware-Accelerated WebGL Water Ripple Canvas */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full object-cover z-0 cursor-pointer transition-opacity duration-700"
       />
 
-      {/* Dark overlay for contrast */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60 pointer-events-none z-10" />
+      {/* Subtle luxury gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-black/40 pointer-events-none z-10" />
 
       {/* Hero Content Grid Overlay */}
-      <div className="relative z-20 max-w-7xl w-full mx-auto px-6 pt-36 pb-12 flex-1 flex flex-col justify-between">
-        {/* Top Section: Subtitle & CTA Button */}
-        <div className="max-w-xl space-y-6 animate-fade-in">
-          <p className="text-white/90 text-sm md:text-base font-light leading-relaxed tracking-wide backdrop-blur-md bg-black/20 p-4 rounded-xl border border-white/10 shadow-lg">
-            {heroContent?.subtitle ||
-              'Indulge in a luxurious hotel stay where comfort meets style, offering world-class amenities, elegant design, and exceptional personalized service.'}
-          </p>
-
-          <div>
-            <Link
-              to="/rooms"
-              className="inline-flex items-center justify-center px-8 py-3.5 text-xs md:text-sm font-semibold tracking-widest text-white uppercase transition-all duration-300 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 hover:border-white/60 backdrop-blur-md shadow-2xl hover:scale-105 active:scale-95"
-            >
-              {heroContent?.viewRooms || 'VIEW OUR ROOMS'}
-            </Link>
+      <div className="relative z-20 max-w-[1480px] w-full mx-auto pl-5 pr-3 md:pl-10 md:pr-4 pt-28 md:pt-36 pb-12 md:pb-16 flex-1 flex flex-col justify-between">
+        {/* Top Section: Centered SVG Logo */}
+        <div className="w-full flex justify-center items-center animate-fade-in py-2 md:py-4">
+          <div className="w-64 sm:w-80 md:w-[440px] lg:w-[520px]">
+            <img
+              src={lakeviewLogo}
+              alt="ORA Lake View Logo"
+              className="w-full h-auto object-contain filter drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]"
+            />
           </div>
         </div>
 
-        {/* Bottom Section: Main Heading Left & Floating Facilities Card Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mt-12">
-          {/* Main Left Headline */}
-          <div className="lg:col-span-7 space-y-2">
-            <span className="text-amber-400 font-serif italic text-lg md:text-xl tracking-wider block">
-              {heroContent?.titleMain || 'ORA Lake View'}
-            </span>
-            <h1 className="text-4xl md:text-6xl font-serif font-medium leading-tight tracking-tight text-white drop-shadow-md">
-              {heroContent?.titleSub || 'Best Hotel In Town'}
-            </h1>
+        {/* Bottom Section: Left Description + Gold CTA, Right Ultra-Transparent Glassmorphism Card */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mt-8 md:mt-12 w-full">
+          {/* Bottom Left: Description & VIEW OUR ROOMS Button */}
+          <div className="lg:col-span-5 space-y-6 text-center sm:text-left">
+            <p className="text-white text-lg sm:text-xl lg:text-2xl font-sans font-light leading-relaxed tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-xl mx-auto sm:mx-0">
+              {heroContent?.subtitle ||
+                'A slice of Swiss heaven crafted for dreamers, romantics, and adventure seekers alike.'}
+            </p>
+
+            <div>
+              <Link
+                to="/rooms"
+                className="inline-flex items-center justify-center px-8 py-4 text-xs sm:text-sm font-sans font-bold tracking-widest text-slate-950 uppercase transition-all duration-300 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 hover:from-amber-300 hover:to-amber-100 shadow-2xl hover:shadow-amber-400/40 hover:scale-105 active:scale-95 border border-amber-300/50"
+              >
+                {heroContent?.viewRooms || 'VIEW OUR ROOMS'}
+              </Link>
+            </div>
           </div>
 
-          {/* Floating Facilities Card (Restin Design) */}
-          <div className="lg:col-span-5 w-full">
-            <div className="bg-black/50 backdrop-blur-xl border border-white/15 rounded-3xl p-6 shadow-2xl space-y-5">
-              {/* Header with Facilities title & pagination dots */}
-              <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                <h3 className="font-serif text-xl font-medium text-white tracking-wide">
+          {/* Bottom Right: Ultra-Transparent Glassmorphic Card Container Pushed Flush Right */}
+          <div className="lg:col-span-7 w-full max-w-[620px] ml-auto mr-0">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 md:p-5 shadow-2xl space-y-4">
+              {/* Header with Title & Circular Dot Indicators */}
+              <div className="flex items-center justify-between border-b border-white/15 pb-2.5">
+                <h3 className="font-serif text-lg md:text-xl font-normal text-white tracking-wide">
                   {heroContent?.facilitiesTitle || "Hotel's Facilities"}
                 </h3>
+
+                {/* Circular Pagination Dots */}
                 <div className="flex items-center space-x-2">
-                  {facilities.map((_: any, idx: number) => (
+                  {Array.from({ length: totalSlides }).map((_, idx) => (
                     <button
                       key={idx}
-                      onClick={() => setActiveFacilityIndex(idx)}
-                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                        activeFacilityIndex === idx
-                          ? 'bg-amber-400 w-6'
-                          : 'bg-white/30 hover:bg-white/60'
+                      onClick={() => setCurrentSlide(idx)}
+                      className={`rounded-full transition-all duration-300 ${
+                        currentSlide === idx
+                          ? 'bg-amber-400 w-2.5 h-2.5 ring-4 ring-amber-400/20'
+                          : 'bg-white/40 hover:bg-white/70 w-2 h-2'
                       }`}
-                      aria-label={`Facility slide ${idx + 1}`}
+                      aria-label={`Go to slide ${idx + 1}`}
                     />
                   ))}
                 </div>
               </div>
 
-              {/* Cards Grid / Carousel preview */}
-              <div className="grid grid-cols-3 gap-3">
-                {facilities.map((fac: any, idx: number) => (
-                  <div
-                    key={fac.id || idx}
-                    onClick={() => setActiveFacilityIndex(idx)}
-                    className={`group cursor-pointer rounded-2xl overflow-hidden border transition-all duration-300 ${
-                      activeFacilityIndex === idx
-                        ? 'border-amber-400 ring-2 ring-amber-400/30 scale-[1.02]'
-                        : 'border-white/10 hover:border-white/30 opacity-80 hover:opacity-100'
-                    }`}
-                  >
-                    <div className="relative aspect-[4/3] overflow-hidden">
+              {/* 3-Column Facilities Grid with clean rounded images & title labels below */}
+              <div className="grid grid-cols-3 gap-3 transition-all duration-500">
+                {visibleFacilities.map((fac: any, idx: number) => (
+                  <div key={fac.id || idx} className="group cursor-pointer">
+                    <div className="relative aspect-[16/10] rounded-lg overflow-hidden shadow-lg border border-white/15 group-hover:border-amber-400/80 transition-colors">
                       <img
                         src={fac.image}
                         alt={fac.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                     </div>
-                    <div className="p-2.5 bg-black/40 text-center">
-                      <h4 className="text-xs font-medium text-white truncate">
-                        {fac.title}
-                      </h4>
-                    </div>
+                    <h4 className="font-sans text-xs font-semibold text-white mt-2 tracking-wide truncate">
+                      {fac.title}
+                    </h4>
                   </div>
                 ))}
               </div>
@@ -305,3 +356,5 @@ export const HeroWaterRipple: React.FC = () => {
     </div>
   );
 };
+
+export default HeroWaterRipple;

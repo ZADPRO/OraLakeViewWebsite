@@ -8,7 +8,7 @@ export const en = {
     bookNow: 'Book Now',
   },
   hero: {
-    subtitle: 'Indulge in a luxurious hotel stay where comfort meets style, offering world-class amenities, elegant design, and exceptional personalized service.',
+    subtitle: 'A slice of Swiss heaven crafted for dreamers, romantics, and adventure seekers alike.',
     viewRooms: 'VIEW OUR ROOMS',
     titleMain: 'ORA Lake View',
     titleSub: 'Scenic Swiss Alps & Lake View Stay',
@@ -19,6 +19,8 @@ export const en = {
       { id: 'rooms', title: 'Luxury Rooms', desc: 'Panoramic lakefront vistas & premium comfort', image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80' },
       { id: 'terrace', title: 'Alpine Terrace', desc: 'Breathtaking dining deck over Lake Brienz', image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80' },
       { id: 'dining', title: 'Lakeview Restaurant', desc: 'Authentic Swiss & international gastronomy', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80' },
+      { id: 'parking', title: 'Free EV Parking', desc: 'Complimentary private parking with EV chargers', image: 'https://images.unsplash.com/photo-1506521782023-6058fda68c83?auto=format&fit=crop&w=800&q=80' },
+      { id: 'pets', title: 'Pet Friendly', desc: 'Welcoming four-legged companions warmly', image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80' },
     ]
   },
   about: {

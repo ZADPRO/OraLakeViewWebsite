@@ -6,12 +6,12 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ORA Lakeview Hotel | Scenic Swiss Alps & Lake View Stay</title>
-  <meta name="description" content="Wake up to breathtaking lake and mountain views at ORA Lakeview Hotel in Switzerland. Just minutes from transit, pet-friendly, and with free parking—your effortless alpine escape starts here." />
+  <meta name="description" content="Wake up to breathtaking lake and mountain views at ORA Lakeview Hotel in Switzerland." />
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Plus Jakarta Sans & Marcellus matching Gramentheme Restin -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montaga&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,20 +20,13 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            serif: ['Playfair Display', 'Montaga', 'serif'],
-            montaga: ['Montaga', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            marcellus: ['Marcellus', 'serif'],
+            serif: ['Marcellus', 'Playfair Display', 'serif'],
           },
           colors: {
-            primary: {
-              DEFAULT: '#0f172a',
-              light: '#1e293b',
-            },
-            amber: {
-              300: '#fde047',
-              400: '#facc15',
-              500: '#eab308',
-            }
+            primary: '#0f172a',
+            amberGold: '#d4af37',
           }
         }
       }
