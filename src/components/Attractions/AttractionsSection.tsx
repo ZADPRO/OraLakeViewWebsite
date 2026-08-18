@@ -1,6 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import mapImg from '../../assets/images/maps/map.png';
 
+// Local Attraction Assets Imports from src/assets/home/
+import giessbachImg from '../../assets/home/Giessbach Falls.png';
+import harderKulmImg from '../../assets/home/Harder Kulm.png';
+import hohematteImg from '../../assets/home/Hohematte Park.png';
+import jangfrauImg from '../../assets/home/Jangfrau.png';
+import lakeThunImg from '../../assets/home/Lake Thun.png';
+import schynigeImg from '../../assets/home/Schynige Platte.png';
+import beatusCavesImg from '../../assets/home/St. Beatus Caves.png';
+
 const BOOKING_URL =
   'https://direct-book.com/properties/lakeviewhotelrestaurant?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=CHF';
 
@@ -128,56 +137,56 @@ export const AttractionsSection: React.FC = () => {
     },
   ];
 
-  // 7 Verified Nearby Natural Wonders (Exact User Copy)
+  // 7 Verified Nearby Natural Wonders Mapped to local assets in src/assets/home/
   const nearbyAttractions = [
     {
       id: 'jungfrau',
       title: 'Jungfrau',
       subtitle: 'An alpine journey to towering peaks',
       desc: 'Jungfrau, renowned for its towering peaks and stunning vistas, features scenic train rides, hiking trails, and snow adventures. Ideal for explorers and nature lovers, it’s a must-visit alpine destination.',
-      image: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=800&q=80',
+      image: jangfrauImg,
     },
     {
       id: 'harder-kulm',
       title: 'Harder Kulm',
       subtitle: 'The roof of Interlaken with panoramic views.',
       desc: 'A short ride from Interlaken, offers sweeping views of Lake Thun, Lake Brienz, and the mountains from its 1,322-meter height. The glass-floored platform and on-site restaurant make it a memorable spot.',
-      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+      image: harderKulmImg,
     },
     {
       id: 'lake-thun',
       title: 'Lake Thun',
       subtitle: 'Tranquility on turquoise waters',
       desc: "Lake Thun, known for its clear waters and mountain views, offers boat cruises, charming villages, and historic lakeside castles. Ideal for picnics, swimming, or relaxing, it's a perfect spot for families and couples.",
-      image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80',
+      image: lakeThunImg,
     },
     {
       id: 'schynige-platte',
       title: 'Schynige Platte',
       subtitle: 'A floral paradise above the clouds',
       desc: 'Schynige Platte, accessible by cogwheel train, is known for its scenic hiking trails, alpine flora, and panoramic views of the Eiger, Mönch, and Jungfrau. It’s a perfect retreat for nature lovers and adventure seekers alike.',
-      image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80',
+      image: schynigeImg,
     },
     {
       id: 'beatus-caves',
       title: 'St. Beatus Caves',
       subtitle: 'Whispers of legends in limestone chambers',
       desc: 'The St. Beatus Caves near Lake Thun feature limestone formations and legends of St. Beatus. Guided tours along well-kept paths reveal their geological history and natural beauty.',
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+      image: beatusCavesImg,
     },
     {
       id: 'giessbach-falls',
       title: 'Giessbach Falls',
       subtitle: 'Cascading beauty amidst lush forests',
       desc: 'Giessbach Falls, near Lake Brienz, cascades over 500 meters through lush forests. Scenic trails offer beautiful views, and the nearby historic Giessbach Hotel adds to its charm, making it ideal for a day in nature.',
-      image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
+      image: giessbachImg,
     },
     {
       id: 'hohematte-park',
       title: 'Hohematte Park',
       subtitle: 'A vibrant green canvas in Interlaken’s heart',
       desc: 'Located in central Interlaken, Hohematte Park is a lush green space with manicured gardens, playgrounds, and mountain views. Hosting events year-round, it’s perfect for picnics, strolls, or relaxation for all ages.',
-      image: 'https://images.unsplash.com/photo-1527668752968-14dc70a27c95?auto=format&fit=crop&w=800&q=80',
+      image: hohematteImg,
     },
   ];
 
@@ -198,64 +207,49 @@ export const AttractionsSection: React.FC = () => {
       image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80',
     },
     {
-      id: 'seasonal-swimming',
-      title: 'Seasonal Swimming Bliss',
-      tag: 'WATER RECREATION',
-      desc: "Dive into relaxation at the swimming spot just below the hotel, open during the season. Whether you're taking a refreshing dip or lounging by the water, it's a perfect way to enjoy the lake.",
-      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+      id: 'water-fun',
+      title: 'Water Fun & Kayaking',
+      tag: 'LAKEVIEW FUN',
+      desc: 'Embark on an aquatic adventure with kayaking or paddleboarding on Lake Brienz. Whether navigating the calm waters solo or with a partner, it’s an exhilarating way to experience the stunning surroundings.',
+      image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80',
     },
     {
-      id: 'children-fun',
-      title: 'Fun for the Little Ones',
-      tag: 'FAMILY FUN',
-      desc: 'A nearby children’s park ensures younger guests have their share of fun. Equipped with swings, slides, and a safe play area, it’s an ideal spot for families to create joyful memories together.',
-      image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80',
+      id: 'local-dining',
+      title: 'Local & Authentic Culinary Delight',
+      tag: 'TERRACE DINING',
+      desc: 'Savor delicious local and international cuisines at our lakeside restaurant. Pair your meal with panoramic views of the water for an unforgettable dining experience that delights all your senses.',
+      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
   return (
-    <div className="select-none">
-      {/* Hide Scrollbars 100% Cross-Browser */}
-      <style>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none !important;
-          width: 0 !important;
-          height: 0 !important;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none !important;
-          scrollbar-width: none !important;
-        }
-      `}</style>
-
-      {/* PART 1: NEARBY ATTRACTIONS (7 Natural Wonders - Auto-Scrollable Carousel) */}
-      <section className="py-20 lg:py-28 bg-white text-black border-t border-slate-200 relative overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-10 relative z-10">
-          {/* Section Header with Carousel Arrow Controls */}
-          <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
-            <div className="space-y-3 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start space-x-3">
+    <div className="bg-[#FFFAF4] text-black">
+      {/* PART 1: NEARBY ATTRACTIONS (TOP SECTION) */}
+      <section className="py-20 lg:py-28 bg-white border-t border-slate-200 select-none">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
+          {/* Header Row */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14">
+            <div className="space-y-3">
+              {/* Tagline Line Badge */}
+              <div className="flex items-center space-x-3">
                 <span className="w-8 h-[2px] bg-amber-600" />
                 <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
-                  NEARBY ATTRACTIONS
+                  DISCOVER SWITZERLAND
                 </span>
               </div>
 
+              {/* Title */}
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-black tracking-tight">
-                Explore Nearby Natural Wonders
+                Nearby Attractions
               </h2>
-
-              <p className="text-black font-sans text-sm sm:text-base font-light leading-relaxed max-w-2xl">
-                Discover 7 world-famous alpine peaks, scenic cogwheel trains, roaring waterfalls, and historic caves right outside your doorstep.
-              </p>
             </div>
 
-            {/* Navigation Controls */}
-            <div className="flex items-center space-x-3 shrink-0">
+            {/* Manual Scroll Controls */}
+            <div className="flex items-center space-x-3 mt-6 md:mt-0">
               <button
                 onClick={() => scrollAttractions('left')}
-                className="w-11 h-11 rounded-xl bg-white hover:bg-[#C68D53] hover:text-white text-black flex items-center justify-center transition-all duration-300 shadow-md border border-amber-200/80 active:scale-95"
-                aria-label="Scroll left"
+                className="w-11 h-11 rounded-full bg-[#FFFAF4] border border-amber-200/80 text-black flex items-center justify-center shadow-sm hover:bg-[#C68D53] hover:text-white transition-all duration-300 active:scale-95"
+                aria-label="Previous Attraction"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
@@ -263,8 +257,8 @@ export const AttractionsSection: React.FC = () => {
               </button>
               <button
                 onClick={() => scrollAttractions('right')}
-                className="w-11 h-11 rounded-xl bg-[#C68D53] hover:bg-black text-white font-bold flex items-center justify-center transition-all duration-300 shadow-md active:scale-95"
-                aria-label="Scroll right"
+                className="w-11 h-11 rounded-full bg-[#C68D53] text-white flex items-center justify-center shadow-md hover:bg-black transition-all duration-300 active:scale-95"
+                aria-label="Next Attraction"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -273,52 +267,49 @@ export const AttractionsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* 7 Attractions Auto-Scroll Carousel Track */}
+          {/* Auto-Scrolling Horizontal Carousel Track */}
           <div
             ref={attractionsScrollRef}
             onMouseEnter={() => setIsAttractionsPaused(true)}
             onMouseLeave={() => setIsAttractionsPaused(false)}
-            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth py-4 px-1"
+            className="flex space-x-6 overflow-x-auto scrollbar-none pb-4 scroll-smooth"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {nearbyAttractions.map((item) => (
               <div
                 key={item.id}
                 onClick={() => setSelectedModalItem(item)}
-                className="w-[84vw] sm:w-[380px] lg:w-[400px] shrink-0 bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="w-[300px] sm:w-[360px] flex-shrink-0 bg-[#FFFAF4] rounded-3xl overflow-hidden border border-amber-200/80 shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-500 flex flex-col justify-between cursor-pointer group"
               >
-                {/* Photo Header */}
-                <div className="relative h-52 sm:h-56 w-full overflow-hidden bg-black">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-4 right-4 text-white">
-                    <span className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-amber-400 bg-black/70 px-2.5 py-1 rounded-md backdrop-blur-sm">
-                      SWISS LANDMARK
-                    </span>
+                <div>
+                  {/* Photo Container with Fixed Height & Object-Cover Fit */}
+                  <div className="relative h-60 w-full overflow-hidden bg-black">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   </div>
-                </div>
 
-                {/* Content Body */}
-                <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-serif text-xl font-bold text-black tracking-tight group-hover:text-amber-800 transition-colors">
+                  {/* Content Body */}
+                  <div className="p-6 space-y-3">
+                    <h3 className="font-serif text-2xl font-bold text-black tracking-tight group-hover:text-amber-900 transition-colors">
                       {item.title}
                     </h3>
-                    <p className="font-serif italic text-xs text-amber-900 font-medium mt-1">
+                    <p className="font-sans text-xs font-semibold text-amber-900 tracking-wide uppercase">
                       {item.subtitle}
                     </p>
-                    {/* Line Clamp 2 */}
-                    <p className="text-black font-sans text-xs sm:text-sm leading-relaxed font-light mt-3 line-clamp-2">
+                    <p className="font-sans text-xs text-black font-light leading-relaxed line-clamp-2">
                       {item.desc}
                     </p>
                   </div>
+                </div>
 
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-amber-900 font-bold group-hover:underline">
-                    <span>Read Full Details</span>
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                <div className="px-6 pb-6 pt-2">
+                  <div className="text-xs font-bold text-amber-900 group-hover:underline flex items-center space-x-1">
+                    <span>Explore Attraction Details</span>
+                    <span>→</span>
                   </div>
                 </div>
               </div>
@@ -327,15 +318,15 @@ export const AttractionsSection: React.FC = () => {
         </div>
       </section>
 
-      {/* PART 2: AT THE HEART OF CONNECTIVITY (Connectivity Section with Map) */}
-      <section className="py-20 lg:py-28 bg-[#FFFAF4] text-black border-t border-amber-200/60 relative overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-10 relative z-10">
-          {/* Section Header */}
+      {/* PART 2: AT THE HEART OF CONNECTIVITY (MIDDLE SECTION) */}
+      <section className="py-20 lg:py-28 bg-[#FFFAF4] border-t border-amber-200/60 select-none">
+        <div className="max-w-[1380px] mx-auto px-6 md:px-10">
+          {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
             <div className="flex items-center justify-center space-x-3">
               <span className="w-8 h-[2px] bg-amber-600" />
               <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
-                AT THE HEART OF CONNECTIVITY
+                EFFORTLESS SWISS TRANSIT
               </span>
               <span className="w-8 h-[2px] bg-amber-600" />
             </div>
@@ -345,92 +336,93 @@ export const AttractionsSection: React.FC = () => {
             </h2>
 
             <p className="text-black font-sans text-sm sm:text-base font-light leading-relaxed">
-              Perfectly located for effortless exploration and unforgettable experiences across Interlaken & Lake Brienz.
+              Enjoy prime access to bus stops, ferry terminals, train stations, and airports — connecting you effortlessly to Interlaken and all Swiss Alpine wonders.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Column: 4 Connectivity Cards (One-by-One Vertical Stacking on Mobile) */}
-            <div className="lg:col-span-6 space-y-4">
-              {connectivityNodes.map((node, index) => (
+          {/* Grid Layout: Left 4 Nodes (One-by-One Stacking on Mobile) & Right Map Frame */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left 4 Connectivity Cards */}
+            <div className="lg:col-span-6 space-y-5">
+              {connectivityNodes.map((node, idx) => (
                 <div
-                  key={index}
-                  className="bg-white p-5 sm:p-6 rounded-2xl border border-amber-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                  key={idx}
+                  className="bg-white p-5 sm:p-6 rounded-2xl border border-amber-200/80 shadow-sm hover:shadow-md hover:border-amber-400 transition-all duration-300"
                 >
-                  {/* Left Side: Icon + Title & Distance */}
-                  <div className="flex items-start sm:items-center space-x-3.5 sm:space-x-4">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-amber-100/70 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                      {node.icon}
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="font-serif text-base sm:text-lg font-bold text-black leading-snug">
-                        {node.title}
-                      </h3>
-                      <div className="text-xs text-amber-900 font-sans font-medium">
-                        {node.distance}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200/60 flex items-center justify-center shrink-0">
+                        {node.icon}
+                      </div>
+                      <div className="space-y-1 min-w-0">
+                        <h3 className="font-serif text-lg font-bold text-black tracking-tight leading-snug break-words">
+                          {node.title}
+                        </h3>
+                        <p className="font-sans text-xs text-black font-light">
+                          {node.distance}
+                        </p>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Black Time Badge (Stacked Cleanly Below on Mobile) */}
-                  <div className="bg-black text-white text-xs font-bold px-3.5 py-2 rounded-xl shrink-0 shadow-sm flex items-center space-x-2 self-start sm:self-auto">
-                    {node.isWalk ? (
-                      <svg className="w-3.5 h-3.5 text-amber-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7a2 2 0 100-4 2 2 0 000 4zM9 14l2-2 4 4m0 0l-2 5m2-5h-4m-1-4l-3 4.5" />
-                      </svg>
-                    ) : (
-                      <svg className="w-3.5 h-3.5 text-amber-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 17a2 2 0 11-4 0 2 2 0 014 0zm12 0a2 2 0 11-4 0 2 2 0 014 0zM5 17h14M3 9l2-4h14l2 4v8H3V9z" />
-                      </svg>
-                    )}
-                    <span>{node.time}</span>
+                    <div className="self-start sm:self-center shrink-0">
+                      <span className="inline-block text-[11px] font-sans font-extrabold uppercase tracking-wider text-white bg-black px-3.5 py-1.5 rounded-lg shadow-sm">
+                        {node.time}
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Right Side: Map Image Frame */}
-            <div className="lg:col-span-6">
-              <div className="rounded-2xl overflow-hidden border border-amber-200/80 shadow-xl bg-white p-2">
-                <img
-                  src={mapImg}
-                  alt="ORA Lake View Hotel Connectivity Map"
-                  className="w-full h-auto max-h-[460px] object-contain rounded-xl hover:scale-102 transition-transform duration-500"
-                />
+            {/* Right Transit Map Frame */}
+            <div className="lg:col-span-6 relative">
+              <div className="bg-white p-4 sm:p-6 rounded-3xl border border-amber-200/80 shadow-lg space-y-4">
+                <div className="flex items-center justify-between px-2">
+                  <h3 className="font-serif text-xl font-bold text-black">
+                    Niederried Transit Map
+                  </h3>
+                  <span className="text-xs font-sans font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-md">
+                    2 MINS TO TRAIN STATION
+                  </span>
+                </div>
+
+                <div className="h-[360px] sm:h-[400px] w-full rounded-2xl overflow-hidden bg-slate-900 relative">
+                  <img
+                    src={mapImg}
+                    alt="Niederried Transit Map"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PART 3: WHAT YOU CAN DO AT THE HOTEL? (Auto-Scrollable Carousel) */}
-      <section className="py-20 lg:py-28 bg-white text-black border-t border-slate-200 relative overflow-hidden">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-10 relative z-10">
-          {/* Section Header with Carousel Controls */}
-          <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
-            <div className="space-y-3 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start space-x-3">
+      {/* PART 3: WHAT YOU CAN DO AT THE HOTEL (BOTTOM SECTION) */}
+      <section className="py-20 lg:py-28 bg-white border-t border-slate-200 select-none">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
+          {/* Header Row */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14">
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3">
                 <span className="w-8 h-[2px] bg-amber-600" />
                 <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
-                  WHAT YOU CAN DO AT THE HOTEL?
+                  EXPERIENCE HOTEL LAKEVIEW
                 </span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-black tracking-tight">
-                Discover Activities and Experiences at Hotel Lakeview
+                What You Can Do at the Hotel
               </h2>
-
-              <p className="text-black font-sans text-sm sm:text-base font-light leading-relaxed max-w-2xl">
-                From lakeside walks to seasonal swimming and family fun, tailor your stay with memorable experiences.
-              </p>
             </div>
 
-            {/* Scrollable Carousel Navigation Arrows */}
-            <div className="flex items-center space-x-3 shrink-0">
+            {/* Manual Scroll Controls */}
+            <div className="flex items-center space-x-3 mt-6 md:mt-0">
               <button
                 onClick={() => scrollActivities('left')}
-                className="w-11 h-11 rounded-xl bg-white hover:bg-[#C68D53] hover:text-white text-black flex items-center justify-center transition-all duration-300 shadow-md border border-amber-200/80 active:scale-95"
-                aria-label="Scroll left"
+                className="w-11 h-11 rounded-full bg-[#FFFAF4] border border-amber-200/80 text-black flex items-center justify-center shadow-sm hover:bg-[#C68D53] hover:text-white transition-all duration-300 active:scale-95"
+                aria-label="Previous Activity"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
@@ -438,8 +430,8 @@ export const AttractionsSection: React.FC = () => {
               </button>
               <button
                 onClick={() => scrollActivities('right')}
-                className="w-11 h-11 rounded-xl bg-[#C68D53] hover:bg-black text-white font-bold flex items-center justify-center transition-all duration-300 shadow-md active:scale-95"
-                aria-label="Scroll right"
+                className="w-11 h-11 rounded-full bg-[#C68D53] text-white flex items-center justify-center shadow-md hover:bg-black transition-all duration-300 active:scale-95"
+                aria-label="Next Activity"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -448,56 +440,52 @@ export const AttractionsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Scrollable Activities Carousel Track (No Scrollbar Line Below) */}
+          {/* Auto-Scrolling Horizontal Carousel Track */}
           <div
             ref={activitiesScrollRef}
             onMouseEnter={() => setIsActivitiesPaused(true)}
             onMouseLeave={() => setIsActivitiesPaused(false)}
-            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth py-4 px-1"
+            className="flex space-x-6 overflow-x-auto scrollbar-none pb-4 scroll-smooth"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {hotelActivities.map((act) => (
               <div
                 key={act.id}
                 onClick={() => setSelectedModalItem(act)}
-                className="w-[84vw] sm:w-[380px] lg:w-[420px] shrink-0 bg-white rounded-2xl border border-amber-200/80 shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer"
+                className="w-[300px] sm:w-[360px] flex-shrink-0 bg-[#FFFAF4] rounded-3xl overflow-hidden border border-amber-200/80 shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-500 flex flex-col justify-between cursor-pointer group"
               >
-                {/* High-Res Photo Header */}
-                <div className="relative h-56 w-full overflow-hidden bg-black">
-                  <img
-                    src={act.image}
-                    alt={act.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                  <div className="absolute top-3.5 left-3.5 z-10 bg-[#C68D53] text-white font-bold text-[10px] px-3 py-1 rounded-md uppercase tracking-wider">
-                    {act.tag}
+                <div>
+                  {/* Photo Container with Fixed Height & Object-Cover Fit */}
+                  <div className="relative h-60 w-full overflow-hidden bg-black">
+                    <img
+                      src={act.image}
+                      alt={act.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute top-4 left-4">
+                      <span className="text-[9px] font-sans font-extrabold tracking-widest text-amber-400 bg-black/80 px-3 py-1 rounded-md uppercase backdrop-blur-sm">
+                        {act.tag}
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Content Body with Line Clamp 2 */}
-                <div className="p-6 sm:p-7 space-y-3 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="capitalize font-serif text-xl font-bold text-black tracking-tight group-hover:text-amber-800 transition-colors">
+                  {/* Content Body */}
+                  <div className="p-6 space-y-3">
+                    <h3 className="font-serif text-2xl font-bold text-black tracking-tight group-hover:text-amber-900 transition-colors">
                       {act.title}
                     </h3>
-                    <p className="text-black font-sans text-sm leading-relaxed font-light mt-2 line-clamp-2">
+                    <p className="font-sans text-xs text-black font-light leading-relaxed line-clamp-3">
                       {act.desc}
                     </p>
                   </div>
                 </div>
 
-                {/* Slanted Gold Button CTA (Black Base, 45-Degree Slanted Gold Hover Animation) */}
-                <div className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-4 px-6 flex items-center justify-between group/btn">
-                  <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover/btn:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
-                  <span className="relative z-10 font-sans">EXPERIENCE THIS</span>
-                  <svg
-                    className="w-4 h-4 text-white relative z-10 group-hover/btn:translate-x-1.5 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                  </svg>
+                <div className="px-6 pb-6 pt-2">
+                  <div className="text-xs font-bold text-amber-900 group-hover:underline flex items-center space-x-1">
+                    <span>Read Full Activity Details</span>
+                    <span>→</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -505,10 +493,10 @@ export const AttractionsSection: React.FC = () => {
         </div>
       </section>
 
-      {/* Full Detail Modal Popup Overlay */}
+      {/* FULL UNTRUNCATED DETAIL MODAL OVERLAY */}
       {selectedModalItem && (
         <div
-          className="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fade-in"
+          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 transition-opacity animate-fade-in"
           onClick={() => setSelectedModalItem(null)}
         >
           <div
@@ -520,7 +508,7 @@ export const AttractionsSection: React.FC = () => {
               <img
                 src={selectedModalItem.image}
                 alt={selectedModalItem.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
@@ -534,9 +522,16 @@ export const AttractionsSection: React.FC = () => {
               </button>
 
               <div className="absolute bottom-4 left-6 right-6 text-white">
-                <span className="text-xs font-bold text-amber-400 uppercase tracking-wider bg-black/60 px-3 py-1 rounded-md backdrop-blur-sm">
-                  {selectedModalItem.subtitle || selectedModalItem.tag || 'HOTEL ESCAPE'}
-                </span>
+                {selectedModalItem.subtitle && (
+                  <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-black/60 px-3 py-1 rounded-md backdrop-blur-sm">
+                    {selectedModalItem.subtitle}
+                  </span>
+                )}
+                {selectedModalItem.tag && (
+                  <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-black/60 px-3 py-1 rounded-md backdrop-blur-sm">
+                    {selectedModalItem.tag}
+                  </span>
+                )}
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight mt-2">
                   {selectedModalItem.title}
                 </h3>
@@ -545,7 +540,7 @@ export const AttractionsSection: React.FC = () => {
 
             {/* Modal Body */}
             <div className="p-7 space-y-6">
-              <p className="text-slate-800 font-sans text-base leading-relaxed font-light">
+              <p className="text-black font-sans text-base leading-relaxed font-light">
                 {selectedModalItem.desc}
               </p>
 
@@ -554,11 +549,11 @@ export const AttractionsSection: React.FC = () => {
                   href={BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-3.5 px-7 rounded-xl inline-flex items-center space-x-2 group/modalbtn"
+                  className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-3 px-6 rounded-xl inline-flex items-center space-x-2 group/mod"
                 >
-                  <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover/modalbtn:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
-                  <span className="relative z-10 font-sans">BOOK YOUR STAY NOW</span>
-                  <span className="relative z-10 group-hover/modalbtn:translate-x-1 transition-transform">→</span>
+                  <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover/mod:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
+                  <span className="relative z-10 font-sans">PLAN YOUR VISIT</span>
+                  <span className="relative z-10 group-hover/mod:translate-x-1 transition-transform">→</span>
                 </a>
 
                 <span className="text-xs font-bold text-amber-900 uppercase tracking-wider">

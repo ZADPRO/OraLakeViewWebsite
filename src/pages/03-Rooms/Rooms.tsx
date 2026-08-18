@@ -1,6 +1,49 @@
 import React, { useState } from 'react';
 import { Footer } from '../../components/Footer/Footer';
 
+// Local Room Assets Imports
+// 1. Majestic Lakeview King
+import majesticImg1 from '../../assets/rooms/Majestic Lakeview King/Img1.png';
+import majesticImg2 from '../../assets/rooms/Majestic Lakeview King/7STD4054_1.jpg';
+import majesticImg3 from '../../assets/rooms/Majestic Lakeview King/7STD4055_1.jpg';
+import majesticImg4 from '../../assets/rooms/Majestic Lakeview King/image (4).jpg';
+
+// 2. Queen's Vista
+import queensImg1 from '../../assets/rooms/Queens Vista-40 sq metres/image_1.jpg';
+import queensImg2 from '../../assets/rooms/Queens Vista-40 sq metres/4E1A6643 copy_1.jpg';
+import queensImg3 from '../../assets/rooms/Queens Vista-40 sq metres/image (6)_1.jpg';
+import queensImg4 from '../../assets/rooms/Queens Vista-40 sq metres/image (4) - 1-2.jpg';
+
+// 3. Alpine Retreat
+import alpineImg1 from '../../assets/rooms/Alpine Retreat/4E1A7889_1_1.jpg';
+import alpineImg2 from '../../assets/rooms/Alpine Retreat/4E1A7101 copy_1.jpg';
+import alpineImg3 from '../../assets/rooms/Alpine Retreat/4E1A7893_1.jpg';
+import alpineImg4 from '../../assets/rooms/Alpine Retreat/Majestic Room 2_1_1.jpg';
+import alpineImg5 from '../../assets/rooms/Alpine Retreat/image (2)_1.png';
+import alpineImg6 from '../../assets/rooms/Alpine Retreat/image (4).jpg';
+
+// 4. Lakeview Studio
+import studioImg1 from '../../assets/rooms/Lakeview Studio-22 sq metres/4E1A8172_1.jpg';
+import studioImg2 from '../../assets/rooms/Lakeview Studio-22 sq metres/LS2_1.jpg';
+import studioImg3 from '../../assets/rooms/Lakeview Studio-22 sq metres/LS4_1.jpg';
+
+// 5. Signature Lakeview
+import signatureImg1 from '../../assets/rooms/Signature Lakeview/4E1A7872_1.jpg';
+import signatureImg2 from '../../assets/rooms/Signature Lakeview/4E1A8160_1_1.jpg';
+import signatureImg3 from '../../assets/rooms/Signature Lakeview/4E1A8163_1.jpg';
+import signatureImg4 from '../../assets/rooms/Signature Lakeview/image (2)_1.jpg';
+import signatureImg5 from '../../assets/rooms/Signature Lakeview/image (4)_1.jpg';
+
+// 6. Disability Lakeview Trio
+import disabilityImg1 from '../../assets/rooms/Disability Lakeview Trio-28 sq metres/7STD4003.jpg';
+import disabilityImg2 from '../../assets/rooms/Disability Lakeview Trio-28 sq metres/1-1-1-1-1-1.jpg';
+import disabilityImg3 from '../../assets/rooms/Disability Lakeview Trio-28 sq metres/image (6).jpg';
+
+// 7. Classic Lakeview
+import classicImg1 from '../../assets/rooms/Classic Lakeview-22 sq metres/image.jpg';
+import classicImg2 from '../../assets/rooms/Classic Lakeview-22 sq metres/15.jpg';
+import classicImg3 from '../../assets/rooms/Classic Lakeview-22 sq metres/image (1).jpg';
+
 const BOOKING_URL =
   'https://direct-book.com/properties/lakeviewhotelrestaurant?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=CHF';
 
@@ -34,7 +77,7 @@ export const Rooms: React.FC = () => {
     }));
   };
 
-  // 7 Authentic Room Types Extracted directly from live content & user prompt
+  // 7 Authentic Room Types mapped to local room assets from src/assets/rooms/
   const roomsList: RoomType[] = [
     {
       id: 'majestic-king',
@@ -49,12 +92,7 @@ export const Rooms: React.FC = () => {
         'Mini Fridge',
         'Flat-screen TV',
       ],
-      images: [
-        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
-      ],
+      images: [majesticImg1, majesticImg2, majesticImg3, majesticImg4],
       photoCount: 4,
     },
     {
@@ -70,15 +108,8 @@ export const Rooms: React.FC = () => {
         'Mini Fridge',
         'Flat-screen TV',
       ],
-      images: [
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-      ],
-      photoCount: 6,
+      images: [queensImg1, queensImg2, queensImg3, queensImg4],
+      photoCount: 4,
     },
     {
       id: 'alpine-retreat',
@@ -93,12 +124,8 @@ export const Rooms: React.FC = () => {
         'Mini Fridge',
         'Flat-screen TV',
       ],
-      images: [
-        'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80',
-      ],
-      photoCount: 3,
+      images: [alpineImg1, alpineImg2, alpineImg3, alpineImg4, alpineImg5, alpineImg6],
+      photoCount: 6,
     },
     {
       id: 'lakeview-studio',
@@ -112,14 +139,8 @@ export const Rooms: React.FC = () => {
         'Mini Fridge',
         'Flat-screen TV',
       ],
-      images: [
-        'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
-      ],
-      photoCount: 5,
+      images: [studioImg1, studioImg2, studioImg3],
+      photoCount: 3,
     },
     {
       id: 'signature-lakeview',
@@ -134,12 +155,8 @@ export const Rooms: React.FC = () => {
         'Mini Fridge',
         'Flat-screen TV',
       ],
-      images: [
-        'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80',
-      ],
-      photoCount: 3,
+      images: [signatureImg1, signatureImg2, signatureImg3, signatureImg4, signatureImg5],
+      photoCount: 5,
     },
     {
       id: 'disability-lakeview-trio',
@@ -153,11 +170,7 @@ export const Rooms: React.FC = () => {
         'Mini Fridge',
         'Flat-screen TV',
       ],
-      images: [
-        'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
-      ],
+      images: [disabilityImg1, disabilityImg2, disabilityImg3],
       photoCount: 3,
     },
     {
@@ -172,11 +185,8 @@ export const Rooms: React.FC = () => {
         'Flat-screen TV',
         '2 beds attached for double occupancy',
       ],
-      images: [
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1200&q=80',
-      ],
-      photoCount: 2,
+      images: [classicImg1, classicImg2, classicImg3],
+      photoCount: 3,
     },
   ];
 
@@ -204,8 +214,8 @@ export const Rooms: React.FC = () => {
       </section>
 
       {/* ROOMS LIST SECTION */}
-      <section className="py-20 lg:py-28 bg-[#FFFAF4]">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-10 space-y-16">
+      <section className="py-12 sm:py-20 lg:py-28 bg-[#FFFAF4]">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 space-y-10 sm:space-y-16">
           {roomsList.map((room, roomIdx) => {
             const currentImgIndex = activeImageIndexes[room.id] || 0;
             return (
@@ -213,14 +223,18 @@ export const Rooms: React.FC = () => {
                 key={room.id}
                 className="bg-white rounded-3xl overflow-hidden border border-amber-200/80 shadow-md hover:shadow-xl transition-all duration-500 grid grid-cols-1 lg:grid-cols-12 gap-0"
               >
-                {/* Left Side: Photo Carousel Frame with Image Counter */}
-                <div className={`lg:col-span-6 relative bg-black min-h-[340px] sm:min-h-[420px] ${roomIdx % 2 === 1 ? 'lg:order-2' : ''}`}>
+                {/* Left Side: Fixed Height & Width Image Container */}
+                <div
+                  className={`lg:col-span-6 relative bg-slate-950 w-full h-[280px] sm:h-[440px] lg:h-[460px] overflow-hidden ${
+                    roomIdx % 2 === 1 ? 'lg:order-2' : ''
+                  }`}
+                >
                   <img
                     src={room.images[currentImgIndex]}
                     alt={room.title}
-                    className="w-full h-full object-cover transition-all duration-500"
+                    className="w-full h-full object-cover object-center transition-all duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
                   {/* Size Badge */}
                   <div className="absolute top-4 left-4 z-10">
@@ -256,10 +270,10 @@ export const Rooms: React.FC = () => {
                 </div>
 
                 {/* Right Side: Room Content & Amenities */}
-                <div className={`lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between space-y-6 ${roomIdx % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <div className="space-y-4">
+                <div className={`lg:col-span-6 p-5 sm:p-8 lg:p-10 flex flex-col justify-between space-y-4 sm:space-y-6 ${roomIdx % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  <div className="space-y-3 sm:space-y-4">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h2 className="font-serif text-2xl sm:text-3xl font-bold text-black tracking-tight">
+                      <h2 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-black tracking-tight">
                         {room.title}
                       </h2>
                       <span className="text-xs font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-md">
@@ -267,12 +281,13 @@ export const Rooms: React.FC = () => {
                       </span>
                     </div>
 
-                    <p className="text-black font-sans text-sm sm:text-base font-light leading-relaxed">
+                    {/* Room Description (Line Clamp 2 on mobile, full text on sm/desktop) */}
+                    <p className="text-black font-sans text-xs sm:text-base font-light leading-relaxed line-clamp-2 sm:line-clamp-none">
                       {room.desc}
                     </p>
 
-                    {/* Checked Amenities List */}
-                    <div className="pt-2">
+                    {/* Checked Amenities List (Hidden on mobile < sm, visible on desktop) */}
+                    <div className="hidden sm:block pt-2">
                       <h4 className="text-xs font-bold text-black uppercase tracking-wider mb-3">
                         Room Features & Amenities:
                       </h4>
@@ -291,24 +306,24 @@ export const Rooms: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Actions Bar (Slanted Gold CTA Button) */}
-                  <div className="pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+                  {/* Actions Bar (Check Availability & View Details Side-by-Side Clean Text Links) */}
+                  <div className="pt-4 sm:pt-6 border-t border-slate-100 flex items-center justify-between gap-3 font-sans">
                     <a
                       href={BOOKING_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-3.5 px-7 rounded-xl inline-flex items-center space-x-2 group/book"
+                      className="text-xs font-bold text-black hover:text-[#C68D53] uppercase tracking-wider transition-colors inline-flex items-center space-x-1.5"
                     >
-                      <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover/book:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
-                      <span className="relative z-10 font-sans">CHECK AVAILABILITY</span>
-                      <span className="relative z-10 group-hover/book:translate-x-1 transition-transform">→</span>
+                      <span>CHECK AVAILABILITY</span>
+                      <span>→</span>
                     </a>
 
                     <button
                       onClick={() => setSelectedRoomModal(room)}
-                      className="text-xs font-bold text-amber-900 hover:text-black uppercase tracking-wider transition-colors"
+                      className="text-xs font-bold text-[#C68D53] hover:text-black uppercase tracking-wider transition-colors inline-flex items-center space-x-1.5 text-right"
                     >
-                      View Details & Photos →
+                      <span>VIEW DETAILS & PHOTOS</span>
+                      <span>→</span>
                     </button>
                   </div>
                 </div>
@@ -325,15 +340,15 @@ export const Rooms: React.FC = () => {
           onClick={() => setSelectedRoomModal(null)}
         >
           <div
-            className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full border border-amber-200 shadow-2xl relative text-black"
+            className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full border border-amber-200 shadow-2xl relative text-black max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Image Header */}
+            {/* Modal Image Header with Fixed Height & Object-Cover */}
             <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-black">
               <img
                 src={selectedRoomModal.images[0]}
                 alt={selectedRoomModal.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
