@@ -290,8 +290,8 @@ export const Rooms: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* Room Description (Line Clamp 2 on mobile, full text on sm/desktop) */}
-                    <p className="text-black font-sans text-xs sm:text-base font-light leading-relaxed line-clamp-2 sm:line-clamp-none">
+                    {/* Room Description */}
+                    <p className="text-slate-800 font-sans text-sm sm:text-base font-normal leading-relaxed">
                       {room.desc}
                     </p>
 

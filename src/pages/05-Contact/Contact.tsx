@@ -81,19 +81,22 @@ export const Contact: React.FC = () => {
                 </p>
               </div>
 
-              {/* 3 STACKED CARDS */}
+              {/* 3 STACKED CARDS WITH VECTOR SVG ICONS */}
               <div className="space-y-5">
                 {/* Item 1: Address */}
                 <div className="bg-[#FFFAF4] p-6 rounded-2xl border border-amber-200/80 shadow-sm flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-xl bg-white border border-amber-300/60 flex items-center justify-center text-[#C68D53] shrink-0 font-bold">
-                    📍
+                  <div className="w-12 h-12 rounded-xl bg-white border border-amber-300/60 flex items-center justify-center text-[#C68D53] shrink-0 font-bold shadow-xs">
+                    <svg className="w-6 h-6 text-[#C68D53]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
                   </div>
                   <div className="space-y-1">
                     <h3 className="font-serif text-lg font-bold text-black">Hotel Address</h3>
-                    <p className="text-black font-sans text-sm font-light leading-relaxed">
+                    <p className="text-black font-sans text-sm sm:text-base font-normal leading-relaxed">
                       Hauptstrasse 32, 3853 Niederried bei Interlaken, Switzerland
                     </p>
-                    <p className="text-xs font-bold text-amber-900 pt-1">
+                    <p className="text-xs sm:text-sm font-bold text-amber-900 pt-1">
                       2 mins walk from Niederried Train Station & Ferry Dock
                     </p>
                   </div>
@@ -101,35 +104,39 @@ export const Contact: React.FC = () => {
 
                 {/* Item 2: Phone */}
                 <div className="bg-[#FFFAF4] p-6 rounded-2xl border border-amber-200/80 shadow-sm flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-xl bg-white border border-amber-300/60 flex items-center justify-center text-[#C68D53] shrink-0 font-bold">
-                    📞
+                  <div className="w-12 h-12 rounded-xl bg-white border border-amber-300/60 flex items-center justify-center text-[#C68D53] shrink-0 font-bold shadow-xs">
+                    <svg className="w-6 h-6 text-[#C68D53]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
                   </div>
                   <div className="space-y-1">
                     <h3 className="font-serif text-lg font-bold text-black">Direct Phone & WhatsApp</h3>
                     <a
                       href="tel:+41779731981"
-                      className="text-black hover:text-[#C68D53] font-sans text-base font-bold transition-colors block"
+                      className="text-black hover:text-[#C68D53] font-sans text-base sm:text-lg font-bold transition-colors block"
                     >
                       +41 77 973 19 81
                     </a>
-                    <p className="text-xs text-black font-light">Available 24/7 for booking inquiries</p>
+                    <p className="text-xs sm:text-sm text-black font-normal">Available 24/7 for booking inquiries</p>
                   </div>
                 </div>
 
                 {/* Item 3: Email */}
                 <div className="bg-[#FFFAF4] p-6 rounded-2xl border border-amber-200/80 shadow-sm flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-xl bg-white border border-amber-300/60 flex items-center justify-center text-[#C68D53] shrink-0 font-bold">
-                    ✉️
+                  <div className="w-12 h-12 rounded-xl bg-white border border-amber-300/60 flex items-center justify-center text-[#C68D53] shrink-0 font-bold shadow-xs">
+                    <svg className="w-6 h-6 text-[#C68D53]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
                   </div>
                   <div className="space-y-1">
                     <h3 className="font-serif text-lg font-bold text-black">Email Support</h3>
                     <a
                       href="mailto:info@oralakeview.com"
-                      className="text-black hover:text-[#C68D53] font-sans text-base font-bold transition-colors block"
+                      className="text-black hover:text-[#C68D53] font-sans text-base sm:text-lg font-bold transition-colors block"
                     >
                       info@oralakeview.com
                     </a>
-                    <p className="text-xs text-black font-light">Fast responses within 24 hours guaranteed</p>
+                    <p className="text-xs sm:text-sm text-black font-normal">Fast responses within 24 hours guaranteed</p>
                   </div>
                 </div>
               </div>

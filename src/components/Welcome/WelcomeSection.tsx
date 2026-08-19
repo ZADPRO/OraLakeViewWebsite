@@ -55,7 +55,7 @@ export const WelcomeSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Hotel Facade Image Composition with Gold Transit Badge & White Text */}
+          {/* Right Column: Hotel Facade Image Composition with Top Location Highlight Badge */}
           <div className="lg:col-span-5 relative mt-6 lg:mt-0">
             {/* Floating Transit Badge (Gold Background with White Text) */}
             <div className="absolute -top-4 right-4 sm:right-6 z-30 bg-[#C68D53] text-white font-bold px-4 py-2.5 rounded-2xl shadow-2xl border border-white/40 flex items-center space-x-3 backdrop-blur-md">
@@ -79,21 +79,6 @@ export const WelcomeSection: React.FC = () => {
                 alt="ORA Lake View Hotel Facade & Panoramic Views"
                 className="w-full h-[400px] sm:h-[480px] object-cover hover:scale-105 transition-transform duration-700"
               />
-            </div>
-
-            {/* Bottom Caption Bar */}
-            <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl border border-amber-200/80 shadow-lg flex items-center justify-between">
-              <div>
-                <div className="font-serif font-bold text-sm text-black">
-                  Hauptstrasse 32, Niederried
-                </div>
-                <div className="text-xs text-amber-900 font-sans">
-                  Bei Interlaken • Lake Brienz
-                </div>
-              </div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-black px-2.5 py-1 rounded-md">
-                HOTEL FACADE
-              </span>
             </div>
           </div>
         </div>

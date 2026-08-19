@@ -284,19 +284,19 @@ export const AttractionsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Auto-Scrolling Horizontal Carousel Track */}
+          {/* Horizontal Carousel Track: Full First Card Displayed with Peeking Second Card on Mobile */}
           <div
             ref={attractionsScrollRef}
             onMouseEnter={() => setIsAttractionsPaused(true)}
             onMouseLeave={() => setIsAttractionsPaused(false)}
-            className="flex space-x-6 overflow-x-auto scrollbar-none pb-4 scroll-smooth"
+            className="flex space-x-4 sm:space-x-6 overflow-x-auto scrollbar-none pb-4 scroll-smooth snap-x snap-mandatory pr-6 sm:pr-0"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {nearbyAttractions.map((item) => (
               <div
                 key={item.id}
                 onClick={() => setSelectedModalItem(item)}
-                className="w-[300px] sm:w-[360px] flex-shrink-0 bg-[#FFFAF4] rounded-3xl overflow-hidden border border-amber-200/80 shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-500 flex flex-col justify-between cursor-pointer group"
+                className="w-[84vw] sm:w-[360px] max-w-[360px] flex-shrink-0 snap-start bg-[#FFFAF4] rounded-3xl overflow-hidden border border-amber-200/80 shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-500 flex flex-col justify-between cursor-pointer group"
               >
                 <div>
                   {/* Photo Container with Fixed Height & Object-Cover Fit */}
@@ -317,7 +317,7 @@ export const AttractionsSection: React.FC = () => {
                     <p className="font-sans text-xs font-semibold text-amber-900 tracking-wide uppercase">
                       {item.subtitle}
                     </p>
-                    <p className="font-sans text-xs text-black font-light leading-relaxed line-clamp-2">
+                    <p className="font-sans text-sm sm:text-base text-slate-800 font-normal leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -391,23 +391,23 @@ export const AttractionsSection: React.FC = () => {
               ))}
             </div>
 
-            {/* Right Transit Map Frame */}
+            {/* Right Transit Map Frame (Gold Container & Maximized Image) */}
             <div className="lg:col-span-6 relative">
-              <div className="bg-white p-4 sm:p-6 rounded-3xl border border-amber-200/80 shadow-lg space-y-4">
+              <div className="bg-gradient-to-br from-[#C68D53] via-[#C68D53] to-[#B37B43] p-4 sm:p-6 rounded-3xl border-2 border-amber-300/80 shadow-2xl space-y-4 text-white">
                 <div className="flex items-center justify-between px-2">
-                  <h3 className="font-serif text-xl font-bold text-black">
+                  <h3 className="font-serif text-xl font-bold text-white tracking-wide">
                     Niederried Transit Map
                   </h3>
-                  <span className="text-xs font-sans font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-md">
+                  <span className="text-xs font-sans font-bold text-amber-300 bg-slate-950 px-3.5 py-1.5 rounded-lg border border-amber-300/40 shadow-md uppercase tracking-wider">
                     2 MINS TO TRAIN STATION
                   </span>
                 </div>
 
-                <div className="h-[360px] sm:h-[400px] w-full rounded-2xl overflow-hidden bg-slate-900 relative">
+                <div className="h-[280px] sm:h-[440px] w-full rounded-2xl overflow-hidden bg-[#181C24] relative border border-white/30 shadow-inner group">
                   <img
                     src={mapImg}
                     alt="Niederried Transit Map"
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain sm:object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               </div>
@@ -457,19 +457,19 @@ export const AttractionsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Auto-Scrolling Horizontal Carousel Track */}
+          {/* Horizontal Carousel Track: Full First Card Displayed with Peeking Second Card on Mobile */}
           <div
             ref={activitiesScrollRef}
             onMouseEnter={() => setIsActivitiesPaused(true)}
             onMouseLeave={() => setIsActivitiesPaused(false)}
-            className="flex space-x-6 overflow-x-auto scrollbar-none pb-4 scroll-smooth"
+            className="flex space-x-4 sm:space-x-6 overflow-x-auto scrollbar-none pb-4 scroll-smooth snap-x snap-mandatory pr-6 sm:pr-0"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {hotelActivities.map((act) => (
               <div
                 key={act.id}
                 onClick={() => setSelectedModalItem(act)}
-                className="w-[300px] sm:w-[360px] flex-shrink-0 bg-[#FFFAF4] rounded-3xl overflow-hidden border border-amber-200/80 shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-500 flex flex-col justify-between cursor-pointer group"
+                className="w-[84vw] sm:w-[360px] max-w-[360px] flex-shrink-0 snap-start bg-[#FFFAF4] rounded-3xl overflow-hidden border border-amber-200/80 shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-500 flex flex-col justify-between cursor-pointer group"
               >
                 <div>
                   {/* Photo Container with Fixed Height & Object-Cover Fit */}
@@ -492,7 +492,7 @@ export const AttractionsSection: React.FC = () => {
                     <h3 className="font-serif text-2xl font-bold text-black tracking-tight group-hover:text-amber-900 transition-colors">
                       {act.title}
                     </h3>
-                    <p className="font-sans text-xs text-black font-light leading-relaxed line-clamp-3">
+                    <p className="font-sans text-sm sm:text-base text-slate-800 font-normal leading-relaxed">
                       {act.desc}
                     </p>
                   </div>

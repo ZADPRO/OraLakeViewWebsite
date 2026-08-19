@@ -10,22 +10,22 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-16">
           {/* COLUMN 1: About Us */}
           <div className="space-y-4">
-            <h3 className="font-serif text-lg font-medium text-white tracking-wide">
+            <h3 className="font-serif text-xl font-bold text-white uppercase tracking-wider">
               About us
             </h3>
             <div className="w-8 h-[2px] bg-[#C68D53]" />
-            <p className="text-slate-400 font-sans text-xs sm:text-sm leading-relaxed font-light">
+            <p className="text-slate-300 font-sans text-sm sm:text-base leading-relaxed font-normal">
               Welcome to ORA Lake View Hotel & Restaurant, your trusted sanctuary for discovering and experiencing the best of Swiss hospitality on Lake Brienz. Since our journey began, we have been committed to making every stay unforgettable.
             </p>
           </div>
 
           {/* COLUMN 2: Hotel Best Services */}
           <div className="space-y-4">
-            <h3 className="font-serif text-lg font-medium text-white tracking-wide">
+            <h3 className="font-serif text-xl font-bold text-white uppercase tracking-wider">
               hotel best services
             </h3>
             <div className="w-8 h-[2px] bg-[#C68D53]" />
-            <ul className="space-y-3 font-sans text-xs sm:text-sm text-slate-400 font-light">
+            <ul className="space-y-3 font-sans text-sm sm:text-base text-slate-300 font-normal">
               <li>
                 <Link to="/rooms" className="hover:text-[#C68D53] transition-colors">
                   Free Private Parking
@@ -51,37 +51,37 @@ export const Footer: React.FC = () => {
 
           {/* COLUMN 3: Check in & Out Time */}
           <div className="space-y-4">
-            <h3 className="font-serif text-lg font-medium text-white tracking-wide">
+            <h3 className="font-serif text-xl font-bold text-white uppercase tracking-wider">
               check in & out time
             </h3>
             <div className="w-8 h-[2px] bg-[#C68D53]" />
-            <div className="space-y-3 font-sans text-xs sm:text-sm text-slate-400 font-light">
-              <div className="flex justify-between max-w-[220px]">
+            <div className="space-y-3 font-sans text-sm sm:text-base text-slate-300 font-normal">
+              <div className="flex justify-between max-w-[260px]">
                 <span>Mon to Fri :</span>
-                <span className="text-white font-medium">15:00 - 22:00</span>
+                <span className="text-white font-semibold">15:00 - 22:00</span>
               </div>
-              <div className="flex justify-between max-w-[220px]">
+              <div className="flex justify-between max-w-[260px]">
                 <span>Saturday :</span>
-                <span className="text-white font-medium">15:00 - 22:00</span>
+                <span className="text-white font-semibold">15:00 - 22:00</span>
               </div>
-              <div className="flex justify-between max-w-[220px]">
+              <div className="flex justify-between max-w-[260px]">
                 <span>Sunday :</span>
-                <span className="text-white font-medium">15:00 - 22:00</span>
+                <span className="text-white font-semibold">15:00 - 22:00</span>
               </div>
             </div>
           </div>
 
-          {/* COLUMN 4: Contact Us (Vector SVG Icons - No Emojis) */}
+          {/* COLUMN 4: Contact Us */}
           <div className="space-y-4">
-            <h3 className="font-serif text-lg font-medium text-white tracking-wide">
+            <h3 className="font-serif text-xl font-bold text-white uppercase tracking-wider">
               Contact Us
             </h3>
             <div className="w-8 h-[2px] bg-[#C68D53]" />
-            <div className="space-y-3.5 font-sans text-xs sm:text-sm text-slate-400 font-light">
+            <div className="space-y-3.5 font-sans text-sm sm:text-base text-slate-300 font-normal">
               {/* Address Icon (MapPin) */}
               <div className="flex items-start space-x-3">
                 <svg
-                  className="w-4 h-4 text-[#C68D53] shrink-0 mt-1"
+                  className="w-5 h-5 text-[#C68D53] shrink-0 mt-1"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -105,7 +105,7 @@ export const Footer: React.FC = () => {
               {/* Email Icon (Mail) */}
               <div className="flex items-center space-x-3">
                 <svg
-                  className="w-4 h-4 text-[#C68D53] shrink-0"
+                  className="w-5 h-5 text-[#C68D53] shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -117,7 +117,7 @@ export const Footer: React.FC = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <a href="mailto:info@oralakeview.com" className="hover:text-[#C68D53] transition-colors">
+                <a href="mailto:info@oralakeview.com" className="hover:text-[#C68D53] transition-colors font-medium">
                   info@oralakeview.com
                 </a>
               </div>
@@ -125,7 +125,7 @@ export const Footer: React.FC = () => {
               {/* Phone Icon (Phone) */}
               <div className="flex items-center space-x-3">
                 <svg
-                  className="w-4 h-4 text-[#C68D53] shrink-0"
+                  className="w-5 h-5 text-[#C68D53] shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -137,7 +137,7 @@ export const Footer: React.FC = () => {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <a href="tel:+41786938847" className="hover:text-[#C68D53] transition-colors">
+                <a href="tel:+41786938847" className="hover:text-[#C68D53] transition-colors font-medium">
                   +41 78 693 88 47
                 </a>
               </div>

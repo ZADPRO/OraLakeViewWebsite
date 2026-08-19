@@ -198,7 +198,7 @@ export const About: React.FC = () => {
               Our Journey
             </h2>
 
-            <p className="text-black font-sans text-sm sm:text-base font-light leading-relaxed">
+            <p className="text-slate-800 font-sans text-base sm:text-lg font-normal leading-relaxed">
               Explore how ORA Lake View evolved from a tranquil hidden gem into an extraordinary Swiss sanctuary.
             </p>
           </div>
@@ -252,10 +252,10 @@ export const About: React.FC = () => {
                           </div>
 
                           <div className="space-y-2 pt-2">
-                            <h3 className="font-serif text-xl font-bold text-black tracking-tight">
+                            <h3 className="font-serif text-xl sm:text-2xl font-bold text-black tracking-tight">
                               {m.title}
                             </h3>
-                            <p className="text-black font-sans text-xs leading-relaxed line-clamp-2">
+                            <p className="text-slate-800 font-sans text-sm sm:text-base leading-relaxed font-normal">
                               {m.shortDesc}
                             </p>
                           </div>
@@ -281,7 +281,7 @@ export const About: React.FC = () => {
                             <h4 className="font-serif text-lg font-bold text-amber-400 tracking-wide">
                               {m.title}
                             </h4>
-                            <p className="text-slate-200 font-sans text-xs sm:text-sm leading-relaxed font-light">
+                            <p className="text-slate-200 font-sans text-sm sm:text-base leading-relaxed font-normal">
                               {m.fullDesc}
                             </p>
                           </div>

@@ -230,16 +230,13 @@ export const AmenitiesSection: React.FC = () => {
 
                     {/* BACK FACE: Full Description Text */}
                     <div
-                      className={`amenity-flip-card-back p-6 rounded-2xl flex flex-col items-center justify-center text-center shadow-xl ${
+                      className={`amenity-flip-card-back p-5 sm:p-6 rounded-2xl flex flex-col items-center justify-center text-center shadow-xl ${
                         item.isGold
                           ? 'bg-slate-950 text-white border border-slate-800'
                           : 'bg-[#C68D53] text-white border border-[#C68D53]'
                       }`}
                     >
-                      <h4 className="font-serif text-sm font-bold text-amber-300 mb-2 uppercase tracking-wide">
-                        {item.title}
-                      </h4>
-                      <p className="font-sans text-xs sm:text-sm leading-relaxed text-white/95 font-light">
+                      <p className="font-sans text-sm sm:text-base leading-relaxed text-white font-normal tracking-wide px-1">
                         {item.desc}
                       </p>
                     </div>
