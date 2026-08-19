@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import { useSeason } from '../../context/SeasonContext';
+import homeTextImg from '../../assets/home/HOME_TEXT.png';
 import home1Img from '../../assets/home/HOME/HOME1.jpg';
 import winterImg from '../../assets/images/Landing Page/4E1A7684_1.jpg';
 import lakeviewLogo from '../../assets/logo/Lakeview.svg';
@@ -284,15 +285,15 @@ export const HeroWaterRipple: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[80vh] md:min-h-screen flex flex-col justify-between overflow-hidden bg-slate-950 text-white select-none"
+      className="relative w-full h-[70vh] min-h-[520px] md:min-h-screen flex flex-col justify-between overflow-hidden bg-slate-950 text-white select-none"
     >
-      {/* Dual Pre-loaded Background Image Layers for Silky Smooth 1000ms Cross-Fade */}
+      {/* Duali Pre-loaded Background Image Layers for Silky Smooth 1000ms Cross-Fade */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Summer Hero Background Layer */}
         <img
           src={home1Img}
           alt="Summer ORA Lake View"
-          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${
             season === 'summer' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
           }`}
         />
@@ -301,31 +302,31 @@ export const HeroWaterRipple: React.FC = () => {
         <img
           src={winterImg}
           alt="Winter ORA Lake View"
-          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${
             season === 'winter' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
           }`}
         />
       </div>
 
-      {/* GPU Hardware-Accelerated WebGL Water Ripple Canvas Overlay */}
+      {/* GPU Hardware-Accelerated WebGL Water Ripple Canvas Overlay (Desktop Only to prevent texture stretch on portrait mobile) */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full object-cover z-1 cursor-pointer transition-opacity duration-700 opacity-90"
+        className="absolute inset-0 w-full h-full object-cover z-1 cursor-pointer transition-opacity duration-700 opacity-90 hidden md:block"
       />
 
       {/* Subtle luxury gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-black/40 pointer-events-none z-10" />
 
-      {/* Hero Content Grid Overlay (h-[80vh] on Mobile, min-h-screen on Desktop) */}
+      {/* Hero Content Grid Overlay (70vh on Mobile, min-h-screen on Desktop) */}
       <div className="relative z-20 max-w-[1480px] w-full mx-auto px-4 md:px-10 pt-20 md:pt-36 pb-6 md:pb-16 flex-1 flex flex-col justify-between">
-        {/* Top Section: Centered SVG Logo with Semantic H1 for SEO */}
-        <div className="w-full flex flex-col justify-center items-center animate-fade-in py-1 md:py-4">
+        {/* Center Section: Serenity Script Art Centered in Hero Overlay */}
+        <div className="w-full my-auto flex flex-col justify-center items-center animate-fade-in py-1 md:py-4">
           <h1 className="sr-only">ORA Lakeview Hotel | Scenic Swiss Alps & Lake View Stay</h1>
-          <div className="w-52 sm:w-80 md:w-[440px] lg:w-[520px]">
+          <div className="w-64 sm:w-80 md:w-[360px] lg:w-[420px] xl:w-[480px] max-w-[85vw]">
             <img
-              src={lakeviewLogo}
-              alt="ORA Lake View Hotel | Scenic Swiss Alps & Lake View Stay"
-              className="w-full h-auto object-contain filter drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]"
+              src={homeTextImg}
+              alt="Serenity at ORA Lake View Hotel"
+              className="w-full h-auto object-contain filter drop-shadow-[0_6px_24px_rgba(0,0,0,0.85)] mx-auto"
             />
           </div>
         </div>
@@ -334,7 +335,7 @@ export const HeroWaterRipple: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-end mt-4 md:mt-12 w-full">
           {/* Bottom Left: Description & VIEW OUR ROOMS Button */}
           <div className="lg:col-span-5 space-y-4 md:space-y-6 text-center sm:text-left">
-            <p className="text-white text-sm sm:text-xl lg:text-2xl font-sans font-light leading-relaxed tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-xl mx-auto sm:mx-0">
+            <p className="text-white text-base sm:text-xl lg:text-2xl font-sans font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-xl mx-auto sm:mx-0">
               {heroContent?.subtitle ||
                 'A slice of Swiss heaven crafted for dreamers, romantics, and adventure seekers alike.'}
             </p>
