@@ -270,10 +270,31 @@ export const HeroWaterRipple: React.FC = () => {
       ref={containerRef}
       className="relative w-full h-[80vh] md:min-h-screen flex flex-col justify-between overflow-hidden bg-slate-950 text-white select-none"
     >
-      {/* GPU Hardware-Accelerated WebGL Water Ripple Canvas */}
+      {/* Dual Pre-loaded Background Image Layers for Silky Smooth 1000ms Cross-Fade */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Summer Hero Background Layer */}
+        <img
+          src={home1Img}
+          alt="Summer ORA Lake View"
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
+            season === 'summer' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+          }`}
+        />
+
+        {/* Winter Hero Background Layer */}
+        <img
+          src={winterImg}
+          alt="Winter ORA Lake View"
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
+            season === 'winter' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+          }`}
+        />
+      </div>
+
+      {/* GPU Hardware-Accelerated WebGL Water Ripple Canvas Overlay */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full object-cover z-0 cursor-pointer transition-opacity duration-700"
+        className="absolute inset-0 w-full h-full object-cover z-1 cursor-pointer transition-opacity duration-700 opacity-90"
       />
 
       {/* Subtle luxury gradient overlay */}
