@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 
 // Local Room Assets Imports
@@ -77,67 +77,34 @@ export const RoomsSection: React.FC = () => {
     },
   ];
 
-  // Duplicate items array 3 times for 100% infinite seamless loop
-  const displayItems = [...items, ...items, ...items];
-
-  const [currentIndex, setCurrentIndex] = useState(items.length);
-  const [isTransitioning, setIsTransitioning] = useState(true);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   const [isPaused, setIsPaused] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const handlePrev = () => {
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev - 1);
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -360, behavior: 'smooth' });
+    }
   };
 
   const handleNext = () => {
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev + 1);
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      if (scrollLeft + clientWidth >= scrollWidth - 10) {
+        scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        scrollRef.current.scrollBy({ left: 360, behavior: 'smooth' });
+      }
+    }
   };
 
-  // Seamless infinite wrap-around reset
-  useEffect(() => {
-    if (currentIndex >= items.length * 2) {
-      const timer = setTimeout(() => {
-        setIsTransitioning(false);
-        setCurrentIndex(items.length);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-    if (currentIndex < items.length) {
-      const timer = setTimeout(() => {
-        setIsTransitioning(false);
-        setCurrentIndex(items.length * 2 - 1);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [currentIndex, items.length]);
-
-  // Auto-Scroll Speed: 2.5 Seconds
+  // Auto-scroll every 3 seconds
   useEffect(() => {
     if (isPaused || items.length <= 1) return;
     const interval = setInterval(() => {
       handleNext();
-    }, 2500);
+    }, 3000);
     return () => clearInterval(interval);
   }, [isPaused, items.length]);
-
-  // Dynamic responsive slider transform calculation
-  const getTransformStyle = () => {
-    if (windowWidth >= 1024) {
-      return `translateX(calc(-${currentIndex} * (100% / 4 + 6px)))`;
-    } else if (windowWidth >= 640) {
-      return `translateX(calc(-${currentIndex} * (100% / 2 + 12px)))`;
-    } else {
-      return `translateX(calc(-${currentIndex} * (84vw + 16px)))`;
-    }
-  };
 
   return (
     <section className="relative py-20 lg:py-28 bg-white text-black overflow-hidden select-none border-t border-slate-200">
@@ -159,123 +126,115 @@ export const RoomsSection: React.FC = () => {
           </h2>
 
           {/* Sub-heading Paragraph Centered */}
-          <p className="text-black font-sans text-sm sm:text-base font-light leading-relaxed">
+          <p className="text-black font-sans text-sm sm:text-base font-normal leading-relaxed">
             {roomsContent?.subtitle ||
               'At ORA Lake View, we offer a variety of beautifully designed rooms and suites to suit every traveler’s need — from cozy lakeview rooms to spacious family retreats over Lake Brienz.'}
           </p>
         </div>
 
-        {/* Responsive Mobile-Friendly Carousel Track */}
+        {/* Both Manual Scrollable (Touch / Mouse Drag) AND Auto-Scroll Track */}
         <div
-          className="overflow-hidden py-4 px-1"
+          ref={scrollRef}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          className="flex space-x-4 sm:space-x-6 overflow-x-auto scrollbar-none pb-4 scroll-smooth snap-x snap-mandatory pr-6 sm:pr-0"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          <div
-            className={`flex ${
-              isTransitioning ? 'transition-transform duration-500 ease-in-out' : ''
-            } gap-4 sm:gap-6`}
-            style={{
-              transform: getTransformStyle(),
-            }}
-          >
-            {displayItems.map((room: any, idx: number) => (
-              <a
-                key={`${room.id}-${idx}`}
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-[84vw] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] flex-shrink-0 group cursor-pointer"
-              >
-                {/* Sleek Shadowless Card Frame */}
-                <div className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 flex flex-col h-full shadow-sm hover:shadow-lg transition-shadow">
-                  {/* Fixed Height Container with Object-Cover Fit */}
-                  <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-black rounded-t-2xl">
-                    <img
-                      src={room.image}
-                      alt={room.name}
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+          {items.map((room: any) => (
+            <a
+              key={room.id}
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-[84vw] sm:w-[340px] lg:w-[360px] flex-shrink-0 snap-start group cursor-pointer"
+            >
+              {/* Sleek Shadowless Card Frame */}
+              <div className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 flex flex-col h-full shadow-sm hover:shadow-lg transition-shadow">
+                {/* Fixed Height Container with Object-Cover Fit */}
+                <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-black rounded-t-2xl">
+                  <img
+                    src={room.image}
+                    alt={room.name}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
 
-                    {/* Floating Price Badge Top-Left */}
-                    <div className="absolute top-3.5 left-3.5 z-10 bg-[#C68D53] text-white font-bold text-xs px-3 py-1 rounded-md shadow-sm tracking-wider uppercase">
-                      {room.price}
-                    </div>
-                  </div>
-
-                  {/* Card Content Body */}
-                  <div className="p-5 bg-white flex-1 flex flex-col justify-between space-y-4">
-                    <div>
-                      {/* Main Room Name Headline */}
-                      <h3 className="font-serif text-xl font-semibold text-black tracking-tight group-hover:text-amber-800 transition-colors line-clamp-1">
-                        {room.name}
-                      </h3>
-                    </div>
-
-                    {/* Specs Line with Clean Lucide-Style SVG Vector Icons */}
-                    <div className="flex items-center space-x-5 text-xs font-sans text-black pt-2 border-t border-slate-100">
-                      {/* Size Icon (Maximize2) */}
-                      <div className="flex items-center space-x-1.5">
-                        <svg
-                          className="w-4 h-4 text-amber-700 shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"
-                          />
-                        </svg>
-                        <span>{room.size}</span>
-                      </div>
-
-                      {/* Capacity Icon (Users) */}
-                      <div className="flex items-center space-x-1.5">
-                        <svg
-                          className="w-4 h-4 text-amber-700 shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                          />
-                        </svg>
-                        <span>{room.guests}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Gramentheme Restin 45-Degree Slanted Center-Reveal Gold Button Hover Transition */}
-                  <div className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-3.5 px-5 flex items-center justify-between transition-colors duration-300 rounded-b-2xl group">
-                    <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
-
-                    <span className="relative z-10 font-sans">BOOK NOW</span>
-                    <svg
-                      className="w-4 h-4 text-white relative z-10 group-hover:translate-x-1.5 transition-transform duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                    </svg>
+                  {/* Floating Price Badge Top-Left */}
+                  <div className="absolute top-3.5 left-3.5 z-10 bg-[#C68D53] text-white font-bold text-xs px-3 py-1 rounded-md shadow-sm tracking-wider uppercase">
+                    {room.price}
                   </div>
                 </div>
-              </a>
-            ))}
-          </div>
+
+                {/* Card Content Body */}
+                <div className="p-5 bg-white flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    {/* Main Room Name Headline */}
+                    <h3 className="font-serif text-xl font-semibold text-black tracking-tight group-hover:text-amber-800 transition-colors line-clamp-1">
+                      {room.name}
+                    </h3>
+                  </div>
+
+                  {/* Specs Line with Clean Vector Icons */}
+                  <div className="flex items-center space-x-5 text-xs font-sans text-black pt-2 border-t border-slate-100">
+                    {/* Size Icon (Maximize2) */}
+                    <div className="flex items-center space-x-1.5">
+                      <svg
+                        className="w-4 h-4 text-amber-700 shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"
+                        />
+                      </svg>
+                      <span>{room.size}</span>
+                    </div>
+
+                    {/* Capacity Icon (Users) */}
+                    <div className="flex items-center space-x-1.5">
+                      <svg
+                        className="w-4 h-4 text-amber-700 shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                        />
+                      </svg>
+                      <span>{room.guests}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Gramentheme Restin 45-Degree Slanted Center-Reveal Gold Button Hover Transition */}
+                <div className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-3.5 px-5 flex items-center justify-between transition-colors duration-300 rounded-b-2xl group">
+                  <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
+
+                  <span className="relative z-10 font-sans">BOOK NOW</span>
+                  <svg
+                    className="w-4 h-4 text-white relative z-10 group-hover:translate-x-1.5 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          ))}
         </div>
 
-        {/* Carousel Navigation Controls Below Grid */}
-        <div className="flex items-center justify-between mt-8 pt-4">
-          {/* Arrow Controls */}
+        {/* Navigation Arrow Controls Below Carousel */}
+        <div className="flex items-center justify-end mt-8 pt-2">
           <div className="flex items-center space-x-3">
             <button
               onClick={handlePrev}
@@ -295,28 +254,6 @@ export const RoomsSection: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
               </svg>
             </button>
-          </div>
-
-          {/* Indicator Dots */}
-          <div className="flex items-center space-x-2">
-            {items.map((_, idx: number) => {
-              const activeIdx = currentIndex % items.length;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    setIsTransitioning(true);
-                    setCurrentIndex(items.length + idx);
-                  }}
-                  className={`rounded-full transition-all duration-300 ${
-                    activeIdx === idx
-                      ? 'bg-amber-600 w-3 h-3 ring-4 ring-amber-600/20'
-                      : 'bg-slate-300 hover:bg-slate-400 w-2 h-2'
-                  }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              );
-            })}
           </div>
         </div>
       </div>
