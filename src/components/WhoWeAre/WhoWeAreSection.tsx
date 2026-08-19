@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import hotelMainImage from '../../assets/images/Landing Page/4E1A7684_1.jpg';
+import home1Img from '../../assets/home/HOME/HOME1.jpg';
+import funFactImg from '../../assets/home/HOME/FUN-FACT.jpg';
 
 export const WhoWeAreSection: React.FC = () => {
   const { getContent } = useLanguage();
@@ -69,7 +70,7 @@ export const WhoWeAreSection: React.FC = () => {
             {/* Main Primary Image Frame with Custom Top-Right Curved Corner */}
             <div className="relative rounded-tl-[40px] rounded-tr-[180px] sm:rounded-tr-[210px] rounded-bl-[40px] rounded-br-[40px] overflow-hidden shadow-2xl border-2 border-white group bg-slate-100">
               <img
-                src={hotelMainImage}
+                src={home1Img}
                 alt="ORA Lake View Hotel & Restaurant Facade"
                 className="w-full h-[420px] sm:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -79,7 +80,7 @@ export const WhoWeAreSection: React.FC = () => {
             {/* Secondary Overlapping Floating Photo Frame (Floating at Bottom-Right Corner) */}
             <div className="absolute -bottom-4 -right-4 sm:-bottom-8 sm:-right-6 w-48 h-48 sm:w-64 sm:h-64 rounded-3xl border-4 sm:border-8 border-white shadow-2xl overflow-hidden z-20 group">
               <img
-                src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80"
+                src={funFactImg}
                 alt="Lake Brienz Panoramas & Swiss Alps"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />

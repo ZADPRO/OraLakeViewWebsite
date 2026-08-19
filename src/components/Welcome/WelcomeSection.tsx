@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import hotelMainImage from '../../assets/images/Landing Page/4E1A7684_1.jpg';
+import welcomeToImage from '../../assets/home/HOME/WELCOME-TO.jpg';
 
 export const WelcomeSection: React.FC = () => {
   const { getContent } = useLanguage();
@@ -75,7 +75,7 @@ export const WelcomeSection: React.FC = () => {
             {/* Primary Hotel Facade Frame */}
             <div className="rounded-3xl overflow-hidden shadow-2xl border-2 border-white bg-black">
               <img
-                src={hotelMainImage}
+                src={welcomeToImage}
                 alt="ORA Lake View Hotel Facade & Panoramic Views"
                 className="w-full h-[400px] sm:h-[480px] object-cover hover:scale-105 transition-transform duration-700"
               />

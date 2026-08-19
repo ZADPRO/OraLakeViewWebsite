@@ -2,6 +2,30 @@ import React, { useState, useRef } from 'react';
 import { Footer } from '../../components/Footer/Footer';
 import { FAQSection } from '../../components/FAQ/FAQSection';
 
+// Hero Banner Background
+import bannerBg from '../../assets/Banners/Banners.jpg';
+
+// Exact Local Gallery Images Imports from src/assets/gallery/
+import facade1 from '../../assets/gallery/Facade1.jpg';
+import facade2 from '../../assets/gallery/Facade2.jpg';
+import facade3 from '../../assets/gallery/Facade3.jpg';
+
+import rooms1 from '../../assets/gallery/Rooms1.jpg';
+import rooms2 from '../../assets/gallery/Rooms2.jpg';
+import rooms3 from '../../assets/gallery/Rooms3.jpg';
+
+import bar1 from '../../assets/gallery/Bar1.jpg';
+import bar2 from '../../assets/gallery/Bar2.jpg';
+import bar3 from '../../assets/gallery/Bar3.jpg';
+
+import reception1 from '../../assets/gallery/Reception1.jpg';
+import reception2 from '../../assets/gallery/Reception2.jpg';
+import reception3 from '../../assets/gallery/Reception3.jpeg';
+
+import img1 from '../../assets/gallery/1.jpg';
+import img13 from '../../assets/gallery/13.jpg';
+import img14 from '../../assets/gallery/14.jpg';
+
 interface GalleryItem {
   id: string;
   title: string;
@@ -37,122 +61,134 @@ export const Gallery: React.FC = () => {
     { id: 'reception', label: 'Reception' },
   ];
 
-  // 12 Gallery Items with varied Collage Height Classes for dynamic Masonry layout
+  // Local Gallery Items mapped from src/assets/gallery/
   const galleryItems: GalleryItem[] = [
-    // 3 FACADE IMAGES
+    // FACADE IMAGES
     {
       id: 'facade-1',
-      title: 'Hotel Alpine Exterior Facade',
+      title: 'Swiss Chalet Facade & Panoramic Deck',
       category: 'facade',
       categoryLabel: 'Facade',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Hotel Lakeview traditional Swiss chalethotel facade.',
-      heightClass: 'h-80 sm:h-[440px]',
+      image: facade1,
+      caption: 'Traditional Swiss chalet exterior surrounded by the serene waters of Lake Brienz.',
     },
     {
       id: 'facade-2',
-      title: 'Lakeside Frontage & Entrance',
+      title: 'Lakeside Frontage & Entrance Drive',
       category: 'facade',
       categoryLabel: 'Facade',
-      image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Lakefront hotel exterior surrounded by Swiss mountains.',
-      heightClass: 'h-64 sm:h-[300px]',
+      image: facade2,
+      caption: 'Scenic entrance and lakefront frontage at ORA Lake View Hotel.',
     },
     {
       id: 'facade-3',
-      title: 'Sunset View over Hotel Building',
+      title: 'Sunset View Over Lake Brienz',
       category: 'facade',
       categoryLabel: 'Facade',
-      image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Evening illuminated facade against Lake Brienz skyline.',
-      heightClass: 'h-72 sm:h-[360px]',
+      image: facade3,
+      caption: 'Golden hour sunset casting tranquil hues across the hotel facade.',
+    },
+    {
+      id: 'facade-4',
+      title: 'Alpine Peak Silhouette & Grounds',
+      category: 'facade',
+      categoryLabel: 'Facade',
+      image: img1,
+      caption: 'Manicured hotel grounds framed by majestic Bernese Mountain peaks.',
     },
 
-    // 3 ROOMS IMAGES
+    // ROOMS IMAGES
     {
       id: 'rooms-1',
-      title: 'Deluxe Lakefront Suite Bedroom',
+      title: 'Majestic Lakeview King Bedroom',
       category: 'rooms',
       categoryLabel: 'Rooms',
-      image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Spacious bedroom with king bed and private lake balcony.',
-      heightClass: 'h-64 sm:h-[320px]',
+      image: rooms1,
+      caption: 'Spacious king bedroom with floor-to-ceiling panoramic glass windows.',
     },
     {
       id: 'rooms-2',
-      title: 'Panoramic Balcony & Seating Area',
+      title: 'Private Balcony Seating Suite',
       category: 'rooms',
       categoryLabel: 'Rooms',
-      image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Suite balcony view overlooking turquoise waters of Lake Brienz.',
-      heightClass: 'h-96 sm:h-[480px]',
+      image: rooms2,
+      caption: 'Private balcony suite offering morning coffee views over Lake Brienz.',
     },
     {
       id: 'rooms-3',
-      title: 'Modern En-Suite Bathroom',
+      title: 'Luxury En-Suite Bathroom & Amenities',
       category: 'rooms',
       categoryLabel: 'Rooms',
-      image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Marble luxury bathroom with rain shower and premium amenities.',
-      heightClass: 'h-72 sm:h-[350px]',
+      image: rooms3,
+      caption: 'Modern luxury bathroom with rain shower and premium amenities.',
     },
 
-    // 3 BAR & RESTAURANT IMAGES
+    // BAR & RESTAURANT IMAGES
     {
       id: 'bar-1',
-      title: 'Lakeside Dining Terrace & Panorama',
+      title: 'Lakeside Dining Terrace Panorama',
       category: 'bar-restaurant',
       categoryLabel: 'Bar & Restaurant',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Outdoor terrace restaurant with lake and mountain views.',
-      heightClass: 'h-80 sm:h-[420px]',
+      image: bar1,
+      caption: 'Open-air lakefront terrace dining paired with Swiss culinary specialties.',
     },
     {
       id: 'bar-2',
-      title: 'Cosy Alpine Lounge & Bar Area',
+      title: 'Rustic Alpine Lounge & Cocktail Bar',
       category: 'bar-restaurant',
       categoryLabel: 'Bar & Restaurant',
-      image: 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Rustic wooden bar lounge serving Swiss wines and cocktails.',
-      heightClass: 'h-64 sm:h-[290px]',
+      image: bar2,
+      caption: 'Cozy bar lounge serving fine Swiss wines, spirits, and artisanal coffee.',
     },
     {
       id: 'bar-3',
-      title: 'Gourmet Swiss Culinary Specialties',
+      title: 'Authentic Swiss Culinary Delights',
       category: 'bar-restaurant',
       categoryLabel: 'Bar & Restaurant',
-      image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Authentic fondue and alpine cuisine served at ORA Lake View.',
-      heightClass: 'h-96 sm:h-[450px]',
+      image: bar3,
+      caption: 'Gourmet alpine dishes crafted with fresh local Swiss ingredients.',
+    },
+    {
+      id: 'bar-4',
+      title: 'Terrace Refreshments & Scenic Vistas',
+      category: 'bar-restaurant',
+      categoryLabel: 'Bar & Restaurant',
+      image: img13,
+      caption: 'Refreshing beverages served overlooking Lake Brienz.',
     },
 
-    // 3 RECEPTION IMAGES
+    // RECEPTION IMAGES
     {
       id: 'reception-1',
       title: 'Warm Lobby & Guest Reception Desk',
       category: 'reception',
       categoryLabel: 'Reception',
-      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Welcoming timber reception area with 24/7 concierge service.',
-      heightClass: 'h-72 sm:h-[360px]',
+      image: reception1,
+      caption: 'Welcoming timber reception desk providing 24/7 personalized concierge care.',
     },
     {
       id: 'reception-2',
-      title: 'Fireplace Lounge & Welcome Seating',
+      title: 'Lobby Fireplace Seating & Lounge',
       category: 'reception',
       categoryLabel: 'Reception',
-      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Cozy lobby fireplace lounge for arriving guests.',
-      heightClass: 'h-80 sm:h-[410px]',
+      image: reception2,
+      caption: 'Cozy fireplace lounge for relaxing upon arrival at ORA Lake View.',
     },
     {
       id: 'reception-3',
-      title: 'Concierge Desk & Alpine Tour Info',
+      title: 'Concierge Desk & Tour Information',
       category: 'reception',
       categoryLabel: 'Reception',
-      image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Guest services desk offering alpine excursion assistance.',
-      heightClass: 'h-64 sm:h-[310px]',
+      image: reception3,
+      caption: 'Guest information counter offering Jungfrau and Interlaken excursion advice.',
+    },
+    {
+      id: 'reception-4',
+      title: 'Welcome Hospitality Area',
+      category: 'reception',
+      categoryLabel: 'Reception',
+      image: img14,
+      caption: 'Attentive guest welcoming area at ORA Lake View Hotel.',
     },
   ];
 
@@ -223,11 +259,24 @@ export const Gallery: React.FC = () => {
         .collage-tilt-right {
           transform: rotate(1.5deg);
         }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
       `}</style>
 
-      {/* HERO BANNER HEADER (Unified Global Typography Standard) */}
-      <section className="relative pt-36 pb-16 sm:pt-44 sm:pb-24 bg-[#14161B] text-white overflow-hidden border-b border-amber-400/20">
-        <div className="max-w-[1380px] mx-auto px-6 md:px-10 relative z-10 text-center">
+      {/* HERO BANNER HEADER (60vh Height with Top-Focused Background Image) */}
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-white overflow-hidden border-b border-amber-400/20 pt-20">
+        {/* Background Banner Image Focused from Top */}
+        <div className="absolute inset-0 z-0">
+          <img src={bannerBg} alt="ORA Lake View Gallery Banner" className="w-full h-full object-cover object-top" />
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
+        </div>
+
+        <div className="max-w-[1380px] w-full mx-auto px-6 md:px-10 relative z-10 text-center">
           {/* Top Subtitle Badge */}
           <div className="flex items-center justify-center space-x-3 mb-4">
             <span className="w-8 h-[2px] bg-[#C68D53]" />
@@ -249,19 +298,19 @@ export const Gallery: React.FC = () => {
         </div>
       </section>
 
-      {/* COMPACT CATEGORY FILTER TABS & SWITCH COLLECTIONS BAR */}
+      {/* COMPACT CATEGORY FILTER TABS & SWITCH COLLECTIONS BAR (HORIZONTALLY SCROLLABLE ON MOBILE) */}
       <section className="py-2.5 sm:py-3 bg-white border-b border-slate-200/80 sticky top-20 z-30 shadow-xs">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-4">
-            {/* Reduced Height Category Filter Buttons */}
-            <div className="flex items-center justify-center flex-wrap gap-1.5 sm:gap-2">
+            {/* Horizontally Scrollable Category Filter Buttons on Mobile */}
+            <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar scroll-smooth py-1 w-full max-w-full sm:flex-wrap sm:justify-center shrink-0">
               {categories.map((tab) => {
                 const isActive = activeCategory === tab.id;
                 return (
                   <button
                     key={tab.id}
                     onClick={() => handleSelectCategory(tab.id)}
-                    className={`px-3.5 py-1.5 rounded-lg text-[11px] font-bold uppercase tracking-wider transition-all duration-300 ${
+                    className={`px-3.5 py-1.5 rounded-lg text-[11px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0 transition-all duration-300 ${
                       isActive
                         ? 'bg-[#C68D53] text-white shadow-xs scale-105'
                         : 'bg-[#FFFAF4] text-slate-700 hover:bg-amber-100/70 border border-amber-200/60'
@@ -297,7 +346,7 @@ export const Gallery: React.FC = () => {
         </div>
       </section>
 
-      {/* DYNAMIC MASONRY COLLAGE GALLERY GRID WITH LUXURY ROTATION & SHEEN EFFECTS */}
+      {/* DYNAMIC GALLERY GRID WITH LUXURY ROTATION & SHEEN EFFECTS */}
       <section ref={galleryGridRef} className="py-12 sm:py-16 lg:py-20 bg-[#FFFAF4] scroll-mt-24">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 space-y-8">
           {/* Active Category Counter Headline */}
@@ -312,8 +361,8 @@ export const Gallery: React.FC = () => {
             </span>
           </div>
 
-          {/* Collage Masonry Columns Layout with Artistic Tilt, Sheen & Glow Effects */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          {/* Responsive 3-Column Grid Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredItems.map((item, idx) => {
               const isEven = idx % 2 === 0;
               return (
@@ -321,9 +370,9 @@ export const Gallery: React.FC = () => {
                   key={item.id}
                   onClick={() => setActiveLightboxIndex(idx)}
                   style={{ animationDelay: `${idx * 70}ms` }}
-                  className={`break-inside-avoid bg-black rounded-3xl overflow-hidden border-2 border-amber-200/70 shadow-lg hover:shadow-[0_25px_60px_rgba(198,141,83,0.35)] hover:border-amber-400 transition-all duration-500 cursor-pointer group relative w-full transform hover:rotate-0 hover:scale-[1.03] hover:z-20 ${
+                  className={`bg-black rounded-3xl overflow-hidden border-2 border-amber-200/70 shadow-lg hover:shadow-[0_25px_60px_rgba(198,141,83,0.35)] hover:border-amber-400 transition-all duration-500 cursor-pointer group relative w-full transform hover:rotate-0 hover:scale-[1.03] hover:z-20 ${
                     isEven ? 'collage-tilt-left' : 'collage-tilt-right'
-                  } ${item.heightClass || 'h-72 sm:h-80'} animate-collage-card`}
+                  } h-72 sm:h-80 lg:h-84 animate-collage-card`}
                 >
                   {/* Photo Asset with High-Res Hover Zoom */}
                   <img

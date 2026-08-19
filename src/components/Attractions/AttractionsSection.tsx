@@ -10,6 +10,19 @@ import lakeThunImg from '../../assets/home/Lake Thun.png';
 import schynigeImg from '../../assets/home/Schynige Platte.png';
 import beatusCavesImg from '../../assets/home/St. Beatus Caves.png';
 
+// Local HOME Gallery Assets Imports from src/assets/home/HOME/
+import iseltwald1 from '../../assets/home/HOME/ISELTWALD1.jpg';
+import iseltwald2 from '../../assets/home/HOME/ISELTWALD2.jpg';
+import iseltwald3 from '../../assets/home/HOME/ISELTWALD3.jpg';
+import iseltwald4 from '../../assets/home/HOME/ISELTWALD4.jpg';
+import lakeside1 from '../../assets/home/HOME/LAKESIDE1.jpg';
+import lakeside2 from '../../assets/home/HOME/LAKESIDE2.jpg';
+import lakeside3 from '../../assets/home/HOME/LAKESIDE3.jpg';
+import seasonal1 from '../../assets/home/HOME/SEASONAL1.jpg';
+import seasonal2 from '../../assets/home/HOME/SEASONAL2.jpg';
+import seasonal3 from '../../assets/home/HOME/SEASONAL3.jpg';
+import funFactImg from '../../assets/home/HOME/FUN-FACT.jpg';
+
 const BOOKING_URL =
   'https://direct-book.com/properties/lakeviewhotelrestaurant?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=CHF';
 
@@ -190,35 +203,39 @@ export const AttractionsSection: React.FC = () => {
     },
   ];
 
-  // 4 Verified Hotel Activities (Exact User Copy with High-Res Imagery & Line Clamp)
+  // 4 Verified Hotel Activities (Mapped to local assets from src/assets/home/HOME/)
   const hotelActivities = [
     {
       id: 'lakeside-walk',
       title: 'Lakeside Serenity Walk',
       tag: 'SCENIC STROLL',
       desc: 'Take a leisurely 3-4 km stroll around the pristine lake, where every step offers breathtaking views of the water and the majestic Alps. Perfect for unwinding or capturing the beauty of nature, this walk immerses you in tranquility.',
-      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+      image: lakeside1,
+      gallery: [lakeside1, lakeside2, lakeside3],
     },
     {
       id: 'iseltwald-view',
       title: 'Iseltwald: A View to Remember',
       tag: 'BALCONY VIEW',
       desc: 'Enjoy unparalleled views of the charming village of Iseltwald right from your balcony. Famous for its appearance in the Korean drama Crash Landing on You, this scenic spot blends natural beauty with cinematic magic.',
-      image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80',
+      image: iseltwald1,
+      gallery: [iseltwald1, iseltwald2, iseltwald3, iseltwald4],
     },
     {
       id: 'water-fun',
-      title: 'Water Fun & Kayaking',
+      title: 'Seasonal Swimming Bliss',
       tag: 'LAKEVIEW FUN',
-      desc: 'Embark on an aquatic adventure with kayaking or paddleboarding on Lake Brienz. Whether navigating the calm waters solo or with a partner, it’s an exhilarating way to experience the stunning surroundings.',
-      image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80',
+      desc: 'Embark on an aquatic adventure with lakeside swimming, kayaking or paddleboarding on Lake Brienz. Whether navigating the calm waters solo or with a partner, it’s an exhilarating way to experience the stunning surroundings.',
+      image: seasonal1,
+      gallery: [seasonal1, seasonal2, seasonal3],
     },
     {
-      id: 'local-dining',
-      title: 'Local & Authentic Culinary Delight',
-      tag: 'TERRACE DINING',
-      desc: 'Savor delicious local and international cuisines at our lakeside restaurant. Pair your meal with panoramic views of the water for an unforgettable dining experience that delights all your senses.',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
+      id: 'fun-fact',
+      title: 'Fun for the Little Ones',
+      tag: 'FAMILY & KIDS',
+      desc: 'Savor family-friendly moments and scenic Swiss play areas for guests of all ages. From lakeside strolls to cozy family lounges, ORA Lake View provides a warm, welcoming haven for children and parents alike.',
+      image: funFactImg,
+      gallery: [funFactImg],
     },
   ];
 

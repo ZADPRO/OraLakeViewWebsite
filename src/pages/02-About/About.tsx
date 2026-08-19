@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { WhoWeAreSection } from '../../components/WhoWeAre/WhoWeAreSection';
 import { FAQSection } from '../../components/FAQ/FAQSection';
 import { Footer } from '../../components/Footer/Footer';
+import bannerBg from '../../assets/Banners/Banners.jpg';
 
 export const About: React.FC = () => {
   const [flippedCards, setFlippedCards] = useState<{ [key: number]: boolean }>({});
@@ -79,9 +80,15 @@ export const About: React.FC = () => {
         }
       `}</style>
 
-      {/* HERO BANNER HEADER (Unified Global Typography Standard) */}
-      <section className="relative pt-36 pb-16 sm:pt-44 sm:pb-24 bg-[#14161B] text-white overflow-hidden border-b border-amber-400/20">
-        <div className="max-w-[1380px] mx-auto px-6 md:px-10 relative z-10 text-center">
+      {/* HERO BANNER HEADER (60vh Height with Top-Focused Background Image) */}
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-white overflow-hidden border-b border-amber-400/20 pt-20">
+        {/* Background Banner Image Focused from Top */}
+        <div className="absolute inset-0 z-0">
+          <img src={bannerBg} alt="ORA Lake View Hotel Banner" className="w-full h-full object-cover object-top" />
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
+        </div>
+
+        <div className="max-w-[1380px] w-full mx-auto px-6 md:px-10 relative z-10 text-center">
           {/* Top Subtitle Badge: Increased font size slightly */}
           <div className="flex items-center justify-center space-x-3 mb-4">
             <span className="w-8 h-[2px] bg-[#C68D53]" />
