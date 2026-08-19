@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import heroBgImage from '../../assets/images/Landing Page/4E1A7684_1.jpg';
+import { useSeason } from '../../context/SeasonContext';
+import home1Img from '../../assets/home/HOME/HOME1.jpg';
+import winterImg from '../../assets/images/Landing Page/4E1A7684_1.jpg';
 import lakeviewLogo from '../../assets/logo/Lakeview.svg';
 
 const MAX_RIPPLES = 20;
@@ -9,6 +11,9 @@ const MAX_RIPPLES = 20;
 export const HeroWaterRipple: React.FC = () => {
   const { getContent } = useLanguage();
   const heroContent = getContent('hero');
+  const { season } = useSeason();
+
+  const activeHeroBgImage = season === 'summer' ? home1Img : winterImg;
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -148,7 +153,7 @@ export const HeroWaterRipple: React.FC = () => {
     );
 
     const img = new Image();
-    img.src = heroBgImage;
+    img.src = activeHeroBgImage;
     img.onload = () => {
       gl.bindTexture(gl.TEXTURE_2D, texture);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
@@ -240,7 +245,7 @@ export const HeroWaterRipple: React.FC = () => {
       window.removeEventListener('click', handleClick);
       window.removeEventListener('touchmove', handleTouchMove);
     };
-  }, []);
+  }, [activeHeroBgImage]);
 
   const facilities = heroContent?.facilities || [];
   const cardsPerPage = 3;
@@ -333,20 +338,17 @@ export const HeroWaterRipple: React.FC = () => {
                 </div>
               </div>
 
-              {/* 3-Column Facilities Grid with clean rounded images & title labels below */}
+              {/* 3-Column Facilities Grid with clean rounded images */}
               <div className="grid grid-cols-3 gap-2.5 md:gap-3 transition-all duration-500">
                 {visibleFacilities.map((fac: any, idx: number) => (
                   <div key={fac.id || idx} className="group cursor-pointer">
                     <div className="relative aspect-[16/10] rounded-lg overflow-hidden shadow-lg border border-white/15 group-hover:border-amber-400/80 transition-colors">
                       <img
                         src={fac.image}
-                        alt={fac.title}
+                        alt={fac.title || `Hotel Facility ${idx + 1}`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
-                    <p className="font-sans text-[10px] md:text-xs font-semibold text-white mt-1.5 tracking-wide truncate">
-                      {fac.title}
-                    </p>
                   </div>
                 ))}
               </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage, LANGUAGES, type Language } from '../../context/LanguageContext';
+import { useSeason } from '../../context/SeasonContext';
 import lakeviewLogo from '../../assets/logo/Lakeview.svg';
 
 const BOOKING_URL =
@@ -34,6 +35,7 @@ export const Header: React.FC = () => {
     };
   }, [mobileMenuOpen]);
 
+  const { season, toggleSeason } = useSeason();
   const activeLang = LANGUAGES.find((l) => l.code === language) || LANGUAGES[0];
 
   const isActive = (path: string) => {
@@ -115,8 +117,43 @@ export const Header: React.FC = () => {
             </Link>
           </nav>
 
-          {/* Right Action Pills: Text-Only Language Selector, Phone Call Icon & Book Now */}
-          <div className="hidden lg:flex items-center space-x-3.5 z-50">
+          {/* Right Action Pills: Icon-Only Summer/Winter Toggle, Text-Only Language Selector & Book Now */}
+          <div className="hidden lg:flex items-center space-x-3 z-50">
+            {/* Icon-Only Summer / Winter Season Toggle Pill Switch */}
+            <button
+              onClick={toggleSeason}
+              className="relative flex items-center bg-white/10 hover:bg-white/20 border border-white/20 rounded-full p-1 transition-all duration-300 backdrop-blur-xl shadow-lg select-none group"
+              title={`Currently in ${season === 'summer' ? 'Summer' : 'Winter'} mode. Click to switch to ${season === 'summer' ? 'Winter' : 'Summer'}`}
+              aria-label="Toggle Season Mode"
+            >
+              {/* Sliding Active Pill Background Indicator */}
+              <div
+                className={`absolute top-1 bottom-1 w-7 h-7 rounded-full transition-all duration-300 shadow-md ${
+                  season === 'summer'
+                    ? 'left-1 bg-gradient-to-r from-amber-500 to-amber-600'
+                    : 'left-[calc(100%-32px)] bg-gradient-to-r from-sky-400 to-blue-600'
+                }`}
+              />
+
+              {/* Sun Icon (Summer) */}
+              <span
+                className={`relative z-10 w-7 h-7 flex items-center justify-center text-sm transition-all duration-200 ${
+                  season === 'summer' ? 'opacity-100 scale-110' : 'opacity-50 group-hover:opacity-80'
+                }`}
+              >
+                ☀️
+              </span>
+
+              {/* Snowflake Icon (Winter) */}
+              <span
+                className={`relative z-10 w-7 h-7 flex items-center justify-center text-sm transition-all duration-200 ${
+                  season === 'winter' ? 'opacity-100 scale-110' : 'opacity-50 group-hover:opacity-80'
+                }`}
+              >
+                ❄️
+              </span>
+            </button>
+
             {/* Text-Only Language Selector Pill */}
             <div className="relative">
               <button
@@ -158,22 +195,6 @@ export const Header: React.FC = () => {
                 </div>
               )}
             </div>
-
-            {/* Compact Phone Call Icon Button */}
-            <a
-              href="tel:+41339511341"
-              title="Call ORA Lake View (+41 33 951 13 41)"
-              aria-label="Call Hotel (+41 33 951 13 41)"
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-amber-400 hover:text-slate-950 text-white backdrop-blur-xl border border-white/20 flex items-center justify-center transition-all duration-300 shadow-lg hover:scale-110 active:scale-95 group"
-            >
-              <svg
-                className="w-4 h-4 text-amber-400 group-hover:text-slate-950 transition-colors"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.02-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-              </svg>
-            </a>
 
             {/* Book Now Glassmorphic Pill */}
             <a
@@ -300,8 +321,39 @@ export const Header: React.FC = () => {
           </nav>
         </div>
 
-        {/* Bottom Section: Text-Only Multi-Language Selector & Book Now CTA */}
+        {/* Bottom Section: Season Mode, Text-Only Multi-Language Selector & Book Now CTA */}
         <div className="pt-6 border-t border-white/10 space-y-4">
+          {/* Season Toggle Row in Mobile Menu */}
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
+              Season Mode
+            </span>
+            <div className="flex bg-white/10 p-1 rounded-full border border-white/20">
+              <button
+                onClick={() => setSeason('summer')}
+                className={`px-3 py-1 rounded-full text-xs font-extrabold tracking-wider transition-all flex items-center space-x-1 ${
+                  season === 'summer'
+                    ? 'bg-amber-500 text-white shadow-md'
+                    : 'text-white/60 hover:text-white'
+                }`}
+              >
+                <span>☀️</span>
+                <span>Summer</span>
+              </button>
+              <button
+                onClick={() => setSeason('winter')}
+                className={`px-3 py-1 rounded-full text-xs font-extrabold tracking-wider transition-all flex items-center space-x-1 ${
+                  season === 'winter'
+                    ? 'bg-sky-500 text-white shadow-md'
+                    : 'text-white/60 hover:text-white'
+                }`}
+              >
+                <span>❄️</span>
+                <span>Winter</span>
+              </button>
+            </div>
+          </div>
+
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
               Language
