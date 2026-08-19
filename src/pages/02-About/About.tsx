@@ -3,6 +3,7 @@ import { WhoWeAreSection } from '../../components/WhoWeAre/WhoWeAreSection';
 import { FAQSection } from '../../components/FAQ/FAQSection';
 import { Footer } from '../../components/Footer/Footer';
 import bannerBg from '../../assets/Banners/Banners.jpg';
+import knowYourHotelImg from '../../assets/about/know-your-hotel.jpeg';
 
 export const About: React.FC = () => {
   const [flippedCards, setFlippedCards] = useState<{ [key: number]: boolean }>({});
@@ -121,7 +122,7 @@ export const About: React.FC = () => {
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-3xl overflow-hidden border border-amber-200/80 shadow-2xl bg-black">
                 <img
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
+                  src={knowYourHotelImg}
                   alt="Know Your Hotel Heritage"
                   className="w-full h-[480px] object-cover hover:scale-105 transition-transform duration-700"
                 />
