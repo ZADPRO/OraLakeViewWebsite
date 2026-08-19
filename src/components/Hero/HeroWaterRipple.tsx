@@ -6,7 +6,24 @@ import home1Img from '../../assets/home/HOME/HOME1.jpg';
 import winterImg from '../../assets/images/Landing Page/4E1A7684_1.jpg';
 import lakeviewLogo from '../../assets/logo/Lakeview.svg';
 
+// HomeCarousel Assets Imports (1.jpg to 6.jpg)
+import carouselImg1 from '../../assets/HomeCarousel/1.jpg';
+import carouselImg2 from '../../assets/HomeCarousel/2.jpg';
+import carouselImg3 from '../../assets/HomeCarousel/3.jpg';
+import carouselImg4 from '../../assets/HomeCarousel/4.jpg';
+import carouselImg5 from '../../assets/HomeCarousel/5.jpg';
+import carouselImg6 from '../../assets/HomeCarousel/6.jpg';
+
 const MAX_RIPPLES = 20;
+
+const homeCarouselImages = [
+  { id: 1, image: carouselImg1, alt: 'ORA Lake View Carousel 1' },
+  { id: 2, image: carouselImg2, alt: 'ORA Lake View Carousel 2' },
+  { id: 3, image: carouselImg3, alt: 'ORA Lake View Carousel 3' },
+  { id: 4, image: carouselImg4, alt: 'ORA Lake View Carousel 4' },
+  { id: 5, image: carouselImg5, alt: 'ORA Lake View Carousel 5' },
+  { id: 6, image: carouselImg6, alt: 'ORA Lake View Carousel 6' },
+];
 
 export const HeroWaterRipple: React.FC = () => {
   const { getContent } = useLanguage();
@@ -247,9 +264,8 @@ export const HeroWaterRipple: React.FC = () => {
     };
   }, [activeHeroBgImage]);
 
-  const facilities = heroContent?.facilities || [];
   const cardsPerPage = 3;
-  const totalSlides = Math.ceil(facilities.length / cardsPerPage);
+  const totalSlides = Math.ceil(homeCarouselImages.length / cardsPerPage);
 
   // Auto-scroll Carousel every 3.5 seconds
   useEffect(() => {
@@ -260,7 +276,7 @@ export const HeroWaterRipple: React.FC = () => {
     return () => clearInterval(interval);
   }, [totalSlides]);
 
-  const visibleFacilities = facilities.slice(
+  const visibleCarouselItems = homeCarouselImages.slice(
     currentSlide * cardsPerPage,
     currentSlide * cardsPerPage + cardsPerPage
   );
@@ -335,14 +351,9 @@ export const HeroWaterRipple: React.FC = () => {
 
           {/* Bottom Right: Ultra-Transparent Glassmorphic Card Container Pushed Flush Right */}
           <div className="lg:col-span-7 w-full max-w-[620px] ml-auto mr-0">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-3.5 md:p-5 shadow-2xl space-y-3 md:space-y-4">
-              {/* Header with Title & Circular Dot Indicators */}
-              <div className="flex items-center justify-between border-b border-white/15 pb-2">
-                <p className="font-serif text-base md:text-xl font-normal text-white tracking-wide">
-                  {heroContent?.facilitiesTitle || "Hotel's Facilities"}
-                </p>
-
-                {/* Circular Pagination Dots */}
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-3.5 md:p-4 shadow-2xl space-y-3">
+              {/* Pagination Dots Header (Text Removed) */}
+              <div className="flex items-center justify-end border-b border-white/15 pb-2">
                 <div className="flex items-center space-x-2">
                   {Array.from({ length: totalSlides }).map((_, idx) => (
                     <button
@@ -359,14 +370,14 @@ export const HeroWaterRipple: React.FC = () => {
                 </div>
               </div>
 
-              {/* 3-Column Facilities Grid with clean rounded images */}
+              {/* 3-Column HomeCarousel Images Grid */}
               <div className="grid grid-cols-3 gap-2.5 md:gap-3 transition-all duration-500">
-                {visibleFacilities.map((fac: any, idx: number) => (
-                  <div key={fac.id || idx} className="group cursor-pointer">
+                {visibleCarouselItems.map((item) => (
+                  <div key={item.id} className="group cursor-pointer">
                     <div className="relative aspect-[16/10] rounded-lg overflow-hidden shadow-lg border border-white/15 group-hover:border-amber-400/80 transition-colors">
                       <img
-                        src={fac.image}
-                        alt={fac.title || `Hotel Facility ${idx + 1}`}
+                        src={item.image}
+                        alt={item.alt}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
