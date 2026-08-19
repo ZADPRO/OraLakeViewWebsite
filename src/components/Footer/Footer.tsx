@@ -155,11 +155,11 @@ export const Footer: React.FC = () => {
 
           {/* Center: Legal Links */}
           <div className="flex items-center space-x-6 text-slate-400">
-            <Link to="/about-us" className="hover:text-white transition-colors">
+            <Link to="/terms-and-conditions" className="hover:text-white transition-colors">
               Terms & Conditions
             </Link>
             <span>/</span>
-            <Link to="/about-us" className="hover:text-white transition-colors">
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
             <span>/</span>

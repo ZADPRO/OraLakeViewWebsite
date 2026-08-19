@@ -141,7 +141,10 @@ export const Header: React.FC = () => {
                   season === 'summer' ? 'opacity-100 scale-110' : 'opacity-50 group-hover:opacity-80'
                 }`}
               >
-                ☀️
+                <svg className="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="4" strokeWidth={2} />
+                  <path strokeLinecap="round" strokeWidth={2} d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+                </svg>
               </span>
 
               {/* Snowflake Icon (Winter) */}
@@ -150,7 +153,9 @@ export const Header: React.FC = () => {
                   season === 'winter' ? 'opacity-100 scale-110' : 'opacity-50 group-hover:opacity-80'
                 }`}
               >
-                ❄️
+                <svg className="w-4 h-4 text-sky-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2v20m10-10H2m17.07-7.07L4.93 19.07M19.07 19.07L4.93 4.93M12 6.5L9 9.5m6 0l-3-3m0 11.5l-3-3m6 0l-3 3M6.5 12L9.5 9m0 6l-3-3m11.5 0l-3 3m0-6l3-3" />
+                </svg>
               </span>
             </button>
 
@@ -231,7 +236,10 @@ export const Header: React.FC = () => {
                   season === 'summer' ? 'opacity-100 scale-110' : 'opacity-50 group-hover:opacity-80'
                 }`}
               >
-                ☀️
+                <svg className="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="4" strokeWidth={2} />
+                  <path strokeLinecap="round" strokeWidth={2} d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+                </svg>
               </span>
 
               {/* Snowflake Icon (Winter) */}
@@ -240,7 +248,9 @@ export const Header: React.FC = () => {
                   season === 'winter' ? 'opacity-100 scale-110' : 'opacity-50 group-hover:opacity-80'
                 }`}
               >
-                ❄️
+                <svg className="w-3.5 h-3.5 text-sky-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2v20m10-10H2m17.07-7.07L4.93 19.07M19.07 19.07L4.93 4.93M12 6.5L9 9.5m6 0l-3-3m0 11.5l-3-3m6 0l-3 3M6.5 12L9.5 9m0 6l-3-3m11.5 0l-3 3m0-6l3-3" />
+                </svg>
               </span>
             </button>
 
@@ -367,24 +377,29 @@ export const Header: React.FC = () => {
             <div className="flex bg-white/10 p-1 rounded-full border border-white/20">
               <button
                 onClick={() => setSeason('summer')}
-                className={`px-3 py-1 rounded-full text-xs font-extrabold tracking-wider transition-all flex items-center space-x-1 ${
+                className={`px-3 py-1 rounded-full text-xs font-extrabold tracking-wider transition-all flex items-center space-x-1.5 ${
                   season === 'summer'
                     ? 'bg-amber-500 text-white shadow-md'
                     : 'text-white/60 hover:text-white'
                 }`}
               >
-                <span>☀️</span>
+                <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="4" strokeWidth={2} />
+                  <path strokeLinecap="round" strokeWidth={2} d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+                </svg>
                 <span>Summer</span>
               </button>
               <button
                 onClick={() => setSeason('winter')}
-                className={`px-3 py-1 rounded-full text-xs font-extrabold tracking-wider transition-all flex items-center space-x-1 ${
+                className={`px-3 py-1 rounded-full text-xs font-extrabold tracking-wider transition-all flex items-center space-x-1.5 ${
                   season === 'winter'
                     ? 'bg-sky-500 text-white shadow-md'
                     : 'text-white/60 hover:text-white'
                 }`}
               >
-                <span>❄️</span>
+                <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2v20m10-10H2m17.07-7.07L4.93 19.07M19.07 19.07L4.93 4.93M12 6.5L9 9.5m6 0l-3-3m0 11.5l-3-3m6 0l-3 3M6.5 12L9.5 9m0 6l-3-3m11.5 0l-3 3m0-6l3-3" />
+                </svg>
                 <span>Winter</span>
               </button>
             </div>
