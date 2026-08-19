@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export const MouseCursor: React.FC = () => {
   const innerRef = useRef<HTMLDivElement | null>(null);
@@ -6,8 +6,20 @@ export const MouseCursor: React.FC = () => {
 
   const pos = useRef({ x: -100, y: -100 });
   const outerPos = useRef({ x: -100, y: -100 });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkIsMobile = () => {
+      const mobile =
+        window.innerWidth < 768 ||
+        window.matchMedia('(pointer: coarse)').matches ||
+        'ontouchstart' in window;
+      setIsMobile(mobile);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+
     const handleMouseMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY };
       if (innerRef.current) {
@@ -50,24 +62,27 @@ export const MouseCursor: React.FC = () => {
     renderCursor();
 
     return () => {
+      window.removeEventListener('resize', checkIsMobile);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseover', handleMouseOver);
       cancelAnimationFrame(animFrame);
     };
   }, []);
 
+  if (isMobile) return null;
+
   return (
     <>
       {/* Inner Dot Cursor */}
       <div
         ref={innerRef}
-        className="fixed top-0 left-0 w-2.5 h-2.5 bg-amber-400 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-amber-400 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 hidden md:block"
       />
 
       {/* Outer Ring Cursor (Restin cursor-outer style) */}
       <div
         ref={outerRef}
-        className="fixed top-0 left-0 w-9 h-9 border border-amber-400/70 rounded-full pointer-events-none z-[9998] transition-all duration-200 ease-out -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-9 h-9 border border-amber-400/70 rounded-full pointer-events-none z-[9998] transition-all duration-200 ease-out -translate-x-1/2 -translate-y-1/2 hidden md:block"
       />
     </>
   );
