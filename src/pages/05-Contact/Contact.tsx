@@ -39,28 +39,28 @@ export const Contact: React.FC = () => {
           <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
         </div>
         <div className="max-w-[1380px] w-full mx-auto px-6 md:px-10 relative z-10 text-center">
-          {/* Top Subtitle Badge: Increased font size slightly */}
+          {/* Top Subtitle Badge */}
           <div className="flex items-center justify-center space-x-3 mb-4">
             <span className="w-8 h-[2px] bg-[#C68D53]" />
             <span className="text-amber-400 font-sans text-xs sm:text-sm font-bold tracking-widest uppercase">
-              GET IN TOUCH WITH US
+              GET IN TOUCH, WE’RE HERE TO HELP
             </span>
             <span className="w-8 h-[2px] bg-[#C68D53]" />
           </div>
 
-          {/* Main Hero Headline: Balanced font size */}
+          {/* Main Hero Headline */}
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-6">
             Contact ORA Lake View
           </h1>
 
-          {/* Sub-Hero Paragraph: Standardized max-w-2xl description */}
-          <p className="max-w-2xl mx-auto font-sans text-sm sm:text-base text-slate-300 font-light leading-relaxed">
-            We are here to make your Swiss getaway effortless and unforgettable. Reach out to our team for room reservations, transit guidance, or special getaway arrangements.
+          {/* Sub-Hero Paragraph */}
+          <p className="max-w-2xl mx-auto font-sans text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
+            Have questions or need assistance? Reach out to us for a seamless experience at Hotel Lakeview.
           </p>
         </div>
       </section>
 
-      {/* SECTION 1: CONTACT INFO (LEFT - STACKED) & TRANSIT MAP IMAGE ONLY (RIGHT) */}
+      {/* SECTION 1: CONTACT INFO (LEFT - STACKED) & TRANSIT MAP IMAGE (RIGHT) */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div className="max-w-[1440px] mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -68,16 +68,16 @@ export const Contact: React.FC = () => {
             <div className="lg:col-span-6 flex flex-col justify-center space-y-8 h-full">
               <div className="space-y-2">
                 <div className="flex items-center space-x-3">
-                  <span className="w-6 h-[2px] bg-amber-600" />
+                  <span className="w-6 h-[2px] bg-[#C68D53]" />
                   <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
-                    REACH OUT TODAY
+                    REACH US ANYTIME
                   </span>
                 </div>
                 <h2 className="font-serif text-3xl sm:text-4xl font-bold text-black tracking-tight">
-                  We’re Always Here for You
+                  Get in Touch, We’re Here to Help
                 </h2>
-                <p className="text-black font-sans text-sm font-light leading-relaxed">
-                  Have questions about your stay, travel routes, or amenities? Our team is available 24/7.
+                <p className="text-black font-sans text-sm sm:text-base font-normal leading-relaxed">
+                  Have any questions or need assistance? Contact us by phone or WhatsApp using the icons below, and our team will get back to you shortly.
                 </p>
               </div>
 
@@ -92,9 +92,9 @@ export const Contact: React.FC = () => {
                     </svg>
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-serif text-lg font-bold text-black">Hotel Address</h3>
+                    <h3 className="font-serif text-lg font-bold text-black">Address</h3>
                     <p className="text-black font-sans text-sm sm:text-base font-normal leading-relaxed">
-                      Hauptstrasse 32, 3853 Niederried bei Interlaken, Switzerland
+                      Ora Lakeview Hotel, Hauptstrasse 32, 3853 Niederried bei Interlaken, Switzerland
                     </p>
                     <p className="text-xs sm:text-sm font-bold text-amber-900 pt-1">
                       2 mins walk from Niederried Train Station & Ferry Dock
@@ -102,7 +102,7 @@ export const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Item 2: Phone */}
+                {/* Item 2: Phone Number */}
                 <div className="bg-[#FFFAF4] p-6 rounded-2xl border border-amber-200/80 shadow-sm flex items-start space-x-4">
                   <div className="w-12 h-12 rounded-xl bg-white border border-amber-300/60 flex items-center justify-center text-[#C68D53] shrink-0 font-bold shadow-xs">
                     <svg className="w-6 h-6 text-[#C68D53]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,14 +110,14 @@ export const Contact: React.FC = () => {
                     </svg>
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-serif text-lg font-bold text-black">Direct Phone & WhatsApp</h3>
+                    <h3 className="font-serif text-lg font-bold text-black">Phone Number</h3>
                     <a
                       href="tel:+41779731981"
                       className="text-black hover:text-[#C68D53] font-sans text-base sm:text-lg font-bold transition-colors block"
                     >
                       +41 77 973 19 81
                     </a>
-                    <p className="text-xs sm:text-sm text-black font-normal">Available 24/7 for booking inquiries</p>
+                    <p className="text-xs sm:text-sm text-black font-normal">Available by phone or WhatsApp 24/7</p>
                   </div>
                 </div>
 
@@ -129,29 +129,61 @@ export const Contact: React.FC = () => {
                     </svg>
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-serif text-lg font-bold text-black">Email Support</h3>
+                    <h3 className="font-serif text-lg font-bold text-black">Email</h3>
                     <a
                       href="mailto:info@oralakeview.com"
                       className="text-black hover:text-[#C68D53] font-sans text-base sm:text-lg font-bold transition-colors block"
                     >
                       info@oralakeview.com
                     </a>
-                    <p className="text-xs sm:text-sm text-black font-normal">Fast responses within 24 hours guaranteed</p>
+                    <p className="text-xs sm:text-sm text-black font-normal">Fast responses guaranteed within 24 hours</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT COLUMN: TRANSIT MAP IMAGE ONLY (BACKGROUND/BORDER REMOVED AS REQUESTED) */}
+            {/* RIGHT COLUMN: TRANSIT MAP IMAGE */}
             <div className="lg:col-span-6 flex items-center justify-center">
-              <div className="w-full h-[400px] sm:h-[480px] overflow-hidden rounded-3xl">
+              <div className="w-full h-[400px] sm:h-[480px] overflow-hidden rounded-3xl border border-amber-200/60 shadow-lg bg-[#181C24] p-2">
                 <img
                   src={mapImg}
                   alt="Niederried Transit & Location Map"
-                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-700 rounded-2xl"
                 />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2: INTERACTIVE GOOGLE MAP */}
+      <section className="py-16 bg-[#FFFAF4] border-b border-slate-200/80">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10 space-y-8">
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <div className="flex items-center justify-center space-x-3">
+              <span className="w-8 h-[2px] bg-[#C68D53]" />
+              <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
+                LOCATION MAP
+              </span>
+              <span className="w-8 h-[2px] bg-[#C68D53]" />
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-black tracking-tight">
+              Find Us in Niederried bei Interlaken
+            </h2>
+            <p className="text-black font-sans text-sm sm:text-base font-normal">
+              Located on the pristine shores of Lake Brienz, just 2 minutes from Niederried train station.
+            </p>
+          </div>
+
+          <div className="w-full h-[450px] sm:h-[520px] rounded-3xl overflow-hidden shadow-xl border border-amber-200/80">
+            <iframe
+              title="ORA Lake View Hotel Location Map"
+              src="https://maps.google.com/maps?q=Ora%20Lakeview%20Hotel%2C%20Hauptstrasse%2032%2C%203853%20Niederried%20bei%20Interlaken%2C%20Switzerland&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              className="w-full h-full border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </section>

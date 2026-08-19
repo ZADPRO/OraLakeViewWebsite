@@ -8,67 +8,87 @@ export const Footer: React.FC = () => {
       <div className="max-w-[1380px] mx-auto px-6 md:px-10 relative z-10">
         {/* 4-Column Layout matching Gramentheme Restin Screenshot */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-16">
-          {/* COLUMN 1: About Us */}
+          {/* COLUMN 1: Reach Us At */}
           <div className="space-y-4">
             <h3 className="font-serif text-xl font-bold text-white uppercase tracking-wider">
-              About us
+              Reach Us At
             </h3>
             <div className="w-8 h-[2px] bg-[#C68D53]" />
-            <p className="text-slate-300 font-sans text-sm sm:text-base leading-relaxed font-normal">
-              Welcome to ORA Lake View Hotel & Restaurant, your trusted sanctuary for discovering and experiencing the best of Swiss hospitality on Lake Brienz. Since our journey began, we have been committed to making every stay unforgettable.
-            </p>
+            <div className="space-y-3 font-sans text-sm sm:text-base text-slate-300 font-normal">
+              <div className="flex items-start space-x-3">
+                <svg className="w-5 h-5 text-[#C68D53] shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>Ora Lakeview Hotel, Hauptstrasse 32, 3853 Niederried bei Interlaken, Switzerland</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <svg className="w-5 h-5 text-[#C68D53] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <a href="mailto:info@oralakeview.com" className="hover:text-[#C68D53] transition-colors font-medium">
+                  info@oralakeview.com
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <svg className="w-5 h-5 text-[#C68D53] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <a href="tel:+41779731981" className="hover:text-[#C68D53] transition-colors font-medium">
+                  +41 77 973 19 81
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* COLUMN 2: Hotel Best Services */}
+          {/* COLUMN 2: Quick Links */}
           <div className="space-y-4">
             <h3 className="font-serif text-xl font-bold text-white uppercase tracking-wider">
-              hotel best services
+              Quick Links
             </h3>
             <div className="w-8 h-[2px] bg-[#C68D53]" />
             <ul className="space-y-3 font-sans text-sm sm:text-base text-slate-300 font-normal">
               <li>
                 <Link to="/rooms" className="hover:text-[#C68D53] transition-colors">
-                  Free Private Parking
+                  Rooms & Suites
                 </Link>
               </li>
               <li>
                 <Link to="/rooms" className="hover:text-[#C68D53] transition-colors">
-                  Room booking
-                </Link>
-              </li>
-              <li>
-                <Link to="/rooms" className="hover:text-[#C68D53] transition-colors">
-                  Special offers & packages
+                  Amenities
                 </Link>
               </li>
               <li>
                 <Link to="/about-us" className="hover:text-[#C68D53] transition-colors">
-                  Lakeview gastronomy
+                  Activities Nearby
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact-us" className="hover:text-[#C68D53] transition-colors">
+                  Connectivity
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* COLUMN 3: Check in & Out Time */}
+          {/* COLUMN 3: Connect with us */}
           <div className="space-y-4">
             <h3 className="font-serif text-xl font-bold text-white uppercase tracking-wider">
-              check in & out time
+              Connect with us
             </h3>
             <div className="w-8 h-[2px] bg-[#C68D53]" />
-            <div className="space-y-3 font-sans text-sm sm:text-base text-slate-300 font-normal">
-              <div className="flex justify-between max-w-[260px]">
-                <span>Mon to Fri :</span>
-                <span className="text-white font-semibold">15:00 - 22:00</span>
-              </div>
-              <div className="flex justify-between max-w-[260px]">
-                <span>Saturday :</span>
-                <span className="text-white font-semibold">15:00 - 22:00</span>
-              </div>
-              <div className="flex justify-between max-w-[260px]">
-                <span>Sunday :</span>
-                <span className="text-white font-semibold">15:00 - 22:00</span>
-              </div>
-            </div>
+            <ul className="space-y-3 font-sans text-sm sm:text-base text-slate-300 font-normal">
+              <li>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C68D53] transition-colors flex items-center space-x-2">
+                  <span>Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C68D53] transition-colors flex items-center space-x-2">
+                  <span>Facebook</span>
+                </a>
+              </li>
+            </ul>
           </div>
 
           {/* COLUMN 4: Contact Us */}
@@ -77,69 +97,26 @@ export const Footer: React.FC = () => {
               Contact Us
             </h3>
             <div className="w-8 h-[2px] bg-[#C68D53]" />
-            <div className="space-y-3.5 font-sans text-sm sm:text-base text-slate-300 font-normal">
-              {/* Address Icon (MapPin) */}
-              <div className="flex items-start space-x-3">
-                <svg
-                  className="w-5 h-5 text-[#C68D53] shrink-0 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+            <div className="space-y-3 font-sans text-sm sm:text-base text-slate-300 font-normal">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Have any questions or need assistance? Reach out for a seamless experience at Hotel Lakeview.
+              </p>
+              <div className="pt-2 flex flex-col space-y-2">
+                <a
+                  href="tel:+41779731981"
+                  className="inline-flex items-center justify-center space-x-2 bg-[#C68D53] text-white py-2.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-amber-600 transition-colors shadow-md"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <span>Hauptstrasse 32, 3853 Niederried bei Interlaken, Switzerland</span>
-              </div>
-
-              {/* Email Icon (Mail) */}
-              <div className="flex items-center space-x-3">
-                <svg
-                  className="w-5 h-5 text-[#C68D53] shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                <a href="mailto:info@oralakeview.com" className="hover:text-[#C68D53] transition-colors font-medium">
-                  info@oralakeview.com
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>CALL US (+41 77 973 1981)</span>
                 </a>
-              </div>
-
-              {/* Phone Icon (Phone) */}
-              <div className="flex items-center space-x-3">
-                <svg
-                  className="w-5 h-5 text-[#C68D53] shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                <Link
+                  to="/contact-us"
+                  className="inline-flex items-center justify-center space-x-2 bg-slate-900 border border-slate-700 text-white py-2.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-black transition-colors"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-                <a href="tel:+41786938847" className="hover:text-[#C68D53] transition-colors font-medium">
-                  +41 78 693 88 47
-                </a>
+                  <span>SEND A MESSAGE</span>
+                </Link>
               </div>
             </div>
           </div>
