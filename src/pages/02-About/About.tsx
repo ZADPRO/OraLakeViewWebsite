@@ -7,7 +7,7 @@ import { Footer } from '../../components/Footer/Footer';
 import bannerBg from '../../assets/Banners/Banners.jpg';
 import knowYourHotelImg from '../../assets/about/know-your-hotel.jpeg';
 
-// Our Journey Local Assets Imports (1_1.jpg for front, 1_2.jpg for back)
+// Our Journey Local Assets Imports (1_1.jpg for flip card, 1_2.jpg for full image frame)
 import journey1_1 from '../../assets/Our Journey/1_1.jpg';
 import journey1_2 from '../../assets/Our Journey/1_2.jpg';
 import journey2_1 from '../../assets/Our Journey/2_1.jpg';
@@ -27,7 +27,7 @@ export const About: React.FC = () => {
     }));
   };
 
-  // 4 Milestone timeline items using 1_1 on front and 1_2 on back
+  // 4 Milestone timeline items with local assets
   const milestones = [
     {
       year: '1974',
@@ -36,7 +36,7 @@ export const About: React.FC = () => {
       shortDesc: 'By the peaceful shores of Interlaken, a hidden gem was born in 1974. A feeling of calm and alpine nature right outside your window.',
       fullDesc: 'From the moment the first guests arrived in 1974, the property offered more than just a stay — it offered a feeling of calm, of being connected to nature, and of escaping to a place where the beauty of the Swiss Alps and the tranquil lake were always just outside your window.',
       frontImage: journey1_1,
-      backImage: journey1_2,
+      fullImage: journey1_2,
       highlight: 'Established on Lake Brienz Shoreline',
     },
     {
@@ -44,9 +44,9 @@ export const About: React.FC = () => {
       tag: 'TRANSFORMATION',
       title: 'A Heartfelt Transformation',
       shortDesc: 'In 1988, a renovation breathed new life into the hotel, blending modern comfort with the stunning surroundings. Deepening the connection between space and landscape.',
-      fullDesc: 'In 1988, a renovation breathed new life into the hotel, blending modern comfort with the stunning surroundings. This wasn’t just about upgrading a building — it was about deepening the connection between the space and the landscape.',
+      fullDesc: 'In 1988, a renovation breathed new life into the hotel, blending modern comfort with the stunning surroundings. This wasn’t just about upgrading a building — it was about deepening the connection between the space and the landscape for a peaceful getaway.',
       frontImage: journey2_1,
-      backImage: journey2_2,
+      fullImage: journey2_2,
       highlight: 'Lakeside Architectural Upgrade',
     },
     {
@@ -56,7 +56,7 @@ export const About: React.FC = () => {
       shortDesc: 'New owners infused the hotel with new energy honoring its roots while creating an alpine sanctuary for the modern traveler.',
       fullDesc: 'When new owners took the reins in 2015, they infused the hotel with a new energy — one that honored its roots while embracing the needs of the modern traveler. The aim was simple: to create not just a hotel, but a sanctuary where the spirit of Interlaken was brought into every corner.',
       frontImage: journey3_1,
-      backImage: journey3_2,
+      fullImage: journey3_2,
       highlight: 'Sanctuary Design & Modern Luxury',
     },
     {
@@ -64,9 +64,9 @@ export const About: React.FC = () => {
       tag: 'REBIRTH OF ELEGANCE',
       title: 'A Rebirth of Elegance',
       shortDesc: 'A complete reimagining added a spacious terrace, luxury living areas, and four apartment suites to live the lake view moment.',
-      fullDesc: 'In 2019, the hotel underwent a complete reimagining. The addition of a spacious terrace, luxurious living areas, and four new apartment rooms elevated the experience to new heights. It became a place to truly live the moment, savor the lake views, and enjoy the perfect blend of nature and luxury.',
+      fullDesc: 'In 2019, the hotel underwent a complete reimagining. The addition of a spacious terrace, luxurious living areas, and four new apartment rooms elevated the experience to new heights. It became a place to truly live the moment, savor the lake views, and enjoy nature.',
       frontImage: journey4_1,
-      backImage: journey4_2,
+      fullImage: journey4_2,
       highlight: 'Panoramas & Apartment Suites',
     },
   ];
@@ -181,7 +181,7 @@ export const About: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION: OUR JOURNEY (PRESERVED 3D FLIP CARD TEMPLATE) */}
+      {/* SECTION: OUR JOURNEY (FLIP CARD ON ONE SIDE + FULL IMAGE ON OPPOSITE SIDE) */}
       <section className="py-20 lg:py-28 bg-[#FFFAF4] border-b border-amber-200/60 relative overflow-hidden">
         <div className="max-w-[1380px] mx-auto px-6 md:px-10 relative z-10 space-y-16">
           {/* Header */}
@@ -203,8 +203,8 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          {/* Luxury 3D Vertical Timeline Container */}
-          <div className="relative max-w-5xl mx-auto">
+          {/* Timeline Container */}
+          <div className="relative max-w-6xl mx-auto">
             {/* Central Vertical Timeline Axis Line (Desktop Only) */}
             <div className="hidden md:block absolute left-1/2 top-6 bottom-6 -translate-x-1/2 w-1 bg-gradient-to-b from-[#C68D53] via-amber-400 to-[#C68D53] rounded-full z-0" />
 
@@ -216,14 +216,14 @@ export const About: React.FC = () => {
                 return (
                   <div
                     key={idx}
-                    className="relative flex flex-col md:flex-row items-center justify-between gap-8 group"
+                    className="relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 group"
                   >
                     {/* Milestone Year Center Circle Badge with Glow Pulse */}
                     <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-black border-4 border-[#C68D53] timeline-pulse text-white font-serif font-extrabold text-sm items-center justify-center z-30 group-hover:scale-110 transition-transform duration-300">
                       <span>{m.year}</span>
                     </div>
 
-                    {/* 3D FLIP CARD CONTAINER */}
+                    {/* 3D FLIP CARD CONTAINER (Handles 1_1.jpg + Narrative Text on Back) */}
                     <div
                       onClick={() => toggleFlip(idx)}
                       className={`w-full md:w-[46%] perspective-1000 h-[360px] cursor-pointer ${
@@ -235,7 +235,7 @@ export const About: React.FC = () => {
                           isFlipped ? 'rotate-y-180' : 'group-hover:[transform:rotateY(180deg)]'
                         }`}
                       >
-                        {/* FRONT FACE OF CARD (Uses 1_1.jpg) */}
+                        {/* FRONT FACE OF CARD (Uses 1_1.jpg, 2_1.jpg, 3_1.jpg, 4_1.jpg) */}
                         <div className="absolute inset-0 w-full h-full rounded-3xl bg-white border border-amber-200/80 backface-hidden overflow-hidden flex flex-col justify-between p-6">
                           <div className="relative h-44 w-full rounded-2xl overflow-hidden bg-black -mt-1">
                             <img
@@ -264,47 +264,57 @@ export const About: React.FC = () => {
                             <span className="text-[11px] font-bold text-amber-900 uppercase tracking-wider">
                               {m.highlight}
                             </span>
-                            <span className="text-[10px] font-extrabold text-[#C68D53] uppercase tracking-widest bg-amber-100/70 px-2.5 py-1 rounded-md">
-                              HOVER / TAP TO REVEAL
-                            </span>
                           </div>
                         </div>
 
-                        {/* BACK FACE OF CARD (Uses 1_2.jpg) */}
+                        {/* BACK FACE OF CARD (Full Narrative History Text behind _1) */}
                         <div className="absolute inset-0 w-full h-full rounded-3xl bg-black border border-amber-400/80 text-white backface-hidden rotate-y-180 overflow-hidden flex flex-col justify-between p-6">
-                          <div className="relative h-28 w-full rounded-2xl overflow-hidden bg-black -mt-1 border border-white/15">
-                            <img
-                              src={m.backImage}
-                              alt={`${m.title} Back`}
-                              className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                            <div className="absolute top-2 left-2 z-10">
-                              <span className="text-[9px] font-sans font-extrabold uppercase tracking-widest text-amber-400 bg-black/80 px-2.5 py-1 rounded-md border border-amber-400/30">
+                          <div className="space-y-3 pt-2">
+                            <div className="flex items-center justify-between border-b border-amber-400/30 pb-2">
+                              <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">
                                 {m.year} ARCHIVES
                               </span>
+                              <span className="text-[10px] font-semibold text-slate-400 uppercase">
+                                {m.tag}
+                              </span>
                             </div>
-                          </div>
-
-                          <div className="space-y-2 pt-1">
-                            <h4 className="font-serif text-base font-bold text-amber-400 tracking-wide">
+                            <h4 className="font-serif text-lg font-bold text-amber-400 tracking-wide">
                               {m.title}
                             </h4>
-                            <p className="text-slate-200 font-sans text-xs leading-relaxed font-light line-clamp-4">
+                            <p className="text-slate-200 font-sans text-xs sm:text-sm leading-relaxed font-light">
                               {m.fullDesc}
                             </p>
                           </div>
 
-                          <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[10px] text-amber-400 font-semibold tracking-wider uppercase">
+                          <div className="pt-3 border-t border-white/15 flex items-center justify-between text-[10px] text-amber-400 font-semibold tracking-wider uppercase">
                             <span>ORA LAKE VIEW HERITAGE</span>
-                            <span>SWISS ALPS</span>
+                            <span>SWISS ALPS SANCTUARY</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* Desktop Empty Spacer Column for Alternating Balance */}
-                    <div className={`hidden md:block w-[46%] ${isEven ? 'md:order-2' : 'md:order-1'}`} />
+                    {/* FULL IMAGE CARD ON OPPOSITE SIDE (Displays 1_2.jpg, 2_2.jpg, 3_2.jpg, 4_2.jpg in Full) */}
+                    <div
+                      className={`w-full md:w-[46%] h-[360px] rounded-3xl overflow-hidden shadow-xl border border-amber-200/80 bg-black relative group ${
+                        isEven ? 'md:order-2' : 'md:order-1'
+                      }`}
+                    >
+                      <img
+                        src={m.fullImage}
+                        alt={`${m.title} Full View`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
+                      <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-amber-400 bg-black/80 px-2.5 py-1 rounded-md backdrop-blur-sm border border-amber-400/30">
+                          {m.year} • PHOTO SCENE
+                        </span>
+                        <p className="font-serif text-sm font-semibold text-white mt-1.5 truncate">
+                          {m.highlight}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 );
               })}

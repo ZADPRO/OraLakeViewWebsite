@@ -35,7 +35,7 @@ export const Header: React.FC = () => {
     };
   }, [mobileMenuOpen]);
 
-  const { season, toggleSeason } = useSeason();
+  const { season, setSeason, toggleSeason } = useSeason();
   const activeLang = LANGUAGES.find((l) => l.code === language) || LANGUAGES[0];
 
   const isActive = (path: string) => {
