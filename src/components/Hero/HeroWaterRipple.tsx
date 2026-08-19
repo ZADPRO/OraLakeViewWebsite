@@ -5,7 +5,6 @@ import { useSeason } from '../../context/SeasonContext';
 import homeTextImg from '../../assets/home/HOME_TEXT.png';
 import home1Img from '../../assets/home/HOME/HOME1.jpg';
 import winterImg from '../../assets/images/Landing Page/4E1A7684_1.jpg';
-import lakeviewLogo from '../../assets/logo/Lakeview.svg';
 
 // HomeCarousel Assets Imports (1.jpg to 6.jpg)
 import carouselImg1 from '../../assets/HomeCarousel/1.jpg';
@@ -285,7 +284,7 @@ export const HeroWaterRipple: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[70vh] min-h-[520px] md:min-h-screen flex flex-col justify-between overflow-hidden bg-slate-950 text-white select-none"
+      className="relative w-full h-[80vh] min-h-[520px] md:min-h-screen flex flex-col justify-between overflow-hidden bg-slate-950 text-white select-none"
     >
       {/* Duali Pre-loaded Background Image Layers for Silky Smooth 1000ms Cross-Fade */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
