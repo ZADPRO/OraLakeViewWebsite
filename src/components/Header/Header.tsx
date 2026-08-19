@@ -207,11 +207,47 @@ export const Header: React.FC = () => {
             </a>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <div className="lg:hidden flex items-center space-x-3">
+          {/* Mobile Right Controls: Season Toggle Switch + Hamburger Button */}
+          <div className="lg:hidden flex items-center space-x-2 sm:space-x-3 z-50">
+            {/* Icon-Only Summer / Winter Season Toggle Pill Switch for Mobile Navbar */}
+            <button
+              onClick={toggleSeason}
+              className="relative flex items-center bg-white/10 hover:bg-white/20 border border-white/20 rounded-full p-1 transition-all duration-300 backdrop-blur-xl shadow-lg select-none group shrink-0"
+              title={`Currently in ${season === 'summer' ? 'Summer' : 'Winter'} mode. Click to switch to ${season === 'summer' ? 'Winter' : 'Summer'}`}
+              aria-label="Toggle Season Mode"
+            >
+              {/* Sliding Active Pill Background Indicator */}
+              <div
+                className={`absolute top-1 bottom-1 w-6 h-6 rounded-full transition-all duration-300 shadow-md ${
+                  season === 'summer'
+                    ? 'left-1 bg-gradient-to-r from-amber-500 to-amber-600'
+                    : 'left-[calc(100%-28px)] bg-gradient-to-r from-sky-400 to-blue-600'
+                }`}
+              />
+
+              {/* Sun Icon (Summer) */}
+              <span
+                className={`relative z-10 w-6 h-6 flex items-center justify-center text-xs transition-all duration-200 ${
+                  season === 'summer' ? 'opacity-100 scale-110' : 'opacity-50 group-hover:opacity-80'
+                }`}
+              >
+                ☀️
+              </span>
+
+              {/* Snowflake Icon (Winter) */}
+              <span
+                className={`relative z-10 w-6 h-6 flex items-center justify-center text-xs transition-all duration-200 ${
+                  season === 'winter' ? 'opacity-100 scale-110' : 'opacity-50 group-hover:opacity-80'
+                }`}
+              >
+                ❄️
+              </span>
+            </button>
+
+            {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white transition-all focus:outline-none"
+              className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white transition-all focus:outline-none shrink-0"
               aria-label="Open Navigation Menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
