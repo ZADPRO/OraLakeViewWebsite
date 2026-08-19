@@ -256,7 +256,7 @@ export const Contact: React.FC = () => {
                     type="tel"
                     value={formState.phone}
                     onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                    placeholder="+41 77 000 00 00"
+                    placeholder="+41 77 973 19 81"
                     className="w-full bg-[#FFFAF4] border border-amber-200 rounded-xl px-4 py-3.5 text-xs text-black focus:outline-none focus:border-[#C68D53]"
                   />
                 </div>

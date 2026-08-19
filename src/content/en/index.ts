@@ -147,7 +147,7 @@ export const en = {
     addressTitle: 'Address',
     addressValue: 'Hauptstrasse 32, 3853 Niederried bei Interlaken, Switzerland',
     phoneTitle: 'Phone',
-    phoneValue: '+41 33 951 13 41',
+    phoneValue: '+41 77 973 19 81',
     emailTitle: 'Email',
     emailValue: 'info@oralakeview.com',
     hoursTitle: 'Front Desk Hours',

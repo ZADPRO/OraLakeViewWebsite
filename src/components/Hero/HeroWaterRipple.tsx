@@ -332,7 +332,7 @@ export const HeroWaterRipple: React.FC = () => {
         </div>
 
         {/* Bottom Section: Left Description + Gold CTA, Right Ultra-Transparent Glassmorphism Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-end mt-4 md:mt-12 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-end mt-1 md:mt-0 w-full">
           {/* Bottom Left: Description & VIEW OUR ROOMS Button */}
           <div className="lg:col-span-5 space-y-4 md:space-y-6 text-center sm:text-left">
             <p className="text-white text-base sm:text-xl lg:text-2xl font-sans font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-xl mx-auto sm:mx-0">

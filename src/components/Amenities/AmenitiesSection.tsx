@@ -262,7 +262,7 @@ export const AmenitiesSection: React.FC = () => {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               {/* Phone Badge Button */}
               <a
-                href="tel:+41786938847"
+                href="tel:+41779731981"
                 className="inline-flex items-center space-x-3 bg-white border border-amber-200 px-5 py-3.5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:border-amber-400 group"
               >
                 <div className="w-9 h-9 rounded-xl bg-[#C68D53]/15 text-[#C68D53] flex items-center justify-center font-bold group-hover:bg-[#C68D53] group-hover:text-white transition-colors">
@@ -280,7 +280,7 @@ export const AmenitiesSection: React.FC = () => {
                     CALL US ANYTIME
                   </div>
                   <div className="text-xs font-bold text-slate-900 tracking-wide">
-                    +41 78 693 88 47
+                    +41 77 973 19 81
                   </div>
                 </div>
               </a>

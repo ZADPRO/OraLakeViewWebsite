@@ -38,10 +38,10 @@ export const FloatingActions: React.FC = () => {
 
       {/* Persistent Call Floating Action Button (FAB) */}
       <a
-        href="tel:+41339511341"
+        href="tel:+41779731981"
         className="relative w-12 h-12 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-[0_10px_30px_rgba(198,141,83,0.5)] border-2 border-amber-300 flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 group"
-        title="Call ORA Lake View (+41 33 951 13 41)"
-        aria-label="Call Hotel (+41 33 951 13 41)"
+        title="Call ORA Lake View (+41 77 973 19 81)"
+        aria-label="Call Hotel (+41 77 973 19 81)"
       >
         {/* Pulsing Outer Glow Ring */}
         <span className="absolute inset-0 rounded-full bg-amber-400/50 animate-ping pointer-events-none opacity-75" />
