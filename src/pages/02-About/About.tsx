@@ -2,8 +2,20 @@ import React, { useState } from 'react';
 import { WhoWeAreSection } from '../../components/WhoWeAre/WhoWeAreSection';
 import { FAQSection } from '../../components/FAQ/FAQSection';
 import { Footer } from '../../components/Footer/Footer';
+
+// Hero & About Banner Images
 import bannerBg from '../../assets/Banners/Banners.jpg';
 import knowYourHotelImg from '../../assets/about/know-your-hotel.jpeg';
+
+// Our Journey Local Assets Imports (1_1.jpg for front, 1_2.jpg for back)
+import journey1_1 from '../../assets/Our Journey/1_1.jpg';
+import journey1_2 from '../../assets/Our Journey/1_2.jpg';
+import journey2_1 from '../../assets/Our Journey/2_1.jpg';
+import journey2_2 from '../../assets/Our Journey/2_2.jpg';
+import journey3_1 from '../../assets/Our Journey/3_1.jpg';
+import journey3_2 from '../../assets/Our Journey/3_2.jpg';
+import journey4_1 from '../../assets/Our Journey/4_1.jpg';
+import journey4_2 from '../../assets/Our Journey/4_2.jpg';
 
 export const About: React.FC = () => {
   const [flippedCards, setFlippedCards] = useState<{ [key: number]: boolean }>({});
@@ -15,42 +27,46 @@ export const About: React.FC = () => {
     }));
   };
 
-  // 4 Milestone timeline items with curated images & detailed reverse text for 3D flip card
+  // 4 Milestone timeline items using 1_1 on front and 1_2 on back
   const milestones = [
     {
       year: '1974',
       tag: 'THE BEGINNING',
       title: 'The Beginning of Something Special',
       shortDesc: 'By the peaceful shores of Interlaken, a hidden gem was born in 1974. A feeling of calm and alpine nature right outside your window.',
-      fullDesc: 'From the moment the first guests arrived in 1974, the property offered more than just a stay — it offered a feeling. A feeling of calm, of being connected to nature, and of escaping to a place where the beauty of the Swiss Alps and the tranquil lake were always just outside your window.',
-      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+      fullDesc: 'From the moment the first guests arrived in 1974, the property offered more than just a stay — it offered a feeling of calm, of being connected to nature, and of escaping to a place where the beauty of the Swiss Alps and the tranquil lake were always just outside your window.',
+      frontImage: journey1_1,
+      backImage: journey1_2,
       highlight: 'Established on Lake Brienz Shoreline',
     },
     {
       year: '1988',
       tag: 'TRANSFORMATION',
       title: 'A Heartfelt Transformation',
-      desc: 'In 1988, a renovation breathed new life into the hotel, blending modern comfort with the stunning surroundings. Deepening the connection between space and landscape.',
-      fullDesc: 'In 1988, a renovation breathed new life into the hotel, blending modern comfort with the stunning surroundings. This wasn’t just about upgrading a building — it was about deepening the connection between the space and the landscape. Guests now found even more ways to relax, reflect, and indulge in breathtaking views.',
-      image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80',
+      shortDesc: 'In 1988, a renovation breathed new life into the hotel, blending modern comfort with the stunning surroundings. Deepening the connection between space and landscape.',
+      fullDesc: 'In 1988, a renovation breathed new life into the hotel, blending modern comfort with the stunning surroundings. This wasn’t just about upgrading a building — it was about deepening the connection between the space and the landscape.',
+      frontImage: journey2_1,
+      backImage: journey2_2,
       highlight: 'Lakeside Architectural Upgrade',
     },
     {
       year: '2015',
       tag: 'VISION REALIZED',
       title: 'A Vision Realized',
-      desc: 'New owners infused the hotel with new energy honoring its roots while creating an alpine sanctuary for the modern traveler.',
+      shortDesc: 'New owners infused the hotel with new energy honoring its roots while creating an alpine sanctuary for the modern traveler.',
       fullDesc: 'When new owners took the reins in 2015, they infused the hotel with a new energy — one that honored its roots while embracing the needs of the modern traveler. The aim was simple: to create not just a hotel, but a sanctuary where the spirit of Interlaken was brought into every corner.',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+      frontImage: journey3_1,
+      backImage: journey3_2,
       highlight: 'Sanctuary Design & Modern Luxury',
     },
     {
       year: '2019',
       tag: 'REBIRTH OF ELEGANCE',
       title: 'A Rebirth of Elegance',
-      desc: 'A complete reimagining added a spacious terrace, luxury living areas, and four apartment suites to live the lake view moment.',
+      shortDesc: 'A complete reimagining added a spacious terrace, luxury living areas, and four apartment suites to live the lake view moment.',
       fullDesc: 'In 2019, the hotel underwent a complete reimagining. The addition of a spacious terrace, luxurious living areas, and four new apartment rooms elevated the experience to new heights. It became a place to truly live the moment, savor the lake views, and enjoy the perfect blend of nature and luxury.',
-      image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80',
+      frontImage: journey4_1,
+      backImage: journey4_2,
       highlight: 'Panoramas & Apartment Suites',
     },
   ];
@@ -90,7 +106,7 @@ export const About: React.FC = () => {
         </div>
 
         <div className="max-w-[1380px] w-full mx-auto px-6 md:px-10 relative z-10 text-center">
-          {/* Top Subtitle Badge: Increased font size slightly */}
+          {/* Top Subtitle Badge */}
           <div className="flex items-center justify-center space-x-3 mb-4">
             <span className="w-8 h-[2px] bg-[#C68D53]" />
             <span className="text-amber-400 font-sans text-xs sm:text-sm font-bold tracking-widest uppercase">
@@ -99,19 +115,19 @@ export const About: React.FC = () => {
             <span className="w-8 h-[2px] bg-[#C68D53]" />
           </div>
 
-          {/* Main Hero Headline: Balanced font size */}
+          {/* Main Hero Headline */}
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-6">
             Timeless Swiss Charm, Lakeside Dreams
           </h1>
 
-          {/* Sub-Hero Paragraph: Standardized max-w-2xl description */}
+          {/* Sub-Hero Paragraph */}
           <p className="max-w-2xl mx-auto font-sans text-sm sm:text-base text-slate-300 font-light leading-relaxed">
             Experience Swiss charm, lake views, and modern elegance with every dawn and dusk.
           </p>
         </div>
       </section>
 
-      {/* WHO WE ARE (OUR STORY) SECTION MOVED FROM HOMEPAGE */}
+      {/* WHO WE ARE (OUR STORY) SECTION */}
       <WhoWeAreSection />
 
       {/* SECTION: KNOW YOUR HOTEL (HERITAGE & TRADITION) */}
@@ -165,7 +181,7 @@ export const About: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION: OUR JOURNEY (CLEAN 3D TIMELINE WITHOUT INSTRUCTION TEXTS) */}
+      {/* SECTION: OUR JOURNEY (PRESERVED 3D FLIP CARD TEMPLATE) */}
       <section className="py-20 lg:py-28 bg-[#FFFAF4] border-b border-amber-200/60 relative overflow-hidden">
         <div className="max-w-[1380px] mx-auto px-6 md:px-10 relative z-10 space-y-16">
           {/* Header */}
@@ -219,11 +235,11 @@ export const About: React.FC = () => {
                           isFlipped ? 'rotate-y-180' : 'group-hover:[transform:rotateY(180deg)]'
                         }`}
                       >
-                        {/* FRONT FACE OF CARD */}
+                        {/* FRONT FACE OF CARD (Uses 1_1.jpg) */}
                         <div className="absolute inset-0 w-full h-full rounded-3xl bg-white border border-amber-200/80 backface-hidden overflow-hidden flex flex-col justify-between p-6">
                           <div className="relative h-44 w-full rounded-2xl overflow-hidden bg-black -mt-1">
                             <img
-                              src={m.image}
+                              src={m.frontImage}
                               alt={m.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                             />
@@ -239,87 +255,65 @@ export const About: React.FC = () => {
                             <h3 className="font-serif text-xl font-bold text-black tracking-tight">
                               {m.title}
                             </h3>
-                            <p className="text-black font-sans text-xs sm:text-sm font-light leading-relaxed line-clamp-2">
-                              {m.shortDesc || m.desc}
+                            <p className="text-black font-sans text-xs leading-relaxed line-clamp-2">
+                              {m.shortDesc}
                             </p>
                           </div>
 
-                          <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-amber-900">
-                            <span>{m.highlight}</span>
+                          <div className="flex items-center justify-between pt-2 border-t border-amber-100">
+                            <span className="text-[11px] font-bold text-amber-900 uppercase tracking-wider">
+                              {m.highlight}
+                            </span>
+                            <span className="text-[10px] font-extrabold text-[#C68D53] uppercase tracking-widest bg-amber-100/70 px-2.5 py-1 rounded-md">
+                              HOVER / TAP TO REVEAL
+                            </span>
                           </div>
                         </div>
 
-                        {/* BACK FACE OF CARD (REVERSE SIDE ON 180° ROTATION) */}
-                        <div className="absolute inset-0 w-full h-full rounded-3xl bg-[#14161B] text-white border border-amber-400/30 backface-hidden rotate-y-180 p-7 flex flex-col justify-between overflow-hidden">
-                          <div className="space-y-4">
-                            <div className="flex items-center justify-between">
-                              <span className="font-serif text-3xl font-extrabold text-[#C68D53]">
-                                {m.year}
-                              </span>
-                              <span className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-amber-400 bg-black px-3 py-1 rounded-md border border-amber-400/20">
-                                {m.highlight}
+                        {/* BACK FACE OF CARD (Uses 1_2.jpg) */}
+                        <div className="absolute inset-0 w-full h-full rounded-3xl bg-black border border-amber-400/80 text-white backface-hidden rotate-y-180 overflow-hidden flex flex-col justify-between p-6">
+                          <div className="relative h-28 w-full rounded-2xl overflow-hidden bg-black -mt-1 border border-white/15">
+                            <img
+                              src={m.backImage}
+                              alt={`${m.title} Back`}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                            <div className="absolute top-2 left-2 z-10">
+                              <span className="text-[9px] font-sans font-extrabold uppercase tracking-widest text-amber-400 bg-black/80 px-2.5 py-1 rounded-md border border-amber-400/30">
+                                {m.year} ARCHIVES
                               </span>
                             </div>
+                          </div>
 
-                            <h3 className="font-serif text-xl font-bold text-white tracking-tight">
+                          <div className="space-y-2 pt-1">
+                            <h4 className="font-serif text-base font-bold text-amber-400 tracking-wide">
                               {m.title}
-                            </h3>
-
-                            <p className="text-slate-300 font-sans text-xs sm:text-sm font-light leading-relaxed">
+                            </h4>
+                            <p className="text-slate-200 font-sans text-xs leading-relaxed font-light line-clamp-4">
                               {m.fullDesc}
                             </p>
                           </div>
 
-                          <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-amber-400 font-medium">
+                          <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[10px] text-amber-400 font-semibold tracking-wider uppercase">
                             <span>ORA LAKE VIEW HERITAGE</span>
+                            <span>SWISS ALPS</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    {/* PHOTO PREVIEW FRAME (OTHER SIDE ON DESKTOP) */}
-                    <div className={`w-full md:w-[46%] ${isEven ? 'md:order-2' : 'md:order-1'}`}>
-                      <div className="rounded-3xl overflow-hidden border border-amber-200/80 shadow-lg bg-black h-[360px] relative group/img">
-                        <img
-                          src={m.image}
-                          alt={m.title}
-                          className="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-700 opacity-90"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-                        <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
-                          <span className="text-[10px] font-sans font-bold text-amber-400 uppercase tracking-widest bg-black/75 px-3 py-1 rounded-md backdrop-blur-sm">
-                            HISTORIC ERA • {m.year}
-                          </span>
-                          <p className="font-serif text-xl font-bold text-white pt-1">
-                            {m.title}
-                          </p>
-                          <p className="text-xs text-slate-300 font-light">
-                            {m.highlight}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    {/* Desktop Empty Spacer Column for Alternating Balance */}
+                    <div className={`hidden md:block w-[46%] ${isEven ? 'md:order-2' : 'md:order-1'}`} />
                   </div>
                 );
               })}
             </div>
           </div>
-
-          {/* GEORGES SIMENON QUOTE SECTION */}
-          <div className="max-w-3xl mx-auto pt-8">
-            <div className="bg-white p-8 sm:p-10 rounded-3xl border-l-4 border-[#C68D53] border-t border-r border-b border-amber-200/60 shadow-md space-y-3">
-              <p className="font-serif italic text-lg sm:text-2xl text-black leading-relaxed">
-                "The lake and the mountains have become my landscape, my real world."
-              </p>
-              <div className="text-xs font-bold text-amber-900 uppercase tracking-widest pt-1">
-                — Georges Simenon
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* FAQ SECTION (MOVED TO GALLERY & ABOUT PAGE AS REQUESTED) */}
+      {/* FAQ SECTION */}
       <FAQSection />
 
       {/* FOOTER COMPONENT */}
