@@ -298,12 +298,12 @@ export const Gallery: React.FC = () => {
         </div>
       </section>
 
-      {/* COMPACT CATEGORY FILTER TABS & SWITCH COLLECTIONS BAR (HORIZONTALLY SCROLLABLE ON MOBILE) */}
-      <section className="py-2.5 sm:py-3 bg-white border-b border-slate-200/80 sticky top-20 z-30 shadow-xs">
+      {/* COMPACT CATEGORY FILTER TABS & SWITCH COLLECTIONS BAR */}
+      <section className="py-3 bg-white border-b border-slate-200/80 sticky top-20 z-30 shadow-xs">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-4">
-            {/* Horizontally Scrollable Category Filter Buttons on Mobile */}
-            <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar scroll-smooth py-1 w-full max-w-full sm:flex-wrap sm:justify-center shrink-0">
+          <div className="flex items-center justify-between gap-3 sm:gap-6">
+            {/* Scrollable Category Filter Buttons */}
+            <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar scroll-smooth py-1 flex-1 min-w-0 pr-2">
               {categories.map((tab) => {
                 const isActive = activeCategory === tab.id;
                 return (
@@ -322,22 +322,24 @@ export const Gallery: React.FC = () => {
               })}
             </div>
 
-            {/* Compact Switch Collections Arrows */}
-            <div className="flex items-center space-x-2 text-xs font-bold text-slate-700">
-              <span className="hidden md:inline uppercase tracking-widest text-[10px] text-amber-900 mr-1">
+            {/* Switch Collections Controls (Aligned Neatly on Right) */}
+            <div className="flex items-center space-x-2 text-xs font-bold text-slate-700 shrink-0 bg-white pl-2">
+              <span className="hidden sm:inline uppercase tracking-widest text-[10px] text-amber-900 font-bold whitespace-nowrap">
                 SWITCH COLLECTION:
               </span>
               <button
                 onClick={handlePrevCategory}
-                className="w-7 h-7 rounded-md bg-[#FFFAF4] border border-amber-200/80 text-black flex items-center justify-center shadow-xs hover:bg-[#C68D53] hover:text-white transition-all active:scale-95 text-sm"
+                className="w-8 h-8 rounded-lg bg-[#FFFAF4] border border-amber-200/80 text-black flex items-center justify-center shadow-xs hover:bg-[#C68D53] hover:text-white transition-all active:scale-95 text-base font-bold"
                 aria-label="Previous Category"
+                title="Previous Category"
               >
                 ‹
               </button>
               <button
                 onClick={handleNextCategory}
-                className="w-7 h-7 rounded-md bg-[#C68D53] text-white flex items-center justify-center shadow-xs hover:bg-black transition-all active:scale-95 text-sm"
+                className="w-8 h-8 rounded-lg bg-[#C68D53] text-white flex items-center justify-center shadow-xs hover:bg-black transition-all active:scale-95 text-base font-bold"
                 aria-label="Next Category"
+                title="Next Category"
               >
                 ›
               </button>
@@ -350,13 +352,13 @@ export const Gallery: React.FC = () => {
       <section ref={galleryGridRef} className="py-12 sm:py-16 lg:py-20 bg-[#FFFAF4] scroll-mt-24">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 space-y-8">
           {/* Active Category Counter Headline */}
-          <div className="flex items-center justify-between border-b border-amber-200/60 pb-3">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-amber-200/60 pb-3 gap-2">
             <h2 className="font-serif text-xl sm:text-2xl font-bold text-black tracking-tight capitalize">
               {activeCategory === 'all'
                 ? 'All Photo Collections'
                 : categories.find((c) => c.id === activeCategory)?.label}
             </h2>
-            <span className="text-xs font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-md">
+            <span className="text-xs font-bold text-amber-900 bg-amber-100/80 px-3.5 py-1.5 rounded-lg border border-amber-300/60">
               {filteredItems.length} Photos Displayed
             </span>
           </div>
