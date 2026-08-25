@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import welcomeToImage from '../../assets/home/HOME/WELCOME-TO.jpg';
+import welcomeToImage from '../../assets/home/welcome.jpeg';
 
 export const WelcomeSection: React.FC = () => {
   const { getContent } = useLanguage();

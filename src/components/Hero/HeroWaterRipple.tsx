@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import { useSeason } from '../../context/SeasonContext';
 import homeTextImg from '../../assets/home/HOME_TEXT.png';
-import home1Img from '../../assets/home/HOME/HOME1.jpg';
-import winterImg from '../../assets/images/Landing Page/4E1A7684_1.jpg';
+import summerImg from '../../assets/home/home2summar.jpeg';
+import winterImg from '../../assets/home/home1winter.jpeg';
 
 // HomeCarousel Assets Imports (1.jpg to 6.jpg)
 import carouselImg1 from '../../assets/HomeCarousel/1.jpg';
@@ -30,7 +30,7 @@ export const HeroWaterRipple: React.FC = () => {
   const heroContent = getContent('hero');
   const { season } = useSeason();
 
-  const activeHeroBgImage = season === 'summer' ? home1Img : winterImg;
+  const activeHeroBgImage = season === 'summer' ? summerImg : winterImg;
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -290,7 +290,7 @@ export const HeroWaterRipple: React.FC = () => {
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Summer Hero Background Layer */}
         <img
-          src={home1Img}
+          src={summerImg}
           alt="Summer ORA Lake View"
           className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${
             season === 'summer' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'

@@ -245,10 +245,16 @@ export const Rooms: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
-                  {/* Size Badge */}
-                  <div className="absolute top-4 left-4 z-10">
+                  {/* Size & Breakfast Badges */}
+                  <div className="absolute top-4 left-4 z-10 flex items-center space-x-2">
                     <span className="text-xs font-sans font-extrabold uppercase tracking-wider text-amber-400 bg-black/80 px-3.5 py-1.5 rounded-lg backdrop-blur-sm border border-white/10">
                       {room.size}
+                    </span>
+                    <span className="text-[10px] font-sans font-extrabold uppercase tracking-wider text-emerald-300 bg-slate-950/85 px-3 py-1.5 rounded-lg backdrop-blur-sm border border-emerald-400/40 flex items-center space-x-1">
+                      <svg className="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>WITH BREAKFAST</span>
                     </span>
                   </div>
 

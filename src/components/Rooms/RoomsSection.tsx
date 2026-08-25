@@ -158,11 +158,6 @@ export const RoomsSection: React.FC = () => {
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Floating Price Badge Top-Left */}
-                  <div className="absolute top-3.5 left-3.5 z-10 bg-[#C68D53] text-white font-bold text-xs px-3 py-1 rounded-md shadow-sm tracking-wider uppercase">
-                    {room.price}
-                  </div>
                 </div>
 
                 {/* Card Content Body */}

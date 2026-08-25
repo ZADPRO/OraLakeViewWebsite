@@ -84,12 +84,7 @@ export const WhoWeAreSection: React.FC = () => {
                 alt="Lake Brienz Panoramas & Swiss Alps"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-              <div className="absolute bottom-3 left-3 right-3 text-center">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
-                  Lake Brienz Vista
-                </span>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
