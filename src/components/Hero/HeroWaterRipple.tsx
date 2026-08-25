@@ -286,7 +286,7 @@ export const HeroWaterRipple: React.FC = () => {
       ref={containerRef}
       className="relative w-full h-[80vh] min-h-[520px] md:min-h-screen flex flex-col justify-between overflow-hidden bg-slate-950 text-white select-none"
     >
-      {/* Duali Pre-loaded Background Image Layers for Silky Smooth 1000ms Cross-Fade */}
+      {/* LAYER 1 (z-0): Summer & Winter Background Image Cover */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Summer Hero Background Layer */}
         <img
@@ -305,44 +305,40 @@ export const HeroWaterRipple: React.FC = () => {
         />
       </div>
 
-      {/* GPU Hardware-Accelerated WebGL Water Ripple Canvas Overlay (Desktop Only to prevent texture stretch on portrait mobile) */}
+      {/* LAYER 2 (z-[10]): GPU WebGL Water Ripple Canvas Effect (Ripples over Background Image) */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full object-cover z-1 cursor-pointer transition-opacity duration-700 opacity-90 hidden md:block"
+        className="absolute inset-0 w-full h-full object-cover z-[10] cursor-pointer transition-opacity duration-700 opacity-90 hidden md:block"
       />
 
-      {/* Subtle luxury gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-black/40 pointer-events-none z-10" />
+      {/* LAYER 3 (z-[15]): Luxury Ambient Dark Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-black/40 pointer-events-none z-[15]" />
 
-      {/* Hero Content Grid Overlay (70vh on Mobile, min-h-screen on Desktop) */}
-      <div className="relative z-20 max-w-[1480px] w-full mx-auto px-4 md:px-10 pt-20 md:pt-36 pb-6 md:pb-16 flex-1 flex flex-col justify-between">
-        {/* Center Section: Serenity Script Art Centered in Hero Overlay */}
-        <div className="w-full my-auto flex flex-col justify-center items-center animate-fade-in py-1 md:py-4">
+      {/* LAYER 4 (z-[30]): Crisp Home Text PNG Image Overlay Positioned Directly Above Water Effect */}
+      <div className="relative z-[30] max-w-[1480px] w-full mx-auto px-4 md:px-10 pt-20 md:pt-36 pb-6 md:pb-16 flex-1 flex flex-col justify-between pointer-events-none">
+        {/* Center Section: Home Text PNG Script Art Overlay */}
+        <div className="w-full my-auto flex flex-col justify-center items-center animate-fade-in py-1 md:py-4 pointer-events-auto">
           <h1 className="sr-only">ORA Lakeview Hotel | Scenic Swiss Alps & Lake View Stay</h1>
-          <div className="w-64 sm:w-80 md:w-[360px] lg:w-[420px] xl:w-[480px] max-w-[85vw]">
+          <div className="w-64 sm:w-80 md:w-[360px] lg:w-[420px] xl:w-[680px] max-w-[85vw]">
             <img
               src={homeTextImg}
               alt="Serenity at ORA Lake View Hotel"
-              className="w-full h-auto object-contain filter drop-shadow-[0_6px_24px_rgba(0,0,0,0.85)] mx-auto"
+              className="w-full h-auto object-contain filter drop-shadow-[0_6px_24px_rgba(0,0,0,0.85)] mx-auto relative z-[30]"
             />
           </div>
         </div>
 
-        {/* Bottom Section: Centered Description & VIEW OUR ROOMS Button */}
-        <div className="w-full flex flex-col items-center justify-center text-center space-y-4 md:space-y-6 max-w-3xl mx-auto pb-4 md:pb-8">
-          <p className="text-white text-base sm:text-xl lg:text-2xl font-sans font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-2xl mx-auto">
-            {heroContent?.subtitle ||
-              'A slice of Swiss heaven crafted for dreamers, romantics, and adventure seekers alike.'}
-          </p>
-
-          <div>
-            <Link
-              to="/rooms"
-              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-sans font-bold tracking-widest text-slate-950 uppercase transition-all duration-300 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 hover:from-amber-300 hover:to-amber-100 shadow-2xl hover:shadow-amber-400/40 hover:scale-105 active:scale-95 border border-amber-300/50"
-            >
-              {heroContent?.viewRooms || 'VIEW OUR ROOMS'}
-            </Link>
-          </div>
+        {/* LAYER 5 (z-[40]): Floating Action FAB Button (Single-Lined Mobile FAB) */}
+        <div className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 z-[40] pointer-events-auto w-max max-w-[92vw]">
+          <Link
+            to="/rooms"
+            className="inline-flex items-center justify-center space-x-2.5 sm:space-x-3 px-5 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-sans font-extrabold tracking-wider sm:tracking-widest text-slate-950 uppercase transition-all duration-300 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 hover:from-amber-300 hover:to-amber-100 shadow-[0_10px_30px_rgba(198,141,83,0.55)] hover:shadow-[0_15px_40px_rgba(198,141,83,0.75)] hover:scale-105 active:scale-95 border-2 border-white/60 backdrop-blur-md whitespace-nowrap"
+          >
+            <span className="whitespace-nowrap">{heroContent?.viewRooms || 'VIEW OUR ROOMS'}</span>
+            <svg className="w-4 h-4 text-slate-950 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </Link>
         </div>
       </div>
     </div>
