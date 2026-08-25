@@ -35,7 +35,7 @@ export const HeroWaterRipple: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [_currentSlide, setCurrentSlide] = useState(0);
 
   // WebGL Water Ripple Engine
   useEffect(() => {
@@ -276,10 +276,10 @@ export const HeroWaterRipple: React.FC = () => {
     return () => clearInterval(interval);
   }, [totalSlides]);
 
-  const visibleCarouselItems = homeCarouselImages.slice(
-    currentSlide * cardsPerPage,
-    currentSlide * cardsPerPage + cardsPerPage
-  );
+  // const visibleCarouselItems = homeCarouselImages.slice(
+  //   currentSlide * cardsPerPage,
+  //   currentSlide * cardsPerPage + cardsPerPage
+  // );
 
   return (
     <div
@@ -292,18 +292,16 @@ export const HeroWaterRipple: React.FC = () => {
         <img
           src={summerImg}
           alt="Summer ORA Lake View"
-          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${
-            season === 'summer' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-          }`}
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${season === 'summer' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+            }`}
         />
 
         {/* Winter Hero Background Layer */}
         <img
           src={winterImg}
           alt="Winter ORA Lake View"
-          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${
-            season === 'winter' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-          }`}
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${season === 'winter' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+            }`}
         />
       </div>
 
@@ -330,61 +328,20 @@ export const HeroWaterRipple: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Section: Left Description + Gold CTA, Right Ultra-Transparent Glassmorphism Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-end mt-1 md:mt-0 w-full">
-          {/* Bottom Left: Description & VIEW OUR ROOMS Button */}
-          <div className="lg:col-span-5 space-y-4 md:space-y-6 text-center sm:text-left">
-            <p className="text-white text-base sm:text-xl lg:text-2xl font-sans font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-xl mx-auto sm:mx-0">
-              {heroContent?.subtitle ||
-                'A slice of Swiss heaven crafted for dreamers, romantics, and adventure seekers alike.'}
-            </p>
+        {/* Bottom Section: Centered Description & VIEW OUR ROOMS Button */}
+        <div className="w-full flex flex-col items-center justify-center text-center space-y-4 md:space-y-6 max-w-3xl mx-auto pb-4 md:pb-8">
+          <p className="text-white text-base sm:text-xl lg:text-2xl font-sans font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-2xl mx-auto">
+            {heroContent?.subtitle ||
+              'A slice of Swiss heaven crafted for dreamers, romantics, and adventure seekers alike.'}
+          </p>
 
-            <div>
-              <Link
-                to="/rooms"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-sans font-bold tracking-widest text-slate-950 uppercase transition-all duration-300 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 hover:from-amber-300 hover:to-amber-100 shadow-2xl hover:shadow-amber-400/40 hover:scale-105 active:scale-95 border border-amber-300/50"
-              >
-                {heroContent?.viewRooms || 'VIEW OUR ROOMS'}
-              </Link>
-            </div>
-          </div>
-
-          {/* Bottom Right: Ultra-Transparent Glassmorphic Card Container Pushed Flush Right */}
-          <div className="lg:col-span-7 w-full max-w-[620px] ml-auto mr-0">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-3.5 md:p-4 shadow-2xl space-y-3">
-              {/* Pagination Dots Header (Text Removed) */}
-              <div className="flex items-center justify-end border-b border-white/15 pb-2">
-                <div className="flex items-center space-x-2">
-                  {Array.from({ length: totalSlides }).map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentSlide(idx)}
-                      className={`rounded-full transition-all duration-300 ${
-                        currentSlide === idx
-                          ? 'bg-amber-400 w-2.5 h-2.5 ring-4 ring-amber-400/20'
-                          : 'bg-white/40 hover:bg-white/70 w-2 h-2'
-                      }`}
-                      aria-label={`Go to slide ${idx + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* 3-Column HomeCarousel Images Grid */}
-              <div className="grid grid-cols-3 gap-2.5 md:gap-3 transition-all duration-500">
-                {visibleCarouselItems.map((item) => (
-                  <div key={item.id} className="group cursor-pointer">
-                    <div className="relative aspect-[16/10] rounded-lg overflow-hidden shadow-lg border border-white/15 group-hover:border-amber-400/80 transition-colors">
-                      <img
-                        src={item.image}
-                        alt={item.alt}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div>
+            <Link
+              to="/rooms"
+              className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-sans font-bold tracking-widest text-slate-950 uppercase transition-all duration-300 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 hover:from-amber-300 hover:to-amber-100 shadow-2xl hover:shadow-amber-400/40 hover:scale-105 active:scale-95 border border-amber-300/50"
+            >
+              {heroContent?.viewRooms || 'VIEW OUR ROOMS'}
+            </Link>
           </div>
         </div>
       </div>
