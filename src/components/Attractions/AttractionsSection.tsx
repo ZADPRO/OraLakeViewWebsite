@@ -425,12 +425,12 @@ export const AttractionsSection: React.FC = () => {
               <div className="flex items-center space-x-3">
                 <span className="w-8 h-[2px] bg-amber-600" />
                 <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
-                  EXPERIENCE HOTEL LAKEVIEW
+                  EXPERIENCE NEARBY HOTEL LAKEVIEW
                 </span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-black tracking-tight">
-                What You Can Do at the Hotel
+                What You Can Do Nearby the Hotel
               </h2>
             </div>
 

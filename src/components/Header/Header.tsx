@@ -47,8 +47,8 @@ export const Header: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'py-3 bg-slate-950/70 backdrop-blur-md shadow-2xl' : 'py-5'
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-slate-950/80 backdrop-blur-md shadow-2xl ${
+          scrolled ? 'py-3 bg-slate-950/90' : 'py-4 md:py-5'
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-10 flex items-center justify-between relative">
