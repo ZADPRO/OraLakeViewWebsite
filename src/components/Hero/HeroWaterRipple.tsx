@@ -305,14 +305,14 @@ export const HeroWaterRipple: React.FC = () => {
         />
       </div>
 
-      {/* LAYER 2 (z-[10]): GPU WebGL Water Ripple Canvas Effect (Ripples over Background Image) */}
+      {/* LAYER 2 (z-[10]): GPU WebGL Water Ripple Canvas Effect (Full Brightness) */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full object-cover z-[10] cursor-pointer transition-opacity duration-700 opacity-90 hidden md:block"
+        className="absolute inset-0 w-full h-full object-cover z-[10] cursor-pointer transition-opacity duration-700 opacity-100 hidden md:block"
       />
 
-      {/* LAYER 3 (z-[15]): Luxury Ambient Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-black/40 pointer-events-none z-[15]" />
+      {/* LAYER 3 (z-[15]): Ultra-Light Ambient Overlay (Significantly Reduced Darkness) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/10 pointer-events-none z-[15]" />
 
       {/* LAYER 4 (z-[30]): Crisp Home Text PNG Image Overlay Positioned Directly Above Water Effect */}
       <div className="relative z-[30] max-w-[1480px] w-full mx-auto px-4 md:px-10 pt-20 md:pt-36 pb-6 md:pb-16 flex-1 flex flex-col justify-between pointer-events-none">
