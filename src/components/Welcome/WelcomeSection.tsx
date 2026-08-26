@@ -77,6 +77,8 @@ export const WelcomeSection: React.FC = () => {
               <img
                 src={welcomeToImage}
                 alt="ORA Lake View Hotel Facade & Panoramic Views"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-[400px] sm:h-[480px] object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>

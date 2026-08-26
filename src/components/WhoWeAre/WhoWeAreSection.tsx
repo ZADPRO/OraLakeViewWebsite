@@ -72,6 +72,8 @@ export const WhoWeAreSection: React.FC = () => {
               <img
                 src={storyFrontImg}
                 alt="ORA Lake View Hotel & Restaurant Facade"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-[420px] sm:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
@@ -82,6 +84,8 @@ export const WhoWeAreSection: React.FC = () => {
               <img
                 src={storyBackImg}
                 alt="Lake Brienz Panoramas & Swiss Alps"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />

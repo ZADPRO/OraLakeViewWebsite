@@ -292,6 +292,9 @@ export const HeroWaterRipple: React.FC = () => {
         <img
           src={summerImg}
           alt="Summer ORA Lake View"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${season === 'summer' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
             }`}
         />
@@ -300,6 +303,9 @@ export const HeroWaterRipple: React.FC = () => {
         <img
           src={winterImg}
           alt="Winter ORA Lake View"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${season === 'winter' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
             }`}
         />

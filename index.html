@@ -32,16 +32,20 @@
     content="Stay at ORA Lakeview, a luxury lake view hotel near Interlaken, Switzerland. Enjoy elegant rooms, Alpine views, premium hospitality, and direct booking." />
   <meta name="twitter:image" content="https://oralakeview.com/logosm2.png" />
 
-  <!-- Google Fonts: Cinzel for Headings & Didact Gothic for Body Text -->
+  <!-- Google Fonts: Preconnect & Asynchronous Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Didact+Gothic&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Didact+Gothic&display=swap"
+      rel="stylesheet">
+  </noscript>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Non-Blocking Deferred Tailwind CSS Script & Config -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
   <script>
-    tailwind.config = {
+    window.tailwind = {
       theme: {
         extend: {
           fontFamily: {
