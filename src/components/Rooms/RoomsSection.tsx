@@ -1,78 +1,78 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useLanguage } from '../../context/LanguageContext';
+import React, { useState, useEffect, useRef } from "react";
+import { useLanguage } from "../../context/LanguageContext";
 
 // Local Room Assets Imports
-import majesticImg1 from '../../assets/rooms/Majestic Lakeview King/Img1.png';
-import queensImg1 from '../../assets/rooms/Queens Vista-40 sq metres/image_1.jpg';
-import alpineImg1 from '../../assets/rooms/Alpine Retreat/4E1A7889_1_1.jpg';
-import studioImg1 from '../../assets/rooms/Lakeview Studio-22 sq metres/4E1A8172_1.jpg';
-import signatureImg1 from '../../assets/rooms/Signature Lakeview/4E1A7872_1.jpg';
-import disabilityImg1 from '../../assets/rooms/Disability Lakeview Trio-28 sq metres/7STD4003.jpg';
-import classicImg1 from '../../assets/rooms/Classic Lakeview-22 sq metres/image.jpg';
+import majesticImg1 from "../../assets/rooms/Majestic Lakeview King/Img1.png";
+import queensImg1 from "../../assets/rooms/Queens Vista-40 sq metres/image_1.jpg";
+import alpineImg1 from "../../assets/rooms/Alpine Retreat/4E1A7889_1_1.jpg";
+import studioImg1 from "../../assets/rooms/Lakeview Studio-22 sq metres/4E1A8172_1.jpeg";
+import signatureImg1 from "../../assets/rooms/Signature Lakeview/4E1A7872_1.jpg";
+import disabilityImg1 from "../../assets/rooms/Disability Lakeview Trio-28 sq metres/7STD4003.jpeg";
+import classicImg1 from "../../assets/rooms/Classic Lakeview-22 sq metres/image.jpg";
 
 const BOOKING_URL =
-  'https://direct-book.com/properties/lakeviewhotelrestaurant?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=CHF';
+  "https://direct-book.com/properties/lakeviewhotelrestaurant?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=CHF";
 
 export const RoomsSection: React.FC = () => {
   const { getContent } = useLanguage();
-  const roomsContent = getContent('rooms');
+  const roomsContent = getContent("rooms");
 
   // All 7 authentic room items mapped to local room assets from src/assets/rooms/
   const items = [
     {
-      id: 'majestic-king',
-      name: 'Majestic Lakeview King',
-      size: '33 m²',
-      guests: '2 Adults',
-      price: 'CHF 310 / NIGHT',
+      id: "majestic-king",
+      name: "Majestic Lakeview King",
+      size: "33 m²",
+      guests: "2 Adults",
+      price: "CHF 310 / NIGHT",
       image: majesticImg1,
     },
     {
-      id: 'queens-vista',
+      id: "queens-vista",
       name: "Queen’s Vista",
-      size: '40 m²',
-      guests: '2 Adults',
-      price: 'CHF 380 / NIGHT',
+      size: "40 m²",
+      guests: "2 Adults",
+      price: "CHF 380 / NIGHT",
       image: queensImg1,
     },
     {
-      id: 'alpine-retreat',
-      name: 'Alpine Retreat',
-      size: '33 m²',
-      guests: '2 Adults',
-      price: 'CHF 290 / NIGHT',
+      id: "alpine-retreat",
+      name: "Alpine Retreat",
+      size: "33 m²",
+      guests: "2 Adults",
+      price: "CHF 290 / NIGHT",
       image: alpineImg1,
     },
     {
-      id: 'lakeview-studio',
-      name: 'Lakeview Studio',
-      size: '22 m²',
-      guests: '2 Guests',
-      price: 'CHF 250 / NIGHT',
+      id: "lakeview-studio",
+      name: "Lakeview Studio",
+      size: "22 m²",
+      guests: "2 Guests",
+      price: "CHF 250 / NIGHT",
       image: studioImg1,
     },
     {
-      id: 'signature-lakeview',
-      name: 'Signature Lakeview',
-      size: '28 m²',
-      guests: '3 Guests',
-      price: 'CHF 310 / NIGHT',
+      id: "signature-lakeview",
+      name: "Signature Lakeview",
+      size: "28 m²",
+      guests: "3 Guests",
+      price: "CHF 310 / NIGHT",
       image: signatureImg1,
     },
     {
-      id: 'disability-lakeview-trio',
-      name: 'Disability Lakeview Trio',
-      size: '28 m²',
-      guests: '3 Guests',
-      price: 'CHF 290 / NIGHT',
+      id: "disability-lakeview-trio",
+      name: "Disability Lakeview Trio",
+      size: "28 m²",
+      guests: "3 Guests",
+      price: "CHF 290 / NIGHT",
       image: disabilityImg1,
     },
     {
-      id: 'classic-lakeview',
-      name: 'Classic Lakeview Room',
-      size: '22 m²',
-      guests: '2 Adults',
-      price: 'CHF 220 / NIGHT',
+      id: "classic-lakeview",
+      name: "Classic Lakeview Room",
+      size: "22 m²",
+      guests: "2 Adults",
+      price: "CHF 220 / NIGHT",
       image: classicImg1,
     },
   ];
@@ -82,7 +82,7 @@ export const RoomsSection: React.FC = () => {
 
   const handlePrev = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -360, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: -360, behavior: "smooth" });
     }
   };
 
@@ -90,9 +90,9 @@ export const RoomsSection: React.FC = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
       if (scrollLeft + clientWidth >= scrollWidth - 10) {
-        scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
       } else {
-        scrollRef.current.scrollBy({ left: 360, behavior: 'smooth' });
+        scrollRef.current.scrollBy({ left: 360, behavior: "smooth" });
       }
     }
   };
@@ -128,7 +128,7 @@ export const RoomsSection: React.FC = () => {
           {/* Sub-heading Paragraph Centered */}
           <p className="text-black font-sans text-sm sm:text-base font-normal leading-relaxed">
             {roomsContent?.subtitle ||
-              'At ORA Lake View, we offer a variety of beautifully designed rooms and suites to suit every traveler’s need — from cozy lakeview rooms to spacious family retreats over Lake Brienz.'}
+              "At ORA Lake View, we offer a variety of beautifully designed rooms and suites to suit every traveler’s need — from cozy lakeview rooms to spacious family retreats over Lake Brienz."}
           </p>
         </div>
 
@@ -138,7 +138,7 @@ export const RoomsSection: React.FC = () => {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           className="flex space-x-4 sm:space-x-6 overflow-x-auto scrollbar-none pb-4 scroll-smooth snap-x snap-mandatory pr-6 sm:pr-0"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {items.map((room: any) => (
             <a
@@ -222,7 +222,12 @@ export const RoomsSection: React.FC = () => {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </div>
               </div>
@@ -238,8 +243,18 @@ export const RoomsSection: React.FC = () => {
               className="w-10 h-10 rounded-xl bg-white hover:bg-[#C68D53] hover:text-white text-black flex items-center justify-center transition-all duration-300 shadow-md border border-amber-200/80 active:scale-95"
               aria-label="Previous Slide"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
             <button
@@ -247,8 +262,18 @@ export const RoomsSection: React.FC = () => {
               className="w-10 h-10 rounded-xl bg-[#C68D53] hover:bg-black text-white font-bold flex items-center justify-center transition-all duration-300 shadow-md active:scale-95"
               aria-label="Next Slide"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           </div>

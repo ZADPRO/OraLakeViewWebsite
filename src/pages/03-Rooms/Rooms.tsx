@@ -1,52 +1,52 @@
-import React, { useState } from 'react';
-import { Footer } from '../../components/Footer/Footer';
-import bannerBg from '../../assets/Banners/Banners.jpg';
+import React, { useState } from "react";
+import { Footer } from "../../components/Footer/Footer";
+import bannerBg from "../../assets/Banners/Banners.jpg";
 
 // Local Room Assets Imports
 // 1. Majestic Lakeview King
-import majesticImg1 from '../../assets/rooms/Majestic Lakeview King/Img1.png';
-import majesticImg2 from '../../assets/rooms/Majestic Lakeview King/7STD4054_1.jpg';
-import majesticImg3 from '../../assets/rooms/Majestic Lakeview King/7STD4055_1.jpg';
-import majesticImg4 from '../../assets/rooms/Majestic Lakeview King/image (4).jpg';
+import majesticImg1 from "../../assets/rooms/Majestic Lakeview King/Img1.png";
+import majesticImg2 from "../../assets/rooms/Majestic Lakeview King/7STD4054_1.jpg";
+import majesticImg3 from "../../assets/rooms/Majestic Lakeview King/7STD4055_1.jpg";
+import majesticImg4 from "../../assets/rooms/Majestic Lakeview King/image (4).jpg";
 
 // 2. Queen's Vista
-import queensImg1 from '../../assets/rooms/Queens Vista-40 sq metres/image_1.jpg';
-import queensImg2 from '../../assets/rooms/Queens Vista-40 sq metres/4E1A6643 copy_1.jpg';
-import queensImg3 from '../../assets/rooms/Queens Vista-40 sq metres/image (6)_1.jpg';
-import queensImg4 from '../../assets/rooms/Queens Vista-40 sq metres/image (4) - 1-2.jpg';
+import queensImg1 from "../../assets/rooms/Queens Vista-40 sq metres/image_1.jpg";
+import queensImg2 from "../../assets/rooms/Queens Vista-40 sq metres/4E1A6643 copy_1.jpg";
+import queensImg3 from "../../assets/rooms/Queens Vista-40 sq metres/image (6)_1.jpg";
+import queensImg4 from "../../assets/rooms/Queens Vista-40 sq metres/image (4) - 1-2.jpg";
 
 // 3. Alpine Retreat
-import alpineImg1 from '../../assets/rooms/Alpine Retreat/4E1A7889_1_1.jpg';
-import alpineImg2 from '../../assets/rooms/Alpine Retreat/4E1A7101 copy_1.jpg';
-import alpineImg3 from '../../assets/rooms/Alpine Retreat/4E1A7893_1.jpg';
-import alpineImg4 from '../../assets/rooms/Alpine Retreat/Majestic Room 2_1_1.jpg';
-import alpineImg5 from '../../assets/rooms/Alpine Retreat/image (2)_1.png';
-import alpineImg6 from '../../assets/rooms/Alpine Retreat/image (4).jpg';
+import alpineImg1 from "../../assets/rooms/Alpine Retreat/4E1A7889_1_1.jpg";
+import alpineImg2 from "../../assets/rooms/Alpine Retreat/4E1A7101 copy_1.jpg";
+import alpineImg3 from "../../assets/rooms/Alpine Retreat/4E1A7893_1.jpg";
+import alpineImg4 from "../../assets/rooms/Alpine Retreat/Majestic Room 2_1_1.jpg";
+import alpineImg5 from "../../assets/rooms/Alpine Retreat/image (2)_1.png";
+import alpineImg6 from "../../assets/rooms/Alpine Retreat/image (4).jpg";
 
 // 4. Lakeview Studio
-import studioImg1 from '../../assets/rooms/Lakeview Studio-22 sq metres/4E1A8172_1.jpg';
-import studioImg2 from '../../assets/rooms/Lakeview Studio-22 sq metres/LS2_1.jpg';
-import studioImg3 from '../../assets/rooms/Lakeview Studio-22 sq metres/LS4_1.jpg';
+import studioImg1 from "../../assets/rooms/Lakeview Studio-22 sq metres/4E1A8172_1.jpeg";
+import studioImg2 from "../../assets/rooms/Lakeview Studio-22 sq metres/LS2_1.jpg";
+import studioImg3 from "../../assets/rooms/Lakeview Studio-22 sq metres/LS4_1.jpg";
 
 // 5. Signature Lakeview
-import signatureImg1 from '../../assets/rooms/Signature Lakeview/4E1A7872_1.jpg';
-import signatureImg2 from '../../assets/rooms/Signature Lakeview/4E1A8160_1_1.jpg';
-import signatureImg3 from '../../assets/rooms/Signature Lakeview/4E1A8163_1.jpg';
-import signatureImg4 from '../../assets/rooms/Signature Lakeview/image (2)_1.jpg';
-import signatureImg5 from '../../assets/rooms/Signature Lakeview/image (4)_1.jpg';
+import signatureImg1 from "../../assets/rooms/Signature Lakeview/4E1A7872_1.jpg";
+import signatureImg2 from "../../assets/rooms/Signature Lakeview/4E1A8160_1_1.jpg";
+import signatureImg3 from "../../assets/rooms/Signature Lakeview/4E1A8163_1.jpg";
+import signatureImg4 from "../../assets/rooms/Signature Lakeview/image (2)_1.jpg";
+import signatureImg5 from "../../assets/rooms/Signature Lakeview/image (4)_1.jpg";
 
 // 6. Disability Lakeview Trio
-import disabilityImg1 from '../../assets/rooms/Disability Lakeview Trio-28 sq metres/7STD4003.jpg';
-import disabilityImg2 from '../../assets/rooms/Disability Lakeview Trio-28 sq metres/1-1-1-1-1-1.jpg';
-import disabilityImg3 from '../../assets/rooms/Disability Lakeview Trio-28 sq metres/image (6).jpg';
+import disabilityImg1 from "../../assets/rooms/Disability Lakeview Trio-28 sq metres/7STD4003.jpeg";
+import disabilityImg2 from "../../assets/rooms/Disability Lakeview Trio-28 sq metres/1-1-1-1-1-1.jpg";
+import disabilityImg3 from "../../assets/rooms/Disability Lakeview Trio-28 sq metres/image (6).jpg";
 
 // 7. Classic Lakeview
-import classicImg1 from '../../assets/rooms/Classic Lakeview-22 sq metres/image.jpg';
-import classicImg2 from '../../assets/rooms/Classic Lakeview-22 sq metres/15.jpg';
-import classicImg3 from '../../assets/rooms/Classic Lakeview-22 sq metres/image (1).jpg';
+import classicImg1 from "../../assets/rooms/Classic Lakeview-22 sq metres/image.jpg";
+import classicImg2 from "../../assets/rooms/Classic Lakeview-22 sq metres/15.jpg";
+import classicImg3 from "../../assets/rooms/Classic Lakeview-22 sq metres/image (1).jpg";
 
 const BOOKING_URL =
-  'https://direct-book.com/properties/lakeviewhotelrestaurant?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=CHF';
+  "https://direct-book.com/properties/lakeviewhotelrestaurant?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=CHF";
 
 interface RoomType {
   id: string;
@@ -59,10 +59,18 @@ interface RoomType {
 }
 
 export const Rooms: React.FC = () => {
-  const [selectedRoomModal, setSelectedRoomModal] = useState<RoomType | null>(null);
-  const [activeImageIndexes, setActiveImageIndexes] = useState<{ [key: string]: number }>({});
+  const [selectedRoomModal, setSelectedRoomModal] = useState<RoomType | null>(
+    null,
+  );
+  const [activeImageIndexes, setActiveImageIndexes] = useState<{
+    [key: string]: number;
+  }>({});
 
-  const handleNextPhoto = (roomId: string, totalPhotos: number, e: React.MouseEvent) => {
+  const handleNextPhoto = (
+    roomId: string,
+    totalPhotos: number,
+    e: React.MouseEvent,
+  ) => {
     e.stopPropagation();
     setActiveImageIndexes((prev) => ({
       ...prev,
@@ -70,7 +78,11 @@ export const Rooms: React.FC = () => {
     }));
   };
 
-  const handlePrevPhoto = (roomId: string, totalPhotos: number, e: React.MouseEvent) => {
+  const handlePrevPhoto = (
+    roomId: string,
+    totalPhotos: number,
+    e: React.MouseEvent,
+  ) => {
     e.stopPropagation();
     setActiveImageIndexes((prev) => ({
       ...prev,
@@ -81,110 +93,123 @@ export const Rooms: React.FC = () => {
   // 7 Authentic Room Types mapped to local room assets from src/assets/rooms/
   const roomsList: RoomType[] = [
     {
-      id: 'majestic-king',
-      title: 'Majestic Lakeview King',
-      size: '33 sq metres',
-      desc: 'With a sprawling king-size bed and sweeping views of Lake Brienz and the Swiss Alps, this room invites you to unwind and indulge in the luxury of space. Perfect for those who crave a balance of comfort and nature.',
+      id: "majestic-king",
+      title: "Majestic Lakeview King",
+      size: "33 sq metres",
+      desc: "With a sprawling king-size bed and sweeping views of Lake Brienz and the Swiss Alps, this room invites you to unwind and indulge in the luxury of space. Perfect for those who crave a balance of comfort and nature.",
       amenities: [
-        'Free wifi',
-        'Internal Access to Lakeview facing common terrace',
-        'Bathtub for ultimate relaxation',
-        '1 king-size bed',
-        'Mini Fridge',
-        'Flat-screen TV',
+        "Free wifi",
+        "Internal Access to Lakeview facing common terrace",
+        "Bathtub for ultimate relaxation",
+        "1 king-size bed",
+        "Mini Fridge",
+        "Flat-screen TV",
       ],
       images: [majesticImg1, majesticImg2, majesticImg3, majesticImg4],
       photoCount: 4,
     },
     {
-      id: 'queens-vista',
+      id: "queens-vista",
       title: "Queen’s Vista",
-      size: '40 sq metres',
-      desc: 'Treat yourself to a royal stay at Queen’s Vista, where sweeping views of the Swiss Alps and Lake Brienz set the stage for an unforgettable getaway. Designed with elegance and comfort in mind, this room combines traditional Swiss luxury with modern amenities.',
+      size: "40 sq metres",
+      desc: "Treat yourself to a royal stay at Queen’s Vista, where sweeping views of the Swiss Alps and Lake Brienz set the stage for an unforgettable getaway. Designed with elegance and comfort in mind, this room combines traditional Swiss luxury with modern amenities.",
       amenities: [
-        'Free wifi',
-        'External Common Terrace Access for Lakeview',
-        'Bathtub for ultimate relaxation',
-        '1 king-size bed',
-        'Mini Fridge',
-        'Flat-screen TV',
+        "Free wifi",
+        "External Common Terrace Access for Lakeview",
+        "Bathtub for ultimate relaxation",
+        "1 king-size bed",
+        "Mini Fridge",
+        "Flat-screen TV",
       ],
       images: [queensImg1, queensImg2, queensImg3, queensImg4],
       photoCount: 4,
     },
     {
-      id: 'alpine-retreat',
-      title: 'Alpine Retreat',
-      size: '33 sq metres',
-      desc: 'For those who seek peace, privacy, and unmatched mountain beauty, the Alpine Retreat is the ideal choice. After a day of hiking or exploring Interlaken, return to your sanctuary to relax in comfort and style.',
+      id: "alpine-retreat",
+      title: "Alpine Retreat",
+      size: "33 sq metres",
+      desc: "For those who seek peace, privacy, and unmatched mountain beauty, the Alpine Retreat is the ideal choice. After a day of hiking or exploring Interlaken, return to your sanctuary to relax in comfort and style.",
       amenities: [
-        'Balcony with stunning alpine views',
-        'External Access to Lakeview Facing common terrace',
-        'Ensuite Bathroom',
-        '1 king-size bed',
-        'Mini Fridge',
-        'Flat-screen TV',
+        "Balcony with stunning alpine views",
+        "External Access to Lakeview Facing common terrace",
+        "Ensuite Bathroom",
+        "1 king-size bed",
+        "Mini Fridge",
+        "Flat-screen TV",
       ],
-      images: [alpineImg1, alpineImg2, alpineImg3, alpineImg4, alpineImg5, alpineImg6],
+      images: [
+        alpineImg1,
+        alpineImg2,
+        alpineImg3,
+        alpineImg4,
+        alpineImg5,
+        alpineImg6,
+      ],
       photoCount: 6,
     },
     {
-      id: 'lakeview-studio',
-      title: 'Lakeview Studio',
-      size: '22 sq metres',
-      desc: 'Sleek and stylish, the Lakeview Studio room offers the ideal balance between contemporary design and Swiss natural beauty. Perfect for solo travelers or couples looking for a simple yet luxurious stay.',
+      id: "lakeview-studio",
+      title: "Lakeview Studio",
+      size: "22 sq metres",
+      desc: "Sleek and stylish, the Lakeview Studio room offers the ideal balance between contemporary design and Swiss natural beauty. Perfect for solo travelers or couples looking for a simple yet luxurious stay.",
       amenities: [
-        'Free wifi',
-        'Balcony with stunning lake view',
-        'Ensuite bathroom',
-        'Mini Fridge',
-        'Flat-screen TV',
+        "Free wifi",
+        "Balcony with stunning lake view",
+        "Ensuite bathroom",
+        "Mini Fridge",
+        "Flat-screen TV",
       ],
       images: [studioImg1, studioImg2, studioImg3],
       photoCount: 3,
     },
     {
-      id: 'signature-lakeview',
-      title: 'Signature Lakeview',
-      size: '28 sq metres',
-      desc: 'The Signature Lakeview room epitomizes understated luxury and Swiss charm. With its elegant design and breathtaking views of Lake Brienz, this room is perfect for those who want to experience the finest that ORA Lake View has to offer.',
+      id: "signature-lakeview",
+      title: "Signature Lakeview",
+      size: "28 sq metres",
+      desc: "The Signature Lakeview room epitomizes understated luxury and Swiss charm. With its elegant design and breathtaking views of Lake Brienz, this room is perfect for those who want to experience the finest that ORA Lake View has to offer.",
       amenities: [
-        'Free wifi',
-        'Balcony with spectacular lake views',
-        '03 Single beds & can be attached for Double occupancy as per request',
-        'Ensuite bathroom',
-        'Mini Fridge',
-        'Flat-screen TV',
+        "Free wifi",
+        "Balcony with spectacular lake views",
+        "03 Single beds & can be attached for Double occupancy as per request",
+        "Ensuite bathroom",
+        "Mini Fridge",
+        "Flat-screen TV",
       ],
-      images: [signatureImg1, signatureImg2, signatureImg3, signatureImg4, signatureImg5],
+      images: [
+        signatureImg1,
+        signatureImg2,
+        signatureImg3,
+        signatureImg4,
+        signatureImg5,
+      ],
       photoCount: 5,
     },
     {
-      id: 'disability-lakeview-trio',
-      title: 'Disability Lakeview Trio',
-      size: '28 sq metres',
-      desc: 'Perfect for guests seeking extra space, the Disability Lakeview Trio Room offers a warm and stylish stay experience with a thoughtfully designed, versatile layout. The room is also equipped with disability-friendly features and wheelchair accessibility, ensuring comfort and convenience for every guest.',
+      id: "disability-lakeview-trio",
+      title: "Disability Lakeview Trio",
+      size: "28 sq metres",
+      desc: "Perfect for guests seeking extra space, the Disability Lakeview Trio Room offers a warm and stylish stay experience with a thoughtfully designed, versatile layout. The room is also equipped with disability-friendly features and wheelchair accessibility, ensuring comfort and convenience for every guest.",
       amenities: [
-        'Free wifi',
-        'Balcony with panoramic lake views',
-        'Ensuite bathroom with wheelchair accessibility',
-        'Mini Fridge',
-        'Flat-screen TV',
+        "Free wifi",
+        "Balcony with panoramic lake views",
+        "Ensuite bathroom with wheelchair accessibility",
+        "Mini Fridge",
+        "Flat-screen TV",
       ],
       images: [disabilityImg1, disabilityImg2, disabilityImg3],
       photoCount: 3,
     },
     {
-      id: 'classic-lakeview',
-      title: 'Classic Lakeview',
-      size: '22 sq metres',
-      desc: 'The Classic Lakeview room invites you to experience the timeless beauty of Lake Brienz in a cozy, stylish setting. Designed for those who appreciate the finer things in life, this room is a peaceful haven to recharge.',
+      id: "classic-lakeview",
+      title: "Classic Lakeview",
+      size: "22 sq metres",
+      desc: "The Classic Lakeview room invites you to experience the timeless beauty of Lake Brienz in a cozy, stylish setting. Designed for those who appreciate the finer things in life, this room is a peaceful haven to recharge.",
       amenities: [
-        'Free wifi',
-        'Balcony with lake view',
-        'Ensuite bathroom',
-        'Flat-screen TV',
-        '2 beds attached for double occupancy',
+        "Free wifi",
+        "Balcony with lake view",
+        "Ensuite bathroom",
+        "Flat-screen TV",
+        "2 beds attached for double occupancy",
       ],
       images: [classicImg1, classicImg2, classicImg3],
       photoCount: 3,
@@ -197,7 +222,11 @@ export const Rooms: React.FC = () => {
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-white overflow-hidden border-b border-amber-400/20 pt-20">
         {/* Background Banner Image Focused from Top */}
         <div className="absolute inset-0 z-0">
-          <img src={bannerBg} alt="ORA Lake View Rooms Banner" className="w-full h-full object-cover object-top" />
+          <img
+            src={bannerBg}
+            alt="ORA Lake View Rooms Banner"
+            className="w-full h-full object-cover object-top"
+          />
           <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
         </div>
         <div className="max-w-[1380px] w-full mx-auto px-6 md:px-10 relative z-10 text-center">
@@ -217,7 +246,10 @@ export const Rooms: React.FC = () => {
 
           {/* Sub-Hero Paragraph: Standardized max-w-2xl description */}
           <p className="max-w-2xl mx-auto font-sans text-sm sm:text-base text-slate-300 font-light leading-relaxed">
-            Surrounded by warm wooden accents, soft, ambient lighting, and the serene beauty of the Swiss Alps, evenings at Hotel Lakeview offer the perfect atmosphere for relaxation, comfort, and unforgettable memories.
+            Surrounded by warm wooden accents, soft, ambient lighting, and the
+            serene beauty of the Swiss Alps, evenings at Hotel Lakeview offer
+            the perfect atmosphere for relaxation, comfort, and unforgettable
+            memories.
           </p>
         </div>
       </section>
@@ -235,7 +267,7 @@ export const Rooms: React.FC = () => {
                 {/* Left Side: Fixed Height & Width Image Container */}
                 <div
                   className={`lg:col-span-6 relative bg-slate-950 w-full h-[280px] sm:h-[440px] lg:h-[460px] overflow-hidden ${
-                    roomIdx % 2 === 1 ? 'lg:order-2' : ''
+                    roomIdx % 2 === 1 ? "lg:order-2" : ""
                   }`}
                 >
                   <img
@@ -251,8 +283,18 @@ export const Rooms: React.FC = () => {
                       {room.size}
                     </span>
                     <span className="text-[10px] font-sans font-extrabold uppercase tracking-wider text-emerald-300 bg-slate-950/85 px-3 py-1.5 rounded-lg backdrop-blur-sm border border-emerald-400/40 flex items-center space-x-1">
-                      <svg className="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      <svg
+                        className="w-3 h-3 text-emerald-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2.5}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       <span>WITH BREAKFAST</span>
                     </span>
@@ -268,14 +310,18 @@ export const Rooms: React.FC = () => {
                   {/* Carousel Left / Right Arrow Controls */}
                   <div className="absolute bottom-4 right-4 z-10 flex items-center space-x-2">
                     <button
-                      onClick={(e) => handlePrevPhoto(room.id, room.photoCount, e)}
+                      onClick={(e) =>
+                        handlePrevPhoto(room.id, room.photoCount, e)
+                      }
                       className="w-10 h-10 rounded-full bg-black/70 hover:bg-[#C68D53] text-white flex items-center justify-center transition-colors shadow-lg active:scale-95 border border-white/20 font-bold"
                       aria-label="Previous photo"
                     >
                       ‹
                     </button>
                     <button
-                      onClick={(e) => handleNextPhoto(room.id, room.photoCount, e)}
+                      onClick={(e) =>
+                        handleNextPhoto(room.id, room.photoCount, e)
+                      }
                       className="w-10 h-10 rounded-full bg-black/70 hover:bg-[#C68D53] text-white flex items-center justify-center transition-colors shadow-lg active:scale-95 border border-white/20 font-bold"
                       aria-label="Next photo"
                     >
@@ -285,7 +331,9 @@ export const Rooms: React.FC = () => {
                 </div>
 
                 {/* Right Side: Room Content & Amenities */}
-                <div className={`lg:col-span-6 p-5 sm:p-8 lg:p-10 flex flex-col justify-between space-y-4 sm:space-y-6 ${roomIdx % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div
+                  className={`lg:col-span-6 p-5 sm:p-8 lg:p-10 flex flex-col justify-between space-y-4 sm:space-y-6 ${roomIdx % 2 === 1 ? "lg:order-1" : ""}`}
+                >
                   <div className="space-y-3 sm:space-y-4">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <h2 className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-black tracking-tight">
@@ -308,10 +356,23 @@ export const Rooms: React.FC = () => {
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {room.amenities.map((amenity, aIdx) => (
-                          <div key={aIdx} className="flex items-center space-x-2.5 text-xs font-medium text-slate-800">
+                          <div
+                            key={aIdx}
+                            className="flex items-center space-x-2.5 text-xs font-medium text-slate-800"
+                          >
                             <div className="w-4 h-4 rounded-full bg-amber-100 flex items-center justify-center shrink-0 text-[#C68D53]">
-                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                              <svg
+                                className="w-3 h-3"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2.5}
+                                  d="M5 13l4 4L19 7"
+                                />
                               </svg>
                             </div>
                             <span className="capitalize">{amenity}</span>
@@ -398,7 +459,10 @@ export const Rooms: React.FC = () => {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {selectedRoomModal.amenities.map((amenity, aIdx) => (
-                    <div key={aIdx} className="flex items-center space-x-2 text-xs font-medium text-slate-800">
+                    <div
+                      key={aIdx}
+                      className="flex items-center space-x-2 text-xs font-medium text-slate-800"
+                    >
                       <span className="text-amber-600">✓</span>
                       <span>{amenity}</span>
                     </div>
@@ -414,8 +478,12 @@ export const Rooms: React.FC = () => {
                   className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-3.5 px-7 rounded-xl inline-flex items-center space-x-2 group/modalbook"
                 >
                   <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover/modalbook:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
-                  <span className="relative z-10 font-sans">CHECK AVAILABILITY</span>
-                  <span className="relative z-10 group-hover/modalbook:translate-x-1 transition-transform">→</span>
+                  <span className="relative z-10 font-sans">
+                    CHECK AVAILABILITY
+                  </span>
+                  <span className="relative z-10 group-hover/modalbook:translate-x-1 transition-transform">
+                    →
+                  </span>
                 </a>
 
                 <span className="text-xs font-bold text-amber-900 uppercase tracking-wider">

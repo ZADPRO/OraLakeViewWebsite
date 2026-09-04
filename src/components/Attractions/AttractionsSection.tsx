@@ -1,30 +1,30 @@
-import React, { useState, useRef, useEffect } from 'react';
-import mapImg from '../../assets/images/maps/map.png';
+import React, { useState, useRef, useEffect } from "react";
+import mapImg from "../../assets/images/maps/map.jpeg";
 
 // Local Attraction Assets Imports from src/assets/home/
-import giessbachImg from '../../assets/home/Giessbach Falls.png';
-import harderKulmImg from '../../assets/home/Harder Kulm.png';
-import hohematteImg from '../../assets/home/Hohematte Park.png';
-import jangfrauImg from '../../assets/home/Jangfrau.png';
-import lakeThunImg from '../../assets/home/Lake Thun.png';
-import schynigeImg from '../../assets/home/Schynige Platte.png';
-import beatusCavesImg from '../../assets/home/St. Beatus Caves.png';
+import giessbachImg from "../../assets/home/Giessbach Falls.png";
+import harderKulmImg from "../../assets/home/Harder Kulm.png";
+import hohematteImg from "../../assets/home/Hohematte Park.png";
+import jangfrauImg from "../../assets/home/Jangfrau.png";
+import lakeThunImg from "../../assets/home/Lake Thun.png";
+import schynigeImg from "../../assets/home/Schynige Platte.png";
+import beatusCavesImg from "../../assets/home/St. Beatus Caves.png";
 
 // Local HOME Gallery Assets Imports from src/assets/home/HOME/
-import iseltwald1 from '../../assets/home/HOME/ISELTWALD1.jpg';
-import iseltwald2 from '../../assets/home/HOME/ISELTWALD2.jpg';
-import iseltwald3 from '../../assets/home/HOME/ISELTWALD3.jpg';
-import iseltwald4 from '../../assets/home/HOME/ISELTWALD4.jpg';
-import lakeside1 from '../../assets/home/HOME/LAKESIDE1.jpg';
-import lakeside2 from '../../assets/home/HOME/LAKESIDE2.jpg';
-import lakeside3 from '../../assets/home/HOME/LAKESIDE3.jpg';
-import seasonal1 from '../../assets/home/HOME/SEASONAL1.jpg';
-import seasonal2 from '../../assets/home/HOME/SEASONAL2.jpg';
-import seasonal3 from '../../assets/home/HOME/SEASONAL3.jpg';
-import funFactImg from '../../assets/home/HOME/FUN-FACT.jpg';
+import iseltwald1 from "../../assets/home/HOME/ISELTWALD1.jpg";
+import iseltwald2 from "../../assets/home/HOME/ISELTWALD2.jpg";
+import iseltwald3 from "../../assets/home/HOME/ISELTWALD3.jpg";
+import iseltwald4 from "../../assets/home/HOME/ISELTWALD4.jpg";
+import lakeside1 from "../../assets/home/HOME/LAKESIDE1.jpg";
+import lakeside2 from "../../assets/home/HOME/LAKESIDE2.jpg";
+import lakeside3 from "../../assets/home/HOME/LAKESIDE3.jpg";
+import seasonal1 from "../../assets/home/HOME/SEASONAL1.jpg";
+import seasonal2 from "../../assets/home/HOME/SEASONAL2.jpg";
+import seasonal3 from "../../assets/home/HOME/SEASONAL3.jpg";
+import funFactImg from "../../assets/home/HOME/FUN-FACT.jpg";
 
 const BOOKING_URL =
-  'https://direct-book.com/properties/lakeviewhotelrestaurant?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=CHF';
+  "https://direct-book.com/properties/lakeviewhotelrestaurant?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=CHF";
 
 export const AttractionsSection: React.FC = () => {
   // Modal State for Full Untruncated View
@@ -34,10 +34,13 @@ export const AttractionsSection: React.FC = () => {
   const attractionsScrollRef = useRef<HTMLDivElement>(null);
   const [isAttractionsPaused, setIsAttractionsPaused] = useState(false);
 
-  const scrollAttractions = (direction: 'left' | 'right') => {
+  const scrollAttractions = (direction: "left" | "right") => {
     if (attractionsScrollRef.current) {
-      const scrollAmount = direction === 'left' ? -380 : 380;
-      attractionsScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      const scrollAmount = direction === "left" ? -380 : 380;
+      attractionsScrollRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -45,11 +48,18 @@ export const AttractionsSection: React.FC = () => {
     if (isAttractionsPaused || selectedModalItem) return;
     const interval = setInterval(() => {
       if (attractionsScrollRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = attractionsScrollRef.current;
+        const { scrollLeft, scrollWidth, clientWidth } =
+          attractionsScrollRef.current;
         if (scrollLeft + clientWidth >= scrollWidth - 20) {
-          attractionsScrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+          attractionsScrollRef.current.scrollTo({
+            left: 0,
+            behavior: "smooth",
+          });
         } else {
-          attractionsScrollRef.current.scrollBy({ left: 380, behavior: 'smooth' });
+          attractionsScrollRef.current.scrollBy({
+            left: 380,
+            behavior: "smooth",
+          });
         }
       }
     }, 3500);
@@ -60,10 +70,13 @@ export const AttractionsSection: React.FC = () => {
   const activitiesScrollRef = useRef<HTMLDivElement>(null);
   const [isActivitiesPaused, setIsActivitiesPaused] = useState(false);
 
-  const scrollActivities = (direction: 'left' | 'right') => {
+  const scrollActivities = (direction: "left" | "right") => {
     if (activitiesScrollRef.current) {
-      const scrollAmount = direction === 'left' ? -380 : 380;
-      activitiesScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      const scrollAmount = direction === "left" ? -380 : 380;
+      activitiesScrollRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -71,11 +84,15 @@ export const AttractionsSection: React.FC = () => {
     if (isActivitiesPaused || selectedModalItem) return;
     const interval = setInterval(() => {
       if (activitiesScrollRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = activitiesScrollRef.current;
+        const { scrollLeft, scrollWidth, clientWidth } =
+          activitiesScrollRef.current;
         if (scrollLeft + clientWidth >= scrollWidth - 20) {
-          activitiesScrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+          activitiesScrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
         } else {
-          activitiesScrollRef.current.scrollBy({ left: 380, behavior: 'smooth' });
+          activitiesScrollRef.current.scrollBy({
+            left: 380,
+            behavior: "smooth",
+          });
         }
       }
     }, 3500);
@@ -86,11 +103,16 @@ export const AttractionsSection: React.FC = () => {
   const connectivityNodes = [
     {
       title: "Niederried b.I'laken, Dorf Bus Station",
-      distance: 'Distance: 20 meters',
-      time: '1 min walk',
+      distance: "Distance: 20 meters",
+      time: "1 min walk",
       isWalk: true,
       icon: (
-        <svg className="w-6 h-6 text-[#C68D53]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-6 h-6 text-[#C68D53]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -101,12 +123,17 @@ export const AttractionsSection: React.FC = () => {
       ),
     },
     {
-      title: 'Niederried Ferry Terminal',
-      distance: 'Distance: 300 meters',
-      time: '5 mins walk approx',
+      title: "Niederried Ferry Terminal",
+      distance: "Distance: 300 meters",
+      time: "5 mins walk approx",
       isWalk: true,
       icon: (
-        <svg className="w-6 h-6 text-[#C68D53]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-6 h-6 text-[#C68D53]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -117,12 +144,17 @@ export const AttractionsSection: React.FC = () => {
       ),
     },
     {
-      title: 'Niederried train Station',
-      distance: 'Distance: 170 meters',
-      time: '2-3 mins walk approx',
+      title: "Niederried train Station",
+      distance: "Distance: 170 meters",
+      time: "2-3 mins walk approx",
       isWalk: true,
       icon: (
-        <svg className="w-6 h-6 text-[#C68D53]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-6 h-6 text-[#C68D53]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -133,12 +165,17 @@ export const AttractionsSection: React.FC = () => {
       ),
     },
     {
-      title: 'Zurich Airport / Bern Airport',
-      distance: 'Distance: 79 miles / 36 miles',
-      time: '1 hr 46 min / 49 mins drive',
+      title: "Zurich Airport / Bern Airport",
+      distance: "Distance: 79 miles / 36 miles",
+      time: "1 hr 46 min / 49 mins drive",
       isWalk: false,
       icon: (
-        <svg className="w-6 h-6 text-[#C68D53]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-6 h-6 text-[#C68D53]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -153,52 +190,52 @@ export const AttractionsSection: React.FC = () => {
   // 7 Verified Nearby Natural Wonders Mapped to local assets in src/assets/home/
   const nearbyAttractions = [
     {
-      id: 'jungfrau',
-      title: 'Jungfrau',
-      subtitle: 'An alpine journey to towering peaks',
-      desc: 'Jungfrau, renowned for its towering peaks and stunning vistas, features scenic train rides, hiking trails, and snow adventures. Ideal for explorers and nature lovers, it’s a must-visit alpine destination.',
+      id: "jungfrau",
+      title: "Jungfrau",
+      subtitle: "An alpine journey to towering peaks",
+      desc: "Jungfrau, renowned for its towering peaks and stunning vistas, features scenic train rides, hiking trails, and snow adventures. Ideal for explorers and nature lovers, it’s a must-visit alpine destination.",
       image: jangfrauImg,
     },
     {
-      id: 'harder-kulm',
-      title: 'Harder Kulm',
-      subtitle: 'The roof of Interlaken with panoramic views.',
-      desc: 'A short ride from Interlaken, offers sweeping views of Lake Thun, Lake Brienz, and the mountains from its 1,322-meter height. The glass-floored platform and on-site restaurant make it a memorable spot.',
+      id: "harder-kulm",
+      title: "Harder Kulm",
+      subtitle: "The roof of Interlaken with panoramic views.",
+      desc: "A short ride from Interlaken, offers sweeping views of Lake Thun, Lake Brienz, and the mountains from its 1,322-meter height. The glass-floored platform and on-site restaurant make it a memorable spot.",
       image: harderKulmImg,
     },
     {
-      id: 'lake-thun',
-      title: 'Lake Thun',
-      subtitle: 'Tranquility on turquoise waters',
+      id: "lake-thun",
+      title: "Lake Thun",
+      subtitle: "Tranquility on turquoise waters",
       desc: "Lake Thun, known for its clear waters and mountain views, offers boat cruises, charming villages, and historic lakeside castles. Ideal for picnics, swimming, or relaxing, it's a perfect spot for families and couples.",
       image: lakeThunImg,
     },
     {
-      id: 'schynige-platte',
-      title: 'Schynige Platte',
-      subtitle: 'A floral paradise above the clouds',
-      desc: 'Schynige Platte, accessible by cogwheel train, is known for its scenic hiking trails, alpine flora, and panoramic views of the Eiger, Mönch, and Jungfrau. It’s a perfect retreat for nature lovers and adventure seekers alike.',
+      id: "schynige-platte",
+      title: "Schynige Platte",
+      subtitle: "A floral paradise above the clouds",
+      desc: "Schynige Platte, accessible by cogwheel train, is known for its scenic hiking trails, alpine flora, and panoramic views of the Eiger, Mönch, and Jungfrau. It’s a perfect retreat for nature lovers and adventure seekers alike.",
       image: schynigeImg,
     },
     {
-      id: 'beatus-caves',
-      title: 'St. Beatus Caves',
-      subtitle: 'Whispers of legends in limestone chambers',
-      desc: 'The St. Beatus Caves near Lake Thun feature limestone formations and legends of St. Beatus. Guided tours along well-kept paths reveal their geological history and natural beauty.',
+      id: "beatus-caves",
+      title: "St. Beatus Caves",
+      subtitle: "Whispers of legends in limestone chambers",
+      desc: "The St. Beatus Caves near Lake Thun feature limestone formations and legends of St. Beatus. Guided tours along well-kept paths reveal their geological history and natural beauty.",
       image: beatusCavesImg,
     },
     {
-      id: 'giessbach-falls',
-      title: 'Giessbach Falls',
-      subtitle: 'Cascading beauty amidst lush forests',
-      desc: 'Giessbach Falls, near Lake Brienz, cascades over 500 meters through lush forests. Scenic trails offer beautiful views, and the nearby historic Giessbach Hotel adds to its charm, making it ideal for a day in nature.',
+      id: "giessbach-falls",
+      title: "Giessbach Falls",
+      subtitle: "Cascading beauty amidst lush forests",
+      desc: "Giessbach Falls, near Lake Brienz, cascades over 500 meters through lush forests. Scenic trails offer beautiful views, and the nearby historic Giessbach Hotel adds to its charm, making it ideal for a day in nature.",
       image: giessbachImg,
     },
     {
-      id: 'hohematte-park',
-      title: 'Hohematte Park',
-      subtitle: 'A vibrant green canvas in Interlaken’s heart',
-      desc: 'Located in central Interlaken, Hohematte Park is a lush green space with manicured gardens, playgrounds, and mountain views. Hosting events year-round, it’s perfect for picnics, strolls, or relaxation for all ages.',
+      id: "hohematte-park",
+      title: "Hohematte Park",
+      subtitle: "A vibrant green canvas in Interlaken’s heart",
+      desc: "Located in central Interlaken, Hohematte Park is a lush green space with manicured gardens, playgrounds, and mountain views. Hosting events year-round, it’s perfect for picnics, strolls, or relaxation for all ages.",
       image: hohematteImg,
     },
   ];
@@ -206,33 +243,33 @@ export const AttractionsSection: React.FC = () => {
   // 4 Verified Hotel Activities (Mapped to local assets from src/assets/home/HOME/)
   const hotelActivities = [
     {
-      id: 'lakeside-walk',
-      title: 'Lakeside Serenity Walk',
-      tag: 'SCENIC STROLL',
-      desc: 'Take a leisurely 3-4 km stroll around the pristine lake, where every step offers breathtaking views of the water and the majestic Alps. Perfect for unwinding or capturing the beauty of nature, this walk immerses you in tranquility',
+      id: "lakeside-walk",
+      title: "Lakeside Serenity Walk",
+      tag: "SCENIC STROLL",
+      desc: "Take a leisurely 3-4 km stroll around the pristine lake, where every step offers breathtaking views of the water and the majestic Alps. Perfect for unwinding or capturing the beauty of nature, this walk immerses you in tranquility",
       image: lakeside1,
       gallery: [lakeside1, lakeside2, lakeside3],
     },
     {
-      id: 'iseltwald-view',
-      title: 'Iseltwald: A View To Remember',
-      tag: 'BALCONY VIEW',
-      desc: 'Enjoy unparalleled views of the charming village of Iseltwald right from your balcony. Famous for its appearance in the Korean drama Crash Landing on You, this scenic spot blends natural beauty with cinematic magic',
+      id: "iseltwald-view",
+      title: "Iseltwald: A View To Remember",
+      tag: "BALCONY VIEW",
+      desc: "Enjoy unparalleled views of the charming village of Iseltwald right from your balcony. Famous for its appearance in the Korean drama Crash Landing on You, this scenic spot blends natural beauty with cinematic magic",
       image: iseltwald1,
       gallery: [iseltwald1, iseltwald2, iseltwald3, iseltwald4],
     },
     {
-      id: 'water-fun',
-      title: 'Seasonal Swimming Bliss',
-      tag: 'LAKEVIEW FUN',
+      id: "water-fun",
+      title: "Seasonal Swimming Bliss",
+      tag: "LAKEVIEW FUN",
       desc: "Dive into relaxation at the swimming spot just below the hotel, open during the season. Whether you're taking a refreshing dip or lounging by the water, it's a perfect way to enjoy the lake",
       image: seasonal1,
       gallery: [seasonal1, seasonal2, seasonal3],
     },
     {
-      id: 'fun-fact',
-      title: 'Fun For The Little Ones',
-      tag: 'FAMILY & KIDS',
+      id: "fun-fact",
+      title: "Fun For The Little Ones",
+      tag: "FAMILY & KIDS",
       desc: "A nearby children's park ensures younger guests have their share of fun. Equipped with swings, slides, and a safe play area, it's an ideal spot for families to create joyful memories together",
       image: funFactImg,
       gallery: [funFactImg],
@@ -264,21 +301,41 @@ export const AttractionsSection: React.FC = () => {
             {/* Manual Scroll Controls */}
             <div className="flex items-center space-x-3 mt-6 md:mt-0">
               <button
-                onClick={() => scrollAttractions('left')}
+                onClick={() => scrollAttractions("left")}
                 className="w-11 h-11 rounded-full bg-[#FFFAF4] border border-amber-200/80 text-black flex items-center justify-center shadow-sm hover:bg-[#C68D53] hover:text-white transition-all duration-300 active:scale-95"
                 aria-label="Previous Attraction"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
               <button
-                onClick={() => scrollAttractions('right')}
+                onClick={() => scrollAttractions("right")}
                 className="w-11 h-11 rounded-full bg-[#C68D53] text-white flex items-center justify-center shadow-md hover:bg-black transition-all duration-300 active:scale-95"
                 aria-label="Next Attraction"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </button>
             </div>
@@ -290,7 +347,7 @@ export const AttractionsSection: React.FC = () => {
             onMouseEnter={() => setIsAttractionsPaused(true)}
             onMouseLeave={() => setIsAttractionsPaused(false)}
             className="flex space-x-4 sm:space-x-6 overflow-x-auto scrollbar-none pb-4 scroll-smooth snap-x snap-mandatory pr-6 sm:pr-0"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {nearbyAttractions.map((item) => (
               <div
@@ -355,7 +412,9 @@ export const AttractionsSection: React.FC = () => {
             </h2>
 
             <p className="text-black font-sans text-sm sm:text-base font-light leading-relaxed">
-              Enjoy prime access to bus stops, ferry terminals, train stations, and airports — connecting you effortlessly to Interlaken and all Swiss Alpine wonders.
+              Enjoy prime access to bus stops, ferry terminals, train stations,
+              and airports — connecting you effortlessly to Interlaken and all
+              Swiss Alpine wonders.
             </p>
           </div>
 
@@ -439,21 +498,41 @@ export const AttractionsSection: React.FC = () => {
             {/* Manual Scroll Controls */}
             <div className="flex items-center space-x-3 mt-6 md:mt-0">
               <button
-                onClick={() => scrollActivities('left')}
+                onClick={() => scrollActivities("left")}
                 className="w-11 h-11 rounded-full bg-[#FFFAF4] border border-amber-200/80 text-black flex items-center justify-center shadow-sm hover:bg-[#C68D53] hover:text-white transition-all duration-300 active:scale-95"
                 aria-label="Previous Activity"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
               <button
-                onClick={() => scrollActivities('right')}
+                onClick={() => scrollActivities("right")}
                 className="w-11 h-11 rounded-full bg-[#C68D53] text-white flex items-center justify-center shadow-md hover:bg-black transition-all duration-300 active:scale-95"
                 aria-label="Next Activity"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </button>
             </div>
@@ -465,7 +544,7 @@ export const AttractionsSection: React.FC = () => {
             onMouseEnter={() => setIsActivitiesPaused(true)}
             onMouseLeave={() => setIsActivitiesPaused(false)}
             className="flex space-x-4 sm:space-x-6 overflow-x-auto scrollbar-none pb-4 scroll-smooth snap-x snap-mandatory pr-6 sm:pr-0"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {hotelActivities.map((act) => (
               <div
@@ -571,8 +650,12 @@ export const AttractionsSection: React.FC = () => {
                   className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-3 px-6 rounded-xl inline-flex items-center space-x-2 group/mod"
                 >
                   <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover/mod:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
-                  <span className="relative z-10 font-sans">PLAN YOUR VISIT</span>
-                  <span className="relative z-10 group-hover/mod:translate-x-1 transition-transform">→</span>
+                  <span className="relative z-10 font-sans">
+                    PLAN YOUR VISIT
+                  </span>
+                  <span className="relative z-10 group-hover/mod:translate-x-1 transition-transform">
+                    →
+                  </span>
                 </a>
 
                 <span className="text-xs font-bold text-amber-900 uppercase tracking-wider">

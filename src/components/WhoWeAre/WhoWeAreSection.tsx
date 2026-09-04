@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useLanguage } from '../../context/LanguageContext';
-import storyBackImg from '../../assets/about/Our-story-front.jpeg';
-import storyFrontImg from '../../assets/about/Our-story-back.jpeg';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "../../context/LanguageContext";
+import storyBackImg from "../../assets/about/Our-story-front.jpeg";
+import storyFrontImg from "../../assets/about/Our-story-back.jpeg";
 
 export const WhoWeAreSection: React.FC = () => {
   const { getContent } = useLanguage();
-  const aboutContent = getContent('about');
+  const aboutContent = getContent("about");
 
   return (
     <section className="relative py-20 lg:py-28 bg-white text-black overflow-hidden border-t border-slate-200">
@@ -21,7 +21,7 @@ export const WhoWeAreSection: React.FC = () => {
             <div className="flex items-center space-x-3">
               <span className="w-8 h-[2px] bg-amber-600" />
               <span className="text-amber-800 font-sans text-xs font-bold tracking-widest uppercase">
-                {aboutContent?.badge || 'HERITAGE & HOSPITALITY'}
+                {aboutContent?.badge || "HERITAGE & HOSPITALITY"}
               </span>
             </div>
 
@@ -32,17 +32,26 @@ export const WhoWeAreSection: React.FC = () => {
 
             {/* Paragraph 1 */}
             <p className="text-black font-sans text-base leading-relaxed font-light">
-              Nested between crystal-clear Lake Brienz and the majestic Bernese Alps, ORA Lake View Hotel has welcomed travelers from around the world for decades. What started as a modest alpine inn has grown into a premier destination for relaxation, nature, and Swiss hospitality.
+              Nested between crystal-clear Lake Brienz and the majestic Bernese
+              Alps, ORA Lake View Hotel has welcomed travelers from around the
+              world for decades. What started as a modest alpine inn has grown
+              into a premier destination for relaxation, nature, and Swiss
+              hospitality.
             </p>
 
             {/* Paragraph 2 */}
             <p className="text-black font-sans text-base leading-relaxed font-light">
-              Our philosophy is simple: provide an authentic, peaceful sanctuary where every guest feels at home. From our freshly prepared local cuisine to our panoramic room balconies, every detail is designed to connect you with the beauty of Switzerland.
+              Our philosophy is simple: provide an authentic, peaceful sanctuary
+              where every guest feels at home. From our freshly prepared local
+              cuisine to our panoramic room balconies, every detail is designed
+              to connect you with the beauty of Switzerland.
             </p>
 
             {/* Paragraph 3 */}
             <p className="text-black font-sans text-base leading-relaxed font-light">
-              Whether you are here for adventurous hiking on Jungfrau, exploring historic caves, or simply unwinding by the lakefront terrace, our team is dedicated to making your stay unforgettable.
+              Whether you are here for adventurous hiking on Jungfrau, exploring
+              historic caves, or simply unwinding by the lakefront terrace, our
+              team is dedicated to making your stay unforgettable.
             </p>
 
             {/* Slanted Gold Button CTA (Black Base, 45-Degree Slanted Gold Hover Animation) */}
@@ -52,14 +61,21 @@ export const WhoWeAreSection: React.FC = () => {
                 className="relative overflow-hidden bg-black text-white text-xs font-bold uppercase tracking-widest py-4 px-8 rounded-xl inline-flex items-center space-x-3 group"
               >
                 <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
-                <span className="relative z-10 font-sans">EXPLORE OUR HERITAGE</span>
+                <span className="relative z-10 font-sans">
+                  EXPLORE OUR HERITAGE
+                </span>
                 <svg
                   className="w-4 h-4 text-white relative z-10 group-hover:translate-x-1.5 transition-transform duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </Link>
             </div>
@@ -80,7 +96,7 @@ export const WhoWeAreSection: React.FC = () => {
             </div>
 
             {/* Secondary Overlapping Floating Photo Frame (Floating at Bottom-Right Corner) */}
-            <div className="absolute -bottom-4 -right-4 sm:-bottom-8 sm:-right-6 w-48 h-48 sm:w-64 sm:h-64 rounded-3xl border-4 sm:border-8 border-white shadow-2xl overflow-hidden z-20 group">
+            {/* <div className="absolute -bottom-4 -right-4 sm:-bottom-8 sm:-right-6 w-48 h-48 sm:w-64 sm:h-64 rounded-3xl border-4 sm:border-8 border-white shadow-2xl overflow-hidden z-20 group">
               <img
                 src={storyBackImg}
                 alt="Lake Brienz Panoramas & Swiss Alps"
@@ -89,7 +105,7 @@ export const WhoWeAreSection: React.FC = () => {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

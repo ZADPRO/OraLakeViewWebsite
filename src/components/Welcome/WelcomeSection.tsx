@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useLanguage } from '../../context/LanguageContext';
-import welcomeToImage from '../../assets/home/welcome.jpeg';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "../../context/LanguageContext";
+import welcomeToImage from "../../assets/home/welcome.jpeg";
 
 export const WelcomeSection: React.FC = () => {
   const { getContent } = useLanguage();
-  const welcomeContent = getContent('welcome');
+  const welcomeContent = getContent("welcome");
 
   return (
     <section className="relative py-16 lg:py-24 bg-[#FFFAF4] text-black overflow-hidden border-t border-amber-200/50">
@@ -17,19 +17,20 @@ export const WelcomeSection: React.FC = () => {
             <div className="flex items-center space-x-3">
               <span className="w-8 h-[2px] bg-amber-600" />
               <span className="text-amber-900 font-sans text-xs font-bold tracking-widest uppercase">
-                {welcomeContent?.subTitle || 'WELCOME TO ORA LAKEVIEW HOTEL'}
+                {welcomeContent?.subTitle || "WELCOME TO ORA LAKEVIEW HOTEL"}
               </span>
             </div>
 
             {/* Main Title */}
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-black tracking-tight">
-              {welcomeContent?.title || 'Where Alpine Serenity Meets Waterfront Luxury'}
+              {welcomeContent?.title ||
+                "Where Alpine Serenity Meets Waterfront Luxury"}
             </h2>
 
             {/* Verified Body Text */}
             <p className="text-black font-sans text-base sm:text-lg leading-relaxed font-light">
               {welcomeContent?.text1 ||
-                'Situated on the turquoise shores of Lake Brienz in Niederried bei Interlaken, ORA Lake View offers a tranquil Swiss sanctuary just 2 minutes walk from Niederried train station and 300 meters from the ferry dock, only 7 km from Interlaken.'}
+                "Situated on the turquoise shores of Lake Brienz in Niederried bei Interlaken, ORA Lake View offers a tranquil Swiss sanctuary just 2 minutes walk from Niederried train station and 300 meters from the ferry dock, only 7 km from Interlaken."}
             </p>
 
             {/* Clean Quote Text Matching Signature Color (text-amber-900) */}
@@ -50,7 +51,9 @@ export const WelcomeSection: React.FC = () => {
                 className="relative overflow-hidden inline-flex items-center justify-center px-8 py-3.5 text-xs sm:text-sm font-sans font-bold tracking-widest text-white uppercase transition-colors duration-300 rounded-full bg-black shadow-xl group"
               >
                 <span className="absolute inset-0 bg-[#C68D53] -skew-x-[45deg] scale-x-0 group-hover:scale-x-[1.8] transition-transform duration-500 ease-out origin-center z-0" />
-                <span className="relative z-10">{welcomeContent?.ctaBtn || 'DISCOVER OUR ROOMS'}</span>
+                <span className="relative z-10">
+                  {welcomeContent?.ctaBtn || "DISCOVER OUR ROOMS"}
+                </span>
               </Link>
             </div>
           </div>
