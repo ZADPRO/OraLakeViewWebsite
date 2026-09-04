@@ -295,7 +295,7 @@ export const HeroWaterRipple: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[80vh] min-h-[520px] md:min-h-screen flex flex-col justify-between overflow-hidden bg-slate-950 text-white select-none"
+      className="relative w-full h-[80vh] min-h-[520px] md:min-h-screen flex flex-col justify-between overflow-hidden pb-10 bg-slate-950 text-white select-none"
     >
       {/* LAYER 1 (z-0): Summer & Winter Background Image Cover */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -344,7 +344,7 @@ export const HeroWaterRipple: React.FC = () => {
           <h1 className="sr-only">
             ORA Lakeview Hotel | Scenic Swiss Alps & Lake View Stay
           </h1>
-          <div className="w-64 sm:w-80 md:w-[360px] lg:w-[420px] xl:w-[680px] max-w-[85vw]">
+          <div className="w-26 sm:w-80 md:w-[460px] lg:w-[520px] xl:w-[1000px] max-w-[85vw]">
             <img
               src={homeTextImg}
               alt="Serenity at ORA Lake View Hotel"
