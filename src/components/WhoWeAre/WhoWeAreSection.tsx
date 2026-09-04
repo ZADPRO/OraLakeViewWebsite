@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
-import storyBackImg from "../../assets/about/Our-story-front.jpeg";
+// import storyBackImg from "../../assets/about/Our-story-front.jpeg";
 import storyFrontImg from "../../assets/about/Our-story-back.jpeg";
 
 export const WhoWeAreSection: React.FC = () => {
