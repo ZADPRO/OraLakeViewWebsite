@@ -1,36 +1,36 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useLanguage } from '../../context/LanguageContext';
-import { useSeason } from '../../context/SeasonContext';
-import homeTextImg from '../../assets/home/HOME_TEXT.png';
-import summerImg from '../../assets/home/home2summar.jpeg';
-import winterImg from '../../assets/home/home1winter.jpeg';
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "../../context/LanguageContext";
+import { useSeason } from "../../context/SeasonContext";
+import homeTextImg from "../../assets/home/HOME_TEXT.png";
+import summerImg from "../../assets/home/home2summar.jpeg";
+import winterImg from "../../assets/home/home1winter.jpeg";
 
 // HomeCarousel Assets Imports (1.jpg to 6.jpg)
-import carouselImg1 from '../../assets/HomeCarousel/1.jpg';
-import carouselImg2 from '../../assets/HomeCarousel/2.jpg';
-import carouselImg3 from '../../assets/HomeCarousel/3.jpg';
-import carouselImg4 from '../../assets/HomeCarousel/4.jpg';
-import carouselImg5 from '../../assets/HomeCarousel/5.jpg';
-import carouselImg6 from '../../assets/HomeCarousel/6.jpg';
+import carouselImg1 from "../../assets/HomeCarousel/1.jpg";
+import carouselImg2 from "../../assets/HomeCarousel/2.jpg";
+import carouselImg3 from "../../assets/HomeCarousel/3.jpg";
+import carouselImg4 from "../../assets/HomeCarousel/4.jpg";
+import carouselImg5 from "../../assets/HomeCarousel/5.jpg";
+import carouselImg6 from "../../assets/HomeCarousel/6.jpg";
 
 const MAX_RIPPLES = 20;
 
 const homeCarouselImages = [
-  { id: 1, image: carouselImg1, alt: 'ORA Lake View Carousel 1' },
-  { id: 2, image: carouselImg2, alt: 'ORA Lake View Carousel 2' },
-  { id: 3, image: carouselImg3, alt: 'ORA Lake View Carousel 3' },
-  { id: 4, image: carouselImg4, alt: 'ORA Lake View Carousel 4' },
-  { id: 5, image: carouselImg5, alt: 'ORA Lake View Carousel 5' },
-  { id: 6, image: carouselImg6, alt: 'ORA Lake View Carousel 6' },
+  { id: 1, image: carouselImg1, alt: "ORA Lake View Carousel 1" },
+  { id: 2, image: carouselImg2, alt: "ORA Lake View Carousel 2" },
+  { id: 3, image: carouselImg3, alt: "ORA Lake View Carousel 3" },
+  { id: 4, image: carouselImg4, alt: "ORA Lake View Carousel 4" },
+  { id: 5, image: carouselImg5, alt: "ORA Lake View Carousel 5" },
+  { id: 6, image: carouselImg6, alt: "ORA Lake View Carousel 6" },
 ];
 
 export const HeroWaterRipple: React.FC = () => {
   const { getContent } = useLanguage();
-  const heroContent = getContent('hero');
+  const heroContent = getContent("hero");
   const { season } = useSeason();
 
-  const activeHeroBgImage = season === 'summer' ? summerImg : winterImg;
+  const activeHeroBgImage = season === "summer" ? summerImg : winterImg;
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -43,7 +43,7 @@ export const HeroWaterRipple: React.FC = () => {
     const container = containerRef.current;
     if (!canvas || !container) return;
 
-    const gl = canvas.getContext('webgl', { alpha: false, antialias: true });
+    const gl = canvas.getContext("webgl", { alpha: false, antialias: true });
     if (!gl) return;
 
     let animationFrameId: number;
@@ -56,7 +56,7 @@ export const HeroWaterRipple: React.FC = () => {
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     const vsSource = `
       attribute vec2 a_position;
@@ -113,7 +113,11 @@ export const HeroWaterRipple: React.FC = () => {
       }
     `;
 
-    const createShader = (gl: WebGLRenderingContext, type: number, source: string) => {
+    const createShader = (
+      gl: WebGLRenderingContext,
+      type: number,
+      source: string,
+    ) => {
       const shader = gl.createShader(type);
       if (!shader) return null;
       gl.shaderSource(shader, source);
@@ -142,17 +146,17 @@ export const HeroWaterRipple: React.FC = () => {
     gl.bufferData(
       gl.ARRAY_BUFFER,
       new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
-      gl.STATIC_DRAW
+      gl.STATIC_DRAW,
     );
 
-    const positionLocation = gl.getAttribLocation(program, 'a_position');
+    const positionLocation = gl.getAttribLocation(program, "a_position");
     gl.enableVertexAttribArray(positionLocation);
     gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
-    const uResolutionLoc = gl.getUniformLocation(program, 'u_resolution');
-    const uTimeLoc = gl.getUniformLocation(program, 'u_time');
-    const uRipplesLoc = gl.getUniformLocation(program, 'u_ripples');
-    const uRippleCountLoc = gl.getUniformLocation(program, 'u_rippleCount');
+    const uResolutionLoc = gl.getUniformLocation(program, "u_resolution");
+    const uTimeLoc = gl.getUniformLocation(program, "u_time");
+    const uRipplesLoc = gl.getUniformLocation(program, "u_ripples");
+    const uRippleCountLoc = gl.getUniformLocation(program, "u_rippleCount");
 
     const texture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -166,7 +170,7 @@ export const HeroWaterRipple: React.FC = () => {
       0,
       gl.RGBA,
       gl.UNSIGNED_BYTE,
-      new Uint8Array([15, 23, 42, 255])
+      new Uint8Array([15, 23, 42, 255]),
     );
 
     const img = new Image();
@@ -180,7 +184,12 @@ export const HeroWaterRipple: React.FC = () => {
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     };
 
-    const ripples: Array<{ x: number; y: number; startTime: number; strength: number }> = [];
+    const ripples: Array<{
+      x: number;
+      y: number;
+      startTime: number;
+      strength: number;
+    }> = [];
     const startTime = performance.now();
 
     const addRipple = (clientX: number, clientY: number, strength = 1.0) => {
@@ -225,9 +234,9 @@ export const HeroWaterRipple: React.FC = () => {
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('click', handleClick);
-    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("click", handleClick);
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
     const render = () => {
       const currentTime = (performance.now() - startTime) / 1000;
@@ -236,7 +245,9 @@ export const HeroWaterRipple: React.FC = () => {
       gl.uniform2f(uResolutionLoc, canvas.width, canvas.height);
       gl.uniform1f(uTimeLoc, currentTime);
 
-      const activeRipples = ripples.filter((r) => currentTime - r.startTime < 2.5);
+      const activeRipples = ripples.filter(
+        (r) => currentTime - r.startTime < 2.5,
+      );
       gl.uniform1i(uRippleCountLoc, activeRipples.length);
 
       const rippleData = new Float32Array(MAX_RIPPLES * 4);
@@ -257,10 +268,10 @@ export const HeroWaterRipple: React.FC = () => {
     return () => {
       cancelAnimationFrame(animationFrameId);
       clearInterval(autoRaindropInterval);
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('click', handleClick);
-      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("click", handleClick);
+      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, [activeHeroBgImage]);
 
@@ -295,8 +306,11 @@ export const HeroWaterRipple: React.FC = () => {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${season === 'summer' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-            }`}
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${
+            season === "summer"
+              ? "opacity-100 scale-100"
+              : "opacity-0 scale-105"
+          }`}
         />
 
         {/* Winter Hero Background Layer */}
@@ -306,8 +320,11 @@ export const HeroWaterRipple: React.FC = () => {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${season === 'winter' ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-            }`}
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${
+            season === "winter"
+              ? "opacity-100 scale-100"
+              : "opacity-0 scale-105"
+          }`}
         />
       </div>
 
@@ -324,7 +341,9 @@ export const HeroWaterRipple: React.FC = () => {
       <div className="relative z-[30] max-w-[1480px] w-full mx-auto px-4 md:px-10 pt-20 md:pt-36 pb-6 md:pb-16 flex-1 flex flex-col justify-between pointer-events-none">
         {/* Center Section: Home Text PNG Script Art Overlay */}
         <div className="w-full my-auto flex flex-col justify-center items-center animate-fade-in py-1 md:py-4 pointer-events-auto">
-          <h1 className="sr-only">ORA Lakeview Hotel | Scenic Swiss Alps & Lake View Stay</h1>
+          <h1 className="sr-only">
+            ORA Lakeview Hotel | Scenic Swiss Alps & Lake View Stay
+          </h1>
           <div className="w-64 sm:w-80 md:w-[360px] lg:w-[420px] xl:w-[680px] max-w-[85vw]">
             <img
               src={homeTextImg}
@@ -340,9 +359,21 @@ export const HeroWaterRipple: React.FC = () => {
             to="/rooms"
             className="inline-flex items-center justify-center space-x-2.5 sm:space-x-3 px-5 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-sans font-extrabold tracking-wider sm:tracking-widest text-slate-950 uppercase transition-all duration-300 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 hover:from-amber-300 hover:to-amber-100 shadow-[0_10px_30px_rgba(198,141,83,0.55)] hover:shadow-[0_15px_40px_rgba(198,141,83,0.75)] hover:scale-105 active:scale-95 border-2 border-white/60 backdrop-blur-md whitespace-nowrap"
           >
-            <span className="whitespace-nowrap">{heroContent?.viewRooms || 'VIEW OUR ROOMS'}</span>
-            <svg className="w-4 h-4 text-slate-950 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            <span className="whitespace-nowrap">
+              {heroContent?.viewRooms || "VIEW OUR ROOMS"}
+            </span>
+            <svg
+              className="w-4 h-4 text-slate-950 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
             </svg>
           </Link>
         </div>
